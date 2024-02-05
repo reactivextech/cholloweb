@@ -1,0 +1,19 @@
+Options All -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+
+    RewriteCond %{HTTP_HOST} ^chollo.app
+    RewriteRule (.*) https://www.chollo.app/$1 [R=301,L]
+
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^(.*)$ $1.php
+    #RewriteRule ^([a-z]+)/?$ $1.php [NC]
+
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^(.*)$ $1.html
+    #RewriteRule ^([a-z]+)/?$ $1.html [NC]
+
+</IfModule>
