@@ -381,7 +381,6 @@ li {
 #header_bottom_left {
 	position: relative;
 	float: left;
-	width: 15%;
 	top: 8px;
 }
 #header_bottom_left a {
@@ -398,8 +397,7 @@ li {
 #header_bottom_left a img {
 	position: relative;
 	display: block;
-	width: 100%;
-	/* max-width: 100px; */
+	width: 150px;
 	height: auto;
 }
 #header_bottom_mid {
@@ -5503,7 +5501,7 @@ li {
 	width: 100%;
 	position: relative;
 	height: 490px;
-	background-color: #121212;
+	background-color: #060818;
 }
 #no_credit_checks_left_col {
 	position: relative;
@@ -5511,8 +5509,6 @@ li {
 	width: 50%;
 	height: 100%;
 	z-index: 100;
-	/* background: #19020c; */
-	background: #060818;
 }
 #no_credit_checks_left_col_container {
 	position: relative;
@@ -5618,23 +5614,22 @@ li {
 	/* background: #9c0145; */
 	background: #403bd9;
 }
-
 #home_application_left_col {
-	width: 42%;
-	margin-right: 4%;
+	width: 100%;
 	position: relative;
-	float: left;
+	float: none;
 	text-align: center;
 }
-
 .home_app_sub_headline {
 	text-align: left;
 	line-height: 24px;
 	font-size: 16px;
 	font-weight: 300;
+	text-align: center;
+	margin-bottom: 20px;
 }
 #home_application_right_col {
-	width: 48%;
+	width: 95%;
 	padding: 30px 2.5%;
 	background-color: #ffffff;
 	border-radius: 6px;
@@ -5720,6 +5715,7 @@ li {
 	background-color: #0e1726;
 	height: 50px;
 	border-top: 1px solid rgba(255, 255, 255, 0.2);
+	padding-top: 20px;
 }
 .browse_phones_btn_arrow {
 	position: absolute;
@@ -6010,7 +6006,7 @@ li {
 	cursor: pointer;
 	line-height: 61px;
 	text-decoration: none;
-	padding: 0px 40px;
+	padding: 0px 35px;
 	margin: 30px 0px 0px 0px;
 }
 .find_out_how_you_work_btn:hover {
@@ -6600,8 +6596,11 @@ footer {
 	line-height: 21px;
 	font-weight: 300;
 	text-align: center;
+	color: #ffffff;
 }
-
+.disclaimer_container a {
+	color: #80ff72;
+}
 .application-reg-statement p {
 	position: relative;
 	font-size: 13px;
@@ -6867,6 +6866,12 @@ footer {
 	font-weight: 500;
 	text-align: left;
 	margin-bottom: 3px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 .hp_discover_single_right p {
 	font-size: 12px;
@@ -6961,10 +6966,12 @@ footer {
 
 .block_dowload_app {
 	width: 100%;
-	max-width: 690px;
 	text-align: center;
 }
-
+#home_apply_now_title {
+	font-size: 40px;
+    text-align: center;
+}
 .qr_code {
 	display: flex;
 	flex-direction: column;
@@ -7203,7 +7210,6 @@ footer {
 		font-size: 38px;
 		line-height: 40px;
 		margin-bottom: 15px;
-		text-align: center;
 		letter-spacing: -1px;
 		font-weight: 600;
 	}
@@ -7247,12 +7253,6 @@ footer {
 		font-weight: bold;
 		margin-bottom: 15px;
 	}
-
-	#home_application_left_col {
-		width: 100%;
-		float: none;
-		margin-right: 0px;
-	}
 	#home_application_right_col {
 		width: 95%;
 		float: none;
@@ -7289,9 +7289,6 @@ footer {
 	}
 	.home_slideshow_first {
 		background-position: 11% 100%;
-	}
-	#home_when_to_pay_btn {
-		display: none;
 	}
 	#home_when_to_pay2_btn {
 		display: block;
@@ -7906,6 +7903,7 @@ footer {
 		width: 35%;
 		left: auto;
 		right: 5%;
+		bottom: 0;
 	}
 	.home_slideshow_4_txt_container h2 {
 		font-size: 38px;
@@ -7927,7 +7925,6 @@ footer {
 		padding: 40px 0px 60px 0px;
 	}
 }
-
 @media only screen and (max-width: 800px) {
 	.hp_disclaimer_intro_container p {
 		font-size: 14px;
@@ -8027,8 +8024,7 @@ footer {
 	}
 	#header_bottom_left a img {
 		position: absolute;
-		max-width: 45%;
-		top: -8px;
+		top: -5px;
 	}
 	.application_acc_overview_title {
 		font-size: 18px;
@@ -8146,11 +8142,11 @@ footer {
 		margin-bottom: 15px;
 	}
 	.hp_discover_single {
-		margin: 0px 0px 20px 0px;
+		margin: 0px 2.5% 60px 2.5%;
 		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 		padding-bottom: 30px;
-		float: none;
-		width: 100%;
+		float: left;
+		width: 45%;
 	}
 	.hp_discover_single_left {
 		width: 43%;
@@ -8194,16 +8190,18 @@ footer {
 		width: 100%;
 		padding-top: 0px;
 	}
-	#header_bottom_right,
+	#header_bottom_right {
+		/* display: none; */
+		top: -5px;
+	}
 	#header_bottom_mid {
 		display: none;
 	}
-	#mobile_navigation_wrapper {
+	/* #mobile_navigation_wrapper {
 		display: block;
-	}
+	} */
 	#home_application_right_col {
 		width: 90%;
-		float: none;
 		padding: 10px 5%;
 	}
 	.you_choose_li_single {
@@ -8288,7 +8286,7 @@ footer {
 	}
 	.home_slideshow_4_txt_container h1 {
 		font-size: 58px;
-		line-height: 51px;
+		line-height: 60px;
 	}
 	#select_start_date_btn {
 		width: 42%;
@@ -8336,15 +8334,23 @@ footer {
 		right: auto;
 		margin: auto;
 	}
-
-	#header_top_container p {
-		font-size: 10px;
+	#you_decide_to_pay_left_col {
+		float: none;
+		width: 100%;
+		left: 0px;
 	}
-	#header_top_container p > a {
-		font-size: 10px;
+	#you_decide_to_pay_left_col .home_h3_title, #you_decide_to_pay_left_col .home_sub_title {
+		text-align: center;
+	}
+	#you_decide_to_pay_right_col {
+		float: none;
+		width: 75%;
+		margin: auto;
+	}
+	#home_when_to_pay_btn {
+		margin: 30px auto 25px auto;
 	}
 }
-
 @media only screen and (max-width: 550px) {
 	#footer_mobile_item_three {
 		display: block !important;
@@ -8362,7 +8368,9 @@ footer {
 		top: 0px;
 		bottom: auto;
 	}
-
+	#you_decide_to_pay_right_col {
+		width: 90%;
+	}
 	.slideshow_home_playstation .home_slideshow_4_txt_container {
 		top: 20px !important;
 	}
@@ -8547,34 +8555,14 @@ footer {
 		text-align: center;
 		top: 0px;
 	}
-
 	.home_sub_title {
 		line-height: 22px;
 		text-align: center;
 		font-weight: 500;
 	}
-
-	#you_decide_to_pay_left_col {
-		float: none;
-		width: 100%;
-		left: 0px;
-	}
-	#you_decide_to_pay_right_col {
-		float: none;
-		width: 90%;
-		margin: auto;
-	}
 	#you_decide_to_pay_video_container {
 		width: 100%;
 		padding: 2%;
-	}
-	#home_application_left_col {
-		width: 100%;
-		float: none;
-		margin-right: 0px;
-	}
-	#home_application_right_col {
-		float: none;
 	}
 	#home_application_container {
 		padding: 30px 0px;
@@ -8609,9 +8597,6 @@ footer {
 	.home_slideshow_first {
 		background-position: 11% 100%;
 		background-color: #000000;
-	}
-	#home_when_to_pay_btn {
-		display: none;
 	}
 	#home_when_to_pay2_btn {
 		display: block;
@@ -8791,8 +8776,6 @@ footer {
 	}
 	#product_details_features_flexible_payments {
 		display: none;
-	}
-	#product_details_features_no_credit_checks {
 	}
 	#product_details_features_guaranteed {
 		float: right;
@@ -9717,7 +9700,6 @@ footer {
 		font-weight: 500;
 		line-height: 21px;
 	}
-
 	.sunshine_country_picker_single {
 		width: 100%;
 		float: none;
@@ -9740,17 +9722,46 @@ footer {
 		padding: 5%;
 	}
 	.accepted_slideshow_banner {
-		/* padding: 50px 0px 70px 0px; */
 		padding: 0px 0px 70px 0px;
 	}
-
 	#header_bottom_left a img {
-		position: absolute;
-		max-width: 90%;
-		top: -8px;
+		width: 120px;
+	}
+	#header_top_container p {
+		font-size: 11px;
+	}
+	#header_top_container p > a {
+		font-size: 11px;
+	}
+	.header_bottom_right_create_account a {
+		padding: 10px 10px;
+		font-size: 12px;
+	}
+	#header_bottom_right {
+		width: 60%;
+	}
+	#header_bottom_wrapper {
+		height: 25px;
+	}
+	.features_single_container {
+		width: 100%;
+		height: 15em;
+	}
+	.hp_discover_single {
+		margin: 0px 0px 20px 0px;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+		padding-bottom: 30px;
+		float: none;
+		width: 100%;
+	}
+	.home_h3_title {
+		text-align: center;
+	}
+	.qr_code img {
+		width: 18rem;
+		height: auto;
 	}
 }
-
 @media only screen and (max-width: 320px) {
 	.slideshow_home_playstation .home_slideshow_4_img {
 		width: 100px;
@@ -9762,7 +9773,13 @@ footer {
 		line-height: 25px;
 		margin: 0px 0px 10px 0px;
 	}
-
+	.header_bottom_right_arrow_cont {
+		display: none;
+	}
+	.home_highlight_right a {
+		line-height: 50px;
+		padding: 0px 25px;
+	}
 	.related_products_single_container {
 		width: 85%;
 		margin: 0px 2.5% 20px 2.5%;
@@ -9924,12 +9941,6 @@ footer {
 		line-height: 22px;
 		text-align: center;
 	}
-
-	#you_decide_to_pay_left_col {
-		float: none;
-		width: 100%;
-		left: 0px;
-	}
 	#you_decide_to_pay_right_col {
 		float: none;
 		width: 90%;
@@ -9938,15 +9949,6 @@ footer {
 	#you_decide_to_pay_video_container {
 		width: 96%;
 		padding: 2%;
-	}
-	#home_application_left_col {
-		width: 100%;
-		float: none;
-		margin-right: 0px;
-	}
-	#home_application_right_col {
-		width: 100%;
-		float: none;
 	}
 	#home_application_container {
 		padding: 30px 0px;
@@ -9984,7 +9986,8 @@ footer {
 		background-color: #000000;
 	}
 	#home_when_to_pay_btn {
-		display: none;
+		line-height: 50px;
+    	padding: 0px 25px;
 	}
 	#home_when_to_pay2_btn {
 		display: block;
@@ -9995,6 +9998,8 @@ footer {
 	#home_find_out_how_we_work_btn {
 		margin: auto;
 		width: auto;
+		line-height: 50px;
+    	padding: 0px 25px;
 	}
 	#home_apply_now_title {
 		font-size: 33px;
@@ -10541,9 +10546,6 @@ footer {
 	.home_slideshow_3_txt_container p {
 		display: none;
 	}
-	.home_slider_3_btn {
-		margin: auto;
-	}
 	.home_slideshow_3_img {
 		position: absolute;
 		width: 67%;
@@ -10580,8 +10582,10 @@ footer {
 	}
 	.home_slider_3_btn {
 		font-size: 18px;
+		margin: auto;
+		line-height: 50px;
+    	padding: 0px 25px;
 	}
-
 	#application_overview_sub_left_col {
 		float: none !important;
 		width: 100% !important;
@@ -11109,6 +11113,9 @@ footer {
 		background-image: url('../../sunshinemobile.co.uk/images/icons/sunshine_header_small_logo.png');
 		width: 167px;
 		height: 18px;
+	}
+	.qr_code img {
+		width: 90%;
 	}
 }
 .application-stage-two {
