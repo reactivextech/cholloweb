@@ -1,13 +1,84 @@
-html, body, div, span, applet, object, iframe, h1, h2,
-h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym,
-address, big, cite, code, del, dfn, em, img, ins, kbd,
-q, s, samp, small, strike, strong, sub, sup, tt, var,
-b, u, i, center, dl, dt, dd, ol, ul, li, fieldset,
-form, label, legend, table, caption, tbody, tfoot,
-thead, tr, th, td, article, aside, canvas, details,
-embed, figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary, time,
-mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -22,9 +93,17 @@ mark, audio, video {
 	display: none !important;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details,
-figcaption, figure, footer, header,
-hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
 body {
@@ -480,7 +559,7 @@ li {
 	-ms-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
-	background-image: url(../images/search_icon.png);
+	background-image: url(../images/icons/search_icon.webp);
 	background-repeat: no-repeat;
 	background-position: 96% 40%;
 }
@@ -949,8 +1028,6 @@ li {
 	top: 10px;
 	right: 0px;
 }
-#sub_header_container ul li a:hover {
-}
 #header_mid_bottom_col {
 	width: 100%;
 	margin: auto;
@@ -1012,14 +1089,6 @@ li {
 	bottom: 0px;
 	right: 0px;
 }
-#home_slideshow_3 {
-	background-image: url('../../sunshinemobile.co.uk/images/backgrounds/iphone_x_background.png');
-	background-repeat: no-repeat;
-	background-size: cover;
-	display: none;
-	overflow: hidden;
-}
-
 #home_slideshow_4 {
 	display: none;
 	overflow: hidden;
@@ -1966,7 +2035,7 @@ li {
 	text-indent: 10px;
 	height: 42px;
 	cursor: pointer;
-	background-image: url('../images/icons/sunshine_dropdown_menu_icon.png');
+	background-image: url('../images/icons/sunshine_dropdown_menu_icon.webp');
 	background-repeat: no-repeat;
 	background-position: 96%;
 	-webkit-appear: none;
@@ -2311,7 +2380,7 @@ li {
 	border-radius: 4px;
 	font-size: 14px;
 	color: #808080;
-	background-image: url('../images/icons/sunshine_dropdown_menu_icon.png');
+	background-image: url('../images/icons/sunshine_dropdown_menu_icon.webp');
 	background-repeat: no-repeat;
 	background-position: 94%;
 	-webkit-appear: none;
@@ -2531,7 +2600,7 @@ li {
 	padding: 0px;
 	border-radius: 4px;
 	font-size: 14px;
-	background-image: url('../images/icons/sunshine_dropdown_menu_icon.png');
+	background-image: url('../images/icons/sunshine_dropdown_menu_icon.webp');
 	background-repeat: no-repeat;
 	background-position: 94%;
 	-webkit-appear: none;
@@ -2743,15 +2812,6 @@ li {
 	text-indent: 15px;
 	cursor: pointer;
 	float: right;
-}
-#reviews_header_img_wrapper {
-	width: 100%;
-	height: 400px;
-	position: relative;
-	display: block;
-	background-image: url('../../sunshinemobile.co.uk/images/sunshine_reviews_header_bg.png');
-	background-size: cover;
-	background-repeat: no-repeat;
 }
 #reviews_header_container {
 	width: 95%;
@@ -3565,7 +3625,7 @@ li {
 	font-size: 13px;
 	color: #808080;
 	-webkit-appearance: none;
-	background-image: url(../images/icons/sunshine_dropdown_menu_icon.png);
+	background-image: url(../images/icons/sunshine_dropdown_menu_icon.webp);
 	background-repeat: no-repeat;
 	background-position: 98%;
 }
@@ -4015,7 +4075,7 @@ li {
 	height: 49px;
 	z-index: 10;
 	cursor: pointer;
-	background-image: url('../../sunshinemobile.co.uk/images/icons/homepage_slideshow_left_arrow.png');
+	background-image: url('../../sunshinemobile.co.uk/images/icons/homepage_slideshow_left_arrow.webp');
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	-ms-transition: all 0.3s;
@@ -4023,7 +4083,7 @@ li {
 	transition: all 0.3s;
 }
 #home_slideshow_left_arrow:hover {
-	background-image: url('../../sunshinemobile.co.uk/images/icons/homepage_slideshow_left_arrow_hover.png');
+	background-image: url('../../sunshinemobile.co.uk/images/icons/homepage_slideshow_left_arrow_hover.webp');
 }
 #home_slideshow_right_arrow {
 	position: absolute;
@@ -4035,7 +4095,7 @@ li {
 	height: 49px;
 	z-index: 10;
 	cursor: pointer;
-	background-image: url('../../sunshinemobile.co.uk/images/icons/homepage_slideshow_right_arrow.png');
+	background-image: url('../../sunshinemobile.co.uk/images/icons/homepage_slideshow_right_arrow.webp');
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	-ms-transition: all 0.3s;
@@ -4043,7 +4103,7 @@ li {
 	transition: all 0.3s;
 }
 #home_slideshow_right_arrow:hover {
-	background-image: url('../../sunshinemobile.co.uk/images/icons/homepage_slideshow_right_arrow_hover.png');
+	background-image: url('../../sunshinemobile.co.uk/images/icons/homepage_slideshow_right_arrow_hover.webp');
 }
 #review_video_wrapper {
 	width: 100%;
@@ -4098,7 +4158,7 @@ li {
 	height: 49px;
 	z-index: 10;
 	cursor: pointer;
-	background-image: url(../../sunshinemobile.co.uk/images/icons/homepage_slideshow_left_arrow.png);
+	background-image: url(../../sunshinemobile.co.uk/images/icons/homepage_slideshow_left_arrow.webp);
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	-ms-transition: all 0.3s;
@@ -4106,7 +4166,7 @@ li {
 	transition: all 0.3s;
 }
 #review_video_left_arrow:hover {
-	background-image: url('../../sunshinemobile.co.uk/images/icons/homepage_slideshow_left_arrow_hover.png');
+	background-image: url('../../sunshinemobile.co.uk/images/icons/homepage_slideshow_left_arrow_hover.webp');
 }
 #review_video_right_arrow {
 	position: absolute;
@@ -4118,7 +4178,7 @@ li {
 	height: 49px;
 	z-index: 10;
 	cursor: pointer;
-	background-image: url(../../sunshinemobile.co.uk/images/icons/homepage_slideshow_right_arrow.png);
+	background-image: url(../../sunshinemobile.co.uk/images/icons/homepage_slideshow_right_arrow.webp);
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	-ms-transition: all 0.3s;
@@ -4126,7 +4186,7 @@ li {
 	transition: all 0.3s;
 }
 #review_video_right_arrow:hover {
-	background-image: url('../../sunshinemobile.co.uk/images/icons/homepage_slideshow_right_arrow_hover.png');
+	background-image: url('../../sunshinemobile.co.uk/images/icons/homepage_slideshow_right_arrow_hover.webp');
 }
 .review_video_left_col {
 	position: relative;
@@ -4358,10 +4418,6 @@ li {
 	width: 100%;
 	height: auto;
 }
-.prepop_header_note8_wrapper {
-	background-image: url('../../sunshinemobile.co.uk/images/backgrounds/samsung_galaxy_note8.jpg');
-	background-size: cover;
-}
 .site_map_container_wrapper {
 	position: relative;
 	width: 100%;
@@ -4459,7 +4515,6 @@ li {
 	height: 400px;
 	position: relative;
 	display: block;
-	background-image: url(../images/flexible_payments_banner.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: 100% 100%;
@@ -5288,17 +5343,10 @@ li {
 	border: 1px solid rgba(0, 0, 0, 0.2);
 	margin: 15px 0px;
 }
-.slideshow_home_dyson {
-	background-image: url(../images/your-cat-bg.html);
-}
-
 /* ColoresChollo */
 .slideshow_home_playstation {
-	/* background: #19020c; */
-	/* background: #060818; */
 	background: #0012c6;
 }
-
 .slideshow_home_playstation .home_slideshow_4_img {
 	bottom: 50px;
 	left: 650px;
@@ -5311,10 +5359,10 @@ li {
 .slideshow_home_playstation .home_slideshow_4_txt_container {
 	width: 550px;
 }
-
 #home_customer_service_number_wrapper {
 	padding: 15px;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	text-align: center;
 }
 .home_customer_service_number_text {
 	font-size: 18px;
@@ -5523,7 +5571,7 @@ li {
 	float: left;
 	width: 50%;
 	height: 100%;
-	background-image: url('../images/banner-web-chollo-00.jpg');
+	background-image: url('../images/bg-web-chollo-1.webp');
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -5745,17 +5793,6 @@ li {
 #home_shop_items_create_account:hover {
 	background: #5f3e9a;
 }
-
-#product_details_wrapper {
-	background-color: #ffffff;
-	display: block;
-	position: relative;
-	width: 100%;
-	background-image: url(../../images/product_details_bg_gradient.png);
-	background-repeat: repeat-x;
-	background-position: 0% 100%;
-}
-
 #product_details_right_col {
 	position: relative;
 	width: 40%;
@@ -5763,7 +5800,6 @@ li {
 	padding: 0px;
 	border-radius: 8px;
 }
-
 .product_details_price {
 	position: relative;
 	display: block;
@@ -5771,7 +5807,6 @@ li {
 	font-size: 19px;
 	font-weight: 300;
 }
-
 .shop_categories_header {
 	font-size: 41px;
 	line-height: 55px;
@@ -5843,7 +5878,7 @@ li {
 	text-indent: 10px;
 	height: 44px;
 	cursor: pointer;
-	background-image: url(../images/icons/sunshine_dropdown_menu_icon.png);
+	background-image: url(../images/icons/sunshine_dropdown_menu_icon.webp);
 	background-repeat: no-repeat;
 	background-position: 96%;
 	-webkit-appear: none;
@@ -6063,7 +6098,7 @@ input[type='password'] {
 }
 #home_apply_short_form select,
 #form-stage1 select {
-	background-image: url(../images/icons/sunshine_dropdown_menu_icon.png);
+	background-image: url(../images/icons/sunshine_dropdown_menu_icon.webp);
 	background-repeat: no-repeat;
 	background-position: 94%;
 }
@@ -6867,11 +6902,11 @@ footer {
 	text-align: left;
 	margin-bottom: 3px;
 	overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    line-clamp: 2;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	line-clamp: 2;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
 }
 .hp_discover_single_right p {
 	font-size: 12px;
@@ -6970,7 +7005,7 @@ footer {
 }
 #home_apply_now_title {
 	font-size: 40px;
-    text-align: center;
+	text-align: center;
 }
 .qr_code {
 	display: flex;
@@ -6979,7 +7014,574 @@ footer {
 	align-items: center;
 	padding-bottom: 28px;
 }
+#featured_items_wrapper {
+	margin-top: 0px;
+	font-family: 'Reem Kufi', sans-serif;
+}
+.you_choose_li_single {
+	width: 18%;
+	padding: 0px 1% 20px 1%;
+}
+.apply_create_title {
+	text-align: left;
+	font-size: 16px;
+	line-height: 23px;
+	text-decoration: underline;
+	margin-bottom: 20px;
+	font-weight: 600;
+}
+.landing-application-account-picker {
+	text-align: center;
+	position: relative;
+	float: none;
+	width: 96%;
+	margin: auto;
+	border-radius: 8px;
+	background: #fff;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+	padding: 20px 2%;
+}
+#home-account-type-wrapper-stage1 p {
+	font-size: 16px;
+	line-height: 25px;
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+.landing-application-account-picker-title {
+	font-size: 27px !important;
+	margin: 10px 0 20px 0 !important;
+	color: #2655ba !important;
+	font-weight: 600 !important;
+	text-decoration: underline;
+	line-height: 35px !important;
+}
+#home-skip-free-trial-btn {
+	letter-spacing: 0.5px;
+	background: #2754bb;
+	padding: 18px 25px;
+	color: #fff;
+	font-size: 18px;
+	margin-top: 20px;
+	font-weight: 600;
+	border-radius: 30px;
+	cursor: pointer;
+	font-family: 'Montserrat', sans-serif;
+	display: inline-block;
+	margin: auto;
+	text-align: left;
+	outline: none;
+	border: 0px;
+	position: relative;
+	box-shadow: none;
+	text-decoration: none;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+	margin-top: 20px;
+}
+.application_form_span {
+	display: block;
+	position: relative;
+	width: 31%;
+	margin: 0 1% 20px 1%;
+	float: left;
+}
+.application_banking_details_span_date label,
+.application_form_span label {
+	font-size: 14px;
+	font-weight: 400;
+	color: #494949;
+	margin-bottom: 3px;
+	display: block;
+}
+.application_form_span input {
+	background-color: #faf9f9;
+	border: 1px solid #e9e9e9;
+	height: 40px;
+	width: 100%;
+	text-indent: 20px;
+	padding: 0;
+	border-radius: 4px;
+	font-size: 14px;
+	color: grey;
+	-webkit-appearance: none;
+}
+.application_form_span select {
+	background-color: #faf9f9;
+	border: 1px solid #e9e9e9;
+	height: 40px;
+	width: 100%;
+	text-indent: 10px;
+	padding: 0;
+	border-radius: 4px;
+	font-size: 14px;
+	color: grey;
+	background-image: url(assets/images/icons/sunshine_dropdown_menu_icon.webp);
+	background-repeat: no-repeat;
+	background-position: 94%;
+	-webkit-appear: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+}
+.hidden {
+	display: none !important;
+}
+#home-account-type-wrapper-stage1 {
+	text-align: center;
+}
+#home-account-flavva-benefits-trial {
+	background: #595dc1;
+	padding: 18px 25px;
+	color: #fff;
+	font-size: 18px;
+	margin-top: 20px;
+	font-weight: 600;
+	border-radius: 30px;
+	cursor: pointer;
+	font-family: 'Montserrat', sans-serif;
+	display: inline-block;
+	margin: auto;
+	text-align: left;
+	outline: none;
+	border: 0px;
+	position: relative;
+	box-shadow: none;
+	text-decoration: none;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+	margin-top: 20px;
+}
+#landing-free-trail-card-create-btn {
+	background: #595dc1;
+	padding: 18px 25px;
+	color: #fff;
+	font-size: 18px;
+	margin-top: 20px;
+	font-weight: 600;
+	border-radius: 30px;
+	cursor: pointer;
+	font-family: 'Montserrat', sans-serif;
+	width: 230px;
+	display: inline-block;
+	margin: auto;
+	display: block;
+	text-align: center;
+	text-indent: 0px;
+	outline: none;
+	border: 0px;
+	position: relative;
+	box-shadow: none;
+	text-decoration: none;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+#application_bank_details_start_container {
+	width: 100%;
+	text-align: center;
+}
+.landing-yes-pro-svg {
+	position: relative;
+}
+.landing-yes-pro-svg svg {
+	width: 100%;
+	max-width: 380px;
+	height: auto;
+}
+.home-customer-service-deal-container {
+	position: relative;
+	width: 100%;
+	max-width: 800px;
+	margin: auto;
+	padding: 20px 0px;
+}
+.home-customer-service-deal-right {
+	float: left;
+	width: 50%;
+	position: relative;
+	text-align: center;
+}
+.home-customer-service-deal-right img {
+	width: 100%;
+	max-width: 300px;
+}
+.home-customer-service-deal-left {
+	float: right;
+	width: 45%;
+	position: relative;
+	margin-top: 30px;
+}
+.home-customer-service-deal-headline {
+	color: #2355bb !important;
+	text-align: left !important;
+	text-decoration: underline;
+	font-size: 28px !important;
+	font-weight: 700 !important;
+	font-family: 'VAG Rounded', helvetica, arial, sans-serif;
+	line-height: 34px !important;
+	margin-bottom: 10px !important;
+}
+.home-customer-service-deal-price {
+	font-family: Montserrat, helvetica, arial, sans-serif;
+	color: #e51717;
+	font-size: 20px;
+	margin: 20px 0 20px 0;
+	font-weight: 600;
+}
+.home-customer-service-deal-create-account-btn {
+	font-size: 17px;
+	width: auto;
+	max-width: 310px;
+	margin: 20px auto auto 0px;
+	text-align: center;
+	background: #01a9e3;
+	color: #fff;
+	cursor: pointer;
+	padding: 14px 20px;
+	display: block;
+	text-decoration: none;
+	border: 0;
+	font-weight: 500;
+	border-radius: 24px;
+}
+.cs-deal-price {
+	font-size: 22px !important;
+	font-weight: bold !important;
+	font-family: 'Vag Rounded', helvetica, sans-serif !important;
+	color: #01a9e3 !important;
+}
+.cs-deal-rrp {
+	font-size: 22px !important;
+	font-weight: bold !important;
+	font-family: 'Vag Rounded', helvetica, sans-serif !important;
+	color: #bb3737 !important;
+	text-decoration: line-through;
+	margin-right: 10px;
+}
 
+.address-lookup .address-search {
+	right: 8px !important;
+	top: 15px !important;
+	background: #1a6ac9 !important;
+	background: linear-gradient(45deg, #1a6ac9 0%, #254fb7 100%) !important;
+}
+.address-lookup .address-search {
+	right: 8px !important;
+	top: 15px !important;
+	background: #1a6ac9 !important;
+	background: linear-gradient(45deg, #1a6ac9 0%, #254fb7 100%) !important;
+}
+.next-day-delivery-background {
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: 10000000000;
+}
+.next-day-delivery-wrapper {
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	width: 90%;
+	max-width: 450px;
+	margin: auto;
+	height: fit-content;
+	z-index: 10101010110;
+	border-radius: 6px;
+	inset: 0px;
+	margin: auto;
+	height: fit-content;
+	opacity: 1;
+	width: 90%;
+	display: block;
+	padding: 20px 0px;
+	background: rgb(57, 63, 153);
+	background: -moz-linear-gradient(
+		163deg,
+		rgba(57, 63, 153, 1) 0%,
+		rgba(21, 24, 102, 1) 50%,
+		rgba(2, 3, 74, 1) 100%
+	);
+	background: -webkit-linear-gradient(
+		163deg,
+		rgba(57, 63, 153, 1) 0%,
+		rgba(21, 24, 102, 1) 50%,
+		rgba(2, 3, 74, 1) 100%
+	);
+	background: linear-gradient(
+		163deg,
+		rgba(57, 63, 153, 1) 0%,
+		rgba(21, 24, 102, 1) 50%,
+		rgba(2, 3, 74, 1) 100%
+	);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#393f99", endColorstr="#02034a", GradientType=1);
+}
+.next-day-delivery-wrapper h2 {
+	text-align: center;
+	color: #fff;
+	font-size: 19px;
+	margin-bottom: 5px;
+	line-height: 20px;
+	font-weight: 600;
+	margin-top: 5px;
+}
+.next-day-delivery-wrapper h2 span {
+	text-decoration: underline;
+}
+.next-day-delivery-wrapper h3 {
+	text-align: center;
+	color: #fff;
+	font-size: 28px;
+	margin-bottom: 15px;
+	line-height: 38px;
+	font-weight: 600;
+	margin-top: 5px;
+}
+.next-day-delivery-wrapper p {
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+	line-height: 21px;
+	font-weight: 300;
+	padding: 0px;
+}
+.next-day-delivery-close-btn {
+	cursor: pointer;
+	position: absolute;
+	top: -10px;
+	right: -10px;
+	z-index: 100;
+}
+.next-day-delivery-continue-btn {
+	position: relative;
+	width: 100%;
+	height: auto;
+	padding: 15px 0px;
+	background: #fff;
+	border-radius: 33px;
+	color: #fff;
+	border: 0px;
+	outline: none;
+	margin-top: 25px;
+	font-size: 16px;
+	cursor: pointer;
+	background: #196cf2;
+}
+.next-day-delivery-continue-btn:hover {
+	background: #084ebe;
+}
+.next-day-delivery-container-inside {
+	position: relative;
+	width: 85%;
+	margin: auto;
+}
+.next-day-delivery-container-inside img {
+	position: relative;
+	width: 100%;
+	height: auto;
+	margin: auto auto 25px auto;
+	display: block;
+}
+.products-next-day-delivery {
+	position: relative;
+	display: block;
+	margin: 15px auto 20px auto;
+	text-align: center;
+	color: #e00000;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+}
+#home_customer_service_number_container {
+	position: relative;
+	width: 90%;
+	margin: auto;
+	max-width: 1200px;
+}
+#home_customer_service_number_container p {
+	font-size: 15px;
+	line-height: 24px;
+	color: #1c1c1c;
+	font-weight: 400;
+	text-align: center;
+	font-family: 'Poppins', helvetica, arial, sans-serif;
+}
+.home_showcase_info_label {
+	background: #e5006d;
+	display: inline-block;
+	border-radius: 6px;
+	position: absolute;
+	top: 50px;
+	z-index: 10;
+	right: 10px;
+	padding: 5px 7px;
+}
+.home_showcase_info_label p {
+	color: #fff;
+	font-size: 12px;
+}
+.home_showcase_info_label_ndd {
+	background: #e5006d;
+	display: inline-block;
+	border-radius: 6px;
+	position: absolute;
+	top: 50px;
+	z-index: 10;
+	right: 10px;
+	padding: 5px 7px;
+}
+.home_showcase_info_label_ndd p {
+	color: #fff;
+	font-size: 12px;
+}
+.home-slider-drop-shadow {
+	position: absolute;
+	z-index: 10;
+	bottom: 0px;
+	left: 0;
+	right: 0px;
+	width: 100%;
+	height: 200px;
+	background: rgb(3, 4, 24);
+	background: -moz-linear-gradient(
+		0deg,
+		rgba(3, 4, 24, 1) 0%,
+		rgba(3, 4, 24, 0) 100%
+	);
+	background: -webkit-linear-gradient(
+		0deg,
+		rgba(3, 4, 24, 1) 0%,
+		rgba(3, 4, 24, 0) 100%
+	);
+	background: linear-gradient(
+		0deg,
+		rgba(3, 4, 24, 1) 0%,
+		rgba(3, 4, 24, 0) 100%
+	);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#030418", endColorstr="#030418", GradientType=1);
+	opacity: 0.6;
+}
+.apply-form-disclaimer {
+	text-align: left;
+	font-size: 12px;
+	line-height: 18px;
+	margin-top: 20px;
+	clear: both;
+}
+/* Front Page Animation */
+.area {
+	width: 100%;
+	height: 100vh;
+}
+.circles {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.circles li {
+	position: absolute;
+	display: block;
+	list-style: none;
+	width: 20px;
+	height: 20px;
+	/* background: rgba(217, 77, 100, 0.1); */
+	animation: animate 25s linear infinite;
+	bottom: -150px;
+}
+.circles li:nth-child(1) {
+	left: 25%;
+	width: 80px;
+	height: 80px;
+	animation-delay: 0s;
+}
+.circles li:nth-child(2) {
+	left: 10%;
+	width: 20px;
+	height: 20px;
+	animation-delay: 2s;
+	animation-duration: 12s;
+}
+.circles li:nth-child(3) {
+	left: 70%;
+	width: 20px;
+	height: 20px;
+	animation-delay: 4s;
+}
+.circles li:nth-child(4) {
+	left: 40%;
+	width: 60px;
+	height: 60px;
+	animation-delay: 0s;
+	animation-duration: 18s;
+}
+.circles li:nth-child(5) {
+	left: 65%;
+	width: 20px;
+	height: 20px;
+	animation-delay: 0s;
+}
+.circles li:nth-child(6) {
+	left: 75%;
+	width: 110px;
+	height: 110px;
+	animation-delay: 3s;
+}
+.circles li:nth-child(7) {
+	left: 35%;
+	width: 150px;
+	height: 150px;
+	animation-delay: 7s;
+}
+.circles li:nth-child(8) {
+	left: 50%;
+	width: 25px;
+	height: 25px;
+	animation-delay: 15s;
+	animation-duration: 45s;
+}
+.circles li:nth-child(9) {
+	left: 20%;
+	width: 15px;
+	height: 15px;
+	animation-delay: 2s;
+	animation-duration: 35s;
+}
+.circles li:nth-child(10) {
+	left: 85%;
+	width: 150px;
+	height: 150px;
+	animation-delay: 0s;
+	animation-duration: 11s;
+}
+@keyframes animate {
+	0% {
+		transform: translateY(0) rotate(0deg);
+		opacity: 1;
+		border-radius: 0;
+	}
+	100% {
+		transform: translateY(-1000px) rotate(720deg);
+		opacity: 0;
+		border-radius: 50%;
+	}
+}
 @media only screen and (max-width: 1350px) {
 	.slideshow_home_playstation .home_slideshow_1_img {
 		max-width: 695px;
@@ -7284,9 +7886,9 @@ footer {
 		font-size: 54px;
 		line-height: 60px;
 	}
-	#home_slideshow_wrapper {
+	/* #home_slideshow_wrapper {
 		height: 480px;
-	}
+	} */
 	.home_slideshow_first {
 		background-position: 11% 100%;
 	}
@@ -8339,7 +8941,8 @@ footer {
 		width: 100%;
 		left: 0px;
 	}
-	#you_decide_to_pay_left_col .home_h3_title, #you_decide_to_pay_left_col .home_sub_title {
+	#you_decide_to_pay_left_col .home_h3_title,
+	#you_decide_to_pay_left_col .home_sub_title {
 		text-align: center;
 	}
 	#you_decide_to_pay_right_col {
@@ -8349,6 +8952,31 @@ footer {
 	}
 	#home_when_to_pay_btn {
 		margin: 30px auto 25px auto;
+	}
+	.home-customer-service-deal-right {
+		float: none;
+		width: 80%;
+		margin: auto auto 20px auto;
+	}
+	.home-customer-service-deal-left {
+		float: none;
+		width: 100%;
+		margin: auto auto 20px auto;
+		text-align: center;
+	}
+	.home-customer-service-deal-headline {
+		text-align: center;
+	}
+	.home-customer-service-deal-create-account-btn {
+		margin: auto;
+	}
+	#home_slideshow_wrapper {
+		height: auto;
+	}
+	.you_choose_li_single {
+		width: 48%;
+		padding: 0px 1% 20px 1%;
+		float: left;
 	}
 }
 @media only screen and (max-width: 550px) {
@@ -8591,9 +9219,9 @@ footer {
 		line-height: 19px;
 		margin-bottom: 30px;
 	}
-	#home_slideshow_wrapper {
+	/* #home_slideshow_wrapper {
 		height: 600px;
-	}
+	} */
 	.home_slideshow_first {
 		background-position: 11% 100%;
 		background-color: #000000;
@@ -9978,16 +10606,16 @@ footer {
 		line-height: 19px;
 		margin-bottom: 30px;
 	}
-	#home_slideshow_wrapper {
+	/* #home_slideshow_wrapper {
 		height: 480px;
-	}
+	} */
 	.home_slideshow_first {
 		background-position: 11% 100%;
 		background-color: #000000;
 	}
 	#home_when_to_pay_btn {
 		line-height: 50px;
-    	padding: 0px 25px;
+		padding: 0px 25px;
 	}
 	#home_when_to_pay2_btn {
 		display: block;
@@ -9999,7 +10627,7 @@ footer {
 		margin: auto;
 		width: auto;
 		line-height: 50px;
-    	padding: 0px 25px;
+		padding: 0px 25px;
 	}
 	#home_apply_now_title {
 		font-size: 33px;
@@ -10584,7 +11212,7 @@ footer {
 		font-size: 18px;
 		margin: auto;
 		line-height: 50px;
-    	padding: 0px 25px;
+		padding: 0px 25px;
 	}
 	#application_overview_sub_left_col {
 		float: none !important;
@@ -10772,8 +11400,6 @@ footer {
 	.starter_phone_more_info_icon {
 		position: absolute;
 		top: -10px;
-	}
-	.product_details_starter_pack_heading {
 	}
 	.review_video_left_col {
 		width: 100%;
