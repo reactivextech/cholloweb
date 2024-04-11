@@ -7482,6 +7482,42 @@ footer {
 	margin-top: 20px;
 	clear: both;
 }
+.application-stage-two {
+	display: none;
+	padding: 50px 0px;
+	position: relative;
+}
+/* Pages Policy and Terms */
+.policy_container {
+    position: relative;
+    width: 700px;
+    margin: auto;
+    max-width: 700px;
+}
+.policy_title {
+    color: #000;
+    font-size: 29px;
+    line-height: 32px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: 'Lexend';
+}
+.policy_subtitle {
+    font-size: 17px;
+    color: #1c1c1c;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+	line-height: 1.5;
+}
+.policy_text {
+    font-size: 15px;
+    color: #1c1c1c;
+    margin-bottom: 1rem;
+    font-weight: 400;
+	line-height: 1.5;
+}
 /* Front Page Animation */
 .area {
 	width: 100%;
@@ -8977,6 +9013,12 @@ footer {
 		width: 48%;
 		padding: 0px 1% 20px 1%;
 		float: left;
+	}
+	.policy_container {
+		position: relative;
+		margin: auto;
+		width: 90%;
+		max-width: 90%;
 	}
 }
 @media only screen and (max-width: 550px) {
@@ -11743,9 +11785,4 @@ footer {
 	.qr_code img {
 		width: 90%;
 	}
-}
-.application-stage-two {
-	display: none;
-	padding: 50px 0px;
-	position: relative;
 }
