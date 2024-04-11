@@ -3795,13 +3795,16 @@ li {
 }
 .footer_social_li {
 	position: relative !important;
-	float: left !important;
 	width: auto !important;
 	display: inline-block !important;
-	margin: 0px 5px;
+	margin: 0px 1rem;
 }
 .footer_social_li a:hover {
 	cursor: pointer;
+}
+.footer_social_li img {
+	height: 34px;
+	width: 34px;
 }
 #home_email_error_optin {
 	display: none;
@@ -5707,6 +5710,7 @@ li {
 	max-width: 1300px;
 	margin: auto;
 	padding: 30px 0px;
+	text-align: center;
 }
 .footer_single_col {
 	position: relative;
