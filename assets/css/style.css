@@ -1296,7 +1296,8 @@ li {
 	/* background: #e3116e; */
 	/* background:#0012C6; */
 	background: #80ff72;
-	color: #ffffff;
+	/* color: #ffffff; */
+	color: #060818;
 	font-size: 18px;
 	font-weight: 400;
 	border: 0px;
@@ -5351,7 +5352,7 @@ li {
 	background: #0012c6;
 }
 .slideshow_home_playstation .home_slideshow_4_img {
-	bottom: 50px;
+	/* bottom: 50px; */
 	left: 650px;
 	z-index: 100;
 }
@@ -6740,7 +6741,7 @@ footer {
 	position: relative;
 	display: inline-block;
 	width: 100%;
-	max-width: 120px;
+	/* max-width: 120px; */
 	height: auto;
 	margin-bottom: 10px;
 }
@@ -8582,7 +8583,8 @@ footer {
 		padding: 20px 0px 5px 0px;
 	}
 	.features_single_container img {
-		max-width: 100px;
+		/* max-width: 100px; */
+		max-width: 90%;
 	}
 	.home_highlight_left {
 		position: relative;
@@ -9055,11 +9057,12 @@ footer {
 		margin: auto;
 		left: auto;
 		right: auto;
-		top: 0px;
+		top: 70px;
 		bottom: auto;
 	}
 	.home_slideshow_subheadline {
-		font-size: 24px;
+		/* font-size: 24px; */
+		font-size: 18px;
 		text-align: center;
 		font-weight: 500;
 		line-height: 30px;
