@@ -7623,6 +7623,72 @@ footer {
 		border-radius: 50%;
 	}
 }
+
+
+/* SLIDER TIENDAS */
+
+/* body {
+	align-items: center;
+	background: #E3E3E3;
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+} */
+
+/* $animationSpeed: 20s; */
+
+ /* Animation */
+@keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(-50%)}
+}
+
+
+/*  Styling */
+.slider {
+	background: white;
+	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+	height: 100px;
+	margin: auto;
+	overflow:hidden;
+	position: relative;
+	width: 100%;
+	
+	.slide-track {
+		animation: scroll 20s linear infinite;
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: space-around;
+		min-width: 200%;
+		position: absolute;
+	}
+	
+	.slide {
+		height: 100px;
+	}
+	
+	/* pause on hover */
+	&:hover {
+		.slide-track {
+			animation-play-state: paused;
+		}
+	}
+	
+	/* hover efffect */
+	.slide {
+		filter: grayscale(100%);
+		transition: 300ms all linear;
+		
+		&:hover {
+			filter: none;
+		}
+	}
+}
+
+.text_center{
+	text-align: center;
+}
+
 @media only screen and (max-width: 1350px) {
 	.slideshow_home_playstation .home_slideshow_1_img {
 		max-width: 695px;

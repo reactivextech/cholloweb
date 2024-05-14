@@ -2132,6 +2132,9 @@ if (mc_cid) {
 	document.cookie = 'mc_cid=' + mc_cid;
 }
 
+
+
+
 $(
 	'.scroll_bottom_btn,#home_shop_items_create_account,#home_when_to_pay_btn'
 ).on('click', function () {
