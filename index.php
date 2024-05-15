@@ -66,7 +66,7 @@
 
  
 
-		$curl = curl_init('https://admin.chollo.app/api/product/getAll/1');/** Ingresamos la url de la api o servicio a consumir */
+		$curl = curl_init('https://admin.chollo.app/api/product/findByFeatured/1');/** Ingresamos la url de la api o servicio a consumir */
 
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
@@ -101,7 +101,7 @@
         //     echo $item->id;
         // }
         $pJSON=json_decode($result);    
-        
+        // var_dump($pJSON);
 ?>         
 
 <!DOCTYPE html>
