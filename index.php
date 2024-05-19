@@ -120,20 +120,20 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
 
     <!-- Primary Meta Tags -->
-    <title>Chollo — Compra ahora, paga despues</title>
+    <title>Chollo — Compralo ahora, pagalo despues</title>
     <link rel="canonical" href="https://www.chollo.app">
-    <meta name="title" content="Chollo — Compra ahora, paga despues">
+    <meta name="title" content="Chollo — Compralo ahora, pagalo despues">
     <meta name="author" content="Chollo">
-    <meta name="description" content="Compra el teléfono que quieres, y lo pagas poco a poco.">
-    <meta name="keywords" content="credit, phone, cuotas, credito, celular, telefono, marca">
+    <meta name="description" content="Compra lo que más te gusta y pagalo en cuotas con total facilidad.">
+    <meta name="keywords" content="credit, phone, cuotas, credito, celular, telefono, marca, compra, financiamiento, despues, pagalo, paga, tablet">
     <meta name="theme-color" content="#0012c6">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Chollo — Compra ahora, paga despues">
+    <meta property="og:site_name" content="Chollo — Compralo ahora, pagalo despues">
     <meta property="og:url" content="https://www.chollo.app">
-    <meta property="og:title" content="Chollo — Compra ahora, paga despues">
-    <meta property="og:description" content="Compra el teléfono que quieres, y lo pagas poco a poco.">
+    <meta property="og:title" content="Chollo — Compralo ahora, pagalo despues">
+    <meta property="og:description" content="Compra lo que más te gusta y pagalo en cuotas con total facilidad.">
     <meta property="og:image" content="https://www.chollo.app/assets/images/meta/meta-f.webp">
     <meta property="og:image:width" content="640">
     <meta property="og:image:height" content="640">
@@ -142,8 +142,8 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://chollo.app">
     <meta property="twitter:domain" content="www.chollo.app">
-    <meta property="twitter:title" content="Chollo — Compra ahora, paga despues">
-    <meta property="twitter:description" content="Compra el teléfono que quieres, y lo pagas poco a poco.">
+    <meta property="twitter:title" content="Chollo — Compralo ahora, pagalo despues">
+    <meta property="twitter:description" content="Compra lo que más te gusta y pagalo en cuotas con total facilidad.">
     <meta property="twitter:image" content="https://chollo.app/assets/images/meta/meta-t.webp">
 
     <!-- Favicon -->
@@ -322,8 +322,8 @@
             <div class="accepted_slideshow_banner_inside">
                 <div class="home_slideshow_4_txt_container animated slideInLeft" style="top: 130px;">
                     <p class="home_slideshow_subheadline">¡La libertad a tus compras llegó!</p>
-                    <h1>Disfruta Hoy<br /><span> y paga después</span></h1>
-                    <p class="home_slideshow_4_para">Compra el telefono que te gusta y pagalo en cuotas con total flexibilidad.</p>
+                    <h1>Compralo ahora,<br /><span> pagalo después</span></h1>
+                    <p class="home_slideshow_4_para">Compra lo que más te gusta y pagalo en cuotas con total facilidad.</p>
 
                     <a class="scroll_bottom_btn home_slider_3_btn">Descarga la App
                         <div class="header_bottom_right_arrow_cont">
@@ -593,6 +593,8 @@
                 }
             ?>
 
+
+
             <!-- <div class="hp_discover_single"> -->
                 <!-- <div class="hp_discover_single_left">
                     <img src="assets/images/products/tecno-spark-10-4gb-128gbTECNO SPARK10-4GB-128GB.webp">
@@ -764,6 +766,72 @@
 
         </div>
     </section>
+
+    <section class="customer_favourites_wrapper">
+	<div class="customer_favourites_container">
+		<h3 class="hp_title">Customer favourites</h3>
+		<div class="customer_favourites_single">
+			<span class="top-pick">Top Pick</span>
+			<img src="https://madforit.com/images/hp-highlight-img-11.jpg" alt="" title="">
+			<p class="customer_favourite_brand">Sony</p>
+			<p class="customer_favourite_product">Playstation 5</p>
+			<p class="customer_favourite_price">£10 off^</p>
+			<div class="customer_favourite_ndd">
+				<label><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Next day dispatch*</label>
+			</div>
+			<a href="/apply.php" class="customer_favourite_more_btn">View more</a>
+		</div>
+
+		<div class="customer_favourites_single">
+			<span class="top-pick">Top Pick</span>
+			<img src="https://madforit.com/images/hp-highlight-img-2.jpg" alt="" title="">
+			<p class="customer_favourite_brand">Lenovo</p>
+			<p class="customer_favourite_product">Tab P11 64GB</p>
+			<p class="customer_favourite_price">£10 off^</p>
+			<div class="customer_favourite_ndd">
+				<label><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Next day dispatch*</label>
+			</div>
+			<a href="/apply.php" class="customer_favourite_more_btn">View more</a>			
+		</div>
+
+		<div class="customer_favourites_single">	
+			<span class="top-pick">Top Pick</span>
+			<img src="https://madforit.com/images/hp-highlight-img-3.jpg" alt="" title="">
+			<p class="customer_favourite_brand">LG</p>
+			<p class="customer_favourite_product">43" Smart TV</p>
+			<p class="customer_favourite_price">£10 off^</p>
+			<div class="customer_favourite_ndd">
+				<label><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Next day dispatch*</label>
+			</div>
+			<a href="/apply.php" class="customer_favourite_more_btn">View more</a>			
+		</div>
+
+		<div class="customer_favourites_single">
+			<span class="top-pick">Top Pick</span>
+			<img src="https://madforit.com/images/hp-highlight-img-4.jpg" alt="" title="">
+			<p class="customer_favourite_brand">Monzana</p>
+			<p class="customer_favourite_product">Hot Air Deep Fryer</p>
+			<p class="customer_favourite_price">£10 off^</p>
+			<div class="customer_favourite_ndd">
+				<label><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Next day dispatch*</label>
+			</div>
+			<a href="/apply.php" class="customer_favourite_more_btn">View more</a>			
+		</div>
+
+		<div class="customer_favourites_single">
+			<span class="top-pick">Top Pick</span>
+			<img src="https://madforit.com/images/hp-highlight-img-5.jpg" alt="" title="">
+			<p class="customer_favourite_brand">DeWalt</p>
+			<p class="customer_favourite_product">18V XR Brushless Toolkit</p>
+			<p class="customer_favourite_price">£10 off^</p>
+			<div class="customer_favourite_ndd">
+				<label><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Next day dispatch*</label>
+			</div>
+			<a href="/apply.php" class="customer_favourite_more_btn">View more</a>			
+		</div>
+		<div class="clear"></div>
+	</div>
+</section>
 
     <!-- BANNER -->
     <section id="no_credit_checks_wrapper">

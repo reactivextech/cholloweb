@@ -5211,7 +5211,8 @@ li {
 	bottom: 0px;
 	right: 0px;
 	display: block;
-	left: 750px;
+	/* left: 750px; */
+	left: 250px;
 	margin: auto auto auto auto;
 }
 .accepted_slideshow_banner_inside {
@@ -6966,6 +6967,120 @@ footer {
 	border: 1px solid #0012c6;
 	color: #fff;
 }
+
+
+
+.customer_favourites_wrapper{
+	position: relative;
+	width: 100%;
+}
+
+.customer_favourites_container{
+	position: relative;
+	width: 90%;
+	max-width: 1400px;
+	margin: auto;
+	padding: 50px 0px 0px 0px;
+}
+.hp_title{
+	font-size: 19px;
+	text-align: left;
+	color: #5c287d;
+	font-weight: 500;
+	margin-top: 5px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	padding-bottom: 15px;
+	margin-bottom: 20px;
+}
+.customer_favourites_single{
+	position: relative;
+	width: 16%;
+	margin: 0px 0.9%;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 50px 1% 20px 1%;
+	border-radius: 18px;
+	float: left;
+}
+.customer_favourites_single img{
+	position: relative;
+	width: 100%;
+	display: block;
+	height: auto;
+	margin-bottom: 10px;
+}
+.customer_favourite_brand{
+	color: #999;
+	font-size: 14px;
+	margin: 20px 0px 10px 0px;
+}
+.customer_favourite_product{
+	font-weight: 500;
+	color: #000;
+	font-size: 15px;
+	line-height: 18px;
+}
+.customer_favourite_price{
+	color: #ab1650;
+	font-size: 16px;
+	margin: 10px 0px 10px 0px;
+}
+.top-pick{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background: #5c287d;
+	color: #fff;
+	font-size: 13px;
+	padding: 6px 8px;
+	z-index: 10;
+	border-radius: 15px;
+}
+
+
+.customer_favourite_ndd{
+    position: relative;
+    background: #f2eaf9;
+    padding: 5px 7px 7px 7px;
+    display: inline-block;
+    margin: 0px;
+    border-left: 2px solid #ab1650;
+}
+.customer_favourite_ndd label{
+    font-size: 10px;
+    padding: 0px;
+    line-height: 13px;
+    margin: 0px;
+    color: #ab1650;
+    font-family: 'Lexend', helvetica, arial, sans-serif;
+}
+
+
+
+.customer_favourite_more_btn{
+	position: relative;
+    background: #fff;
+    border-radius: 25px;
+    outline: none;
+    text-decoration: none;
+    text-align: center;
+    color: #4d1f6d;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'Lexend', sans-serif;
+    margin: 20px auto auto auto;
+    border: 2px solid;
+    width: auto;
+    display: block;
+    padding: 13px 0px;
+}
+.customer_favourite_more_btn:hover{
+	border: 2px solid #340e4e;
+    background: #340e4e;
+    color: #ffffff;
+}
+
+
+
 .apply_header_title {
 	font-size: 39px;
 	line-height: 49px;
@@ -9904,7 +10019,7 @@ footer {
 		text-align: center;
 	}
 	.home_slideshow_4_txt_container h1 {
-		font-size: 31px;
+		font-size: 44px;
 		line-height: 44px;
 		text-align: center;
 		margin-bottom: 0px;
