@@ -121,7 +121,7 @@
 
     <!-- Primary Meta Tags -->
     <title>Chollo — Compra ahora, paga despues</title>
-    <link rel="canonical" href="index.html">
+    <link rel="canonical" href="https://www.chollo.app">
     <meta name="title" content="Chollo — Compra ahora, paga despues">
     <meta name="author" content="Chollo">
     <meta name="description" content="Compra el teléfono que quieres, y lo pagas poco a poco.">
