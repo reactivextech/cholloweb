@@ -8781,6 +8781,15 @@ footer {
 	    padding: 50px 5% 10px 5%;
 	}
 
+	.customer_favourites_single img{
+		position: relative;
+		width: 100%;
+		display: block;
+		height: auto;
+		
+		margin-bottom: 10px;
+	}
+
 	.customer_favourite_more_btn {
 		padding: 13px 0px;
 		width: 100%;
@@ -9370,7 +9379,16 @@ footer {
 	.customer_favourite_more_btn {
 		padding: 13px 0px;
 		width: 100%;
-	  }
+	}
+
+	.customer_favourites_single img{
+		position: relative;
+		width: 100%;
+		display: block;
+		height: auto;
+		
+		margin-bottom: 10px;
+	}
 
 	#featured_items_container {
 		padding: 10px 0px;
@@ -10761,7 +10779,16 @@ footer {
 	.customer_favourite_more_btn {
 		padding: 13px 0px;
 		width: 100%;
-	  }
+	}
+
+	.customer_favourites_single img{
+		position: relative;
+		width: 100%;
+		display: block;
+		height: auto;
+		
+		margin-bottom: 10px;
+	}
 
 	#featured_items_container {
 		padding: 10px 0px;

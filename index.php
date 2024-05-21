@@ -553,44 +553,44 @@
             <p class="home_heatures_post_header">Te ofrecemos los mejores telefonos del mercado.</p>
 
             <?php 
-                if (is_array($pJSON) || is_object($pJSON))
-                {
-                    foreach ($pJSON as $value)
-                    {
-                        echo '<div class="hp_discover_single">';
-                            echo '<div class="hp_discover_single_left">';
-                                echo '<img src="https://admin.chollo.app/src/storage/app/public/products/'.$value->image.'">';
-                            echo '</div>';
+                // if (is_array($pJSON) || is_object($pJSON))
+                // {
+                //     foreach ($pJSON as $value)
+                //     {
+                //         echo '<div class="hp_discover_single">';
+                //             echo '<div class="hp_discover_single_left">';
+                //                 echo '<img src="https://admin.chollo.app/src/storage/app/public/products/'.$value->image.'">';
+                //             echo '</div>';
 
-                            echo '<div class="hp_discover_single_right">';
-                                echo '<span>Más vendido</span>';
-                                echo '<h4>'.$value->name.'</h4>';
-                                echo '<p>HERTECH</p>';
-                                echo '<div class="tv-reviews-star-container">';
-                                    echo '<i class="fas fa-star" style="color:#f35716;"></i>';
-                                    echo '<i class="fas fa-star" style="color:#f35716;"></i>';
-                                    echo '<i class="fas fa-star" style="color:#f35716;"></i>';
-                                    echo '<i class="fas fa-star" style="color:#f35716;"></i>';
-                                    echo '<i class="fas fa-star" style="color:#f35716;"></i>';
-                                echo '</div>';
+                //             echo '<div class="hp_discover_single_right">';
+                //                 echo '<span>Más vendido</span>';
+                //                 echo '<h4>'.$value->name.'</h4>';
+                //                 echo '<p>HERTECH</p>';
+                //                 echo '<div class="tv-reviews-star-container">';
+                //                     echo '<i class="fas fa-star" style="color:#f35716;"></i>';
+                //                     echo '<i class="fas fa-star" style="color:#f35716;"></i>';
+                //                     echo '<i class="fas fa-star" style="color:#f35716;"></i>';
+                //                     echo '<i class="fas fa-star" style="color:#f35716;"></i>';
+                //                     echo '<i class="fas fa-star" style="color:#f35716;"></i>';
+                //                 echo '</div>';
 
-                            echo '</div>';
+                //             echo '</div>';
 
-                            echo '<div class="clear"></div>';
-                            // echo $value->id;
-                            echo '<div class="hp_discover_single_bottom">';
-                            echo '<p><i class="fas fa-check" style="color:#00B47A; margin-right:5px;"></i> 50% Inicial</p>';
-                            echo '<p><i class="fas fa-check" style="color:#00B47A; margin-right:5px;"></i> Pagas entre 3 a 7 Cuotas.
-                            </p>';
-                            echo '</div>';
+                //             echo '<div class="clear"></div>';
+                //             // echo $value->id;
+                //             echo '<div class="hp_discover_single_bottom">';
+                //             echo '<p><i class="fas fa-check" style="color:#00B47A; margin-right:5px;"></i> 50% Inicial</p>';
+                //             echo '<p><i class="fas fa-check" style="color:#00B47A; margin-right:5px;"></i> Pagas entre 3 a 7 Cuotas.
+                //             </p>';
+                //             echo '</div>';
 
-                            echo '<div class="hp_discover_single_link">';
-                            echo '<a class="scroll_bottom_btn">Adquirir ya</a>';
-                            echo '</div>';
+                //             echo '<div class="hp_discover_single_link">';
+                //             echo '<a class="scroll_bottom_btn">Adquirir ya</a>';
+                //             echo '</div>';
 
-                        echo '</div>';
-                    }
-                }
+                //         echo '</div>';
+                //     }
+                // }
             ?>
 
 
@@ -632,7 +632,7 @@
                         echo '<div class="customer_favourites_single">';
                             echo '<span class="top-pick">Más vendido</span>';
                             echo '<img src="https://admin.chollo.app/src/storage/app/public/products/'.$value->image.'" alt="imagen '.$value->name.'" title="'.$value->name.'">';    
-                            echo '<p class="customer_favourite_brand">Sony</p>';
+                            echo '<p class="customer_favourite_brand">HERTECH</p>';
                             echo '<p class="customer_favourite_product">'.$value->name.'</p>';
                             echo '<p class="customer_favourite_price">50% de inicial</p>';
                             echo '<div class="customer_favourite_ndd">';
