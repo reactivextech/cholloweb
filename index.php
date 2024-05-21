@@ -125,7 +125,7 @@
     <meta name="title" content="Chollo — Compralo ahora, pagalo despues">
     <meta name="author" content="Chollo">
     <meta name="description" content="Compra lo que más te gusta y pagalo en cuotas con total facilidad.">
-    <meta name="keywords" content="credit, phone, cuotas, credito, celular, telefono, marca, compra, financiamiento, despues, pagalo, paga, tablet">
+    <meta name="keywords" content="credit, phone, cuotas, credito, celular, telefono, marca, compra, financiamiento, despues, pagalo, paga, tablet, ahora">
     <meta name="theme-color" content="#0012c6">
 
     <!-- Open Graph / Facebook -->
@@ -545,7 +545,7 @@
     </section>
 
     <!-- PRODUCTOS -->
-    <section class="hp_discover_wrapper">
+    <!-- <section class="hp_discover_wrapper">
         <div class="hp_discover_container">
             <p class="home_heatures_header">
                 ¡Los mejores <span>Productos</span> para ti!
@@ -594,195 +594,57 @@
             ?>
 
 
-
-            <!-- <div class="hp_discover_single"> -->
-                <!-- <div class="hp_discover_single_left">
-                    <img src="assets/images/products/tecno-spark-10-4gb-128gbTECNO SPARK10-4GB-128GB.webp">
-                </div> -->
-                <!-- <div class="hp_discover_single_right"> -->
-                    <!-- <span>Más vendido</span> -->
-                    <!-- <h4>TECNO SPARK 10 (4GB + 128GB)</h4> -->
-                    <!-- <p>HERTECH</p> -->
-                    <!-- <div class="tv-reviews-star-container"> -->
-                        <!-- <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i> -->
-                    <!-- </div> -->
-                <!-- </div> -->
-                <!-- <div class="clear"></div> -->
-                <!-- <div class="hp_discover_single_bottom">
-                    <p><i class="fas fa-check" style="color:#00B47A; margin-right:5px;"></i> 50% Inicial</p>
-                    <p><i class="fas fa-check" style="color:#00B47A; margin-right:5px;"></i> Pagas entre 3 a 9 Cuotas.
-                    </p>
-                </div> -->
-                <!-- <div class="hp_discover_single_link">
-                    <a class="scroll_bottom_btn">Adquirir ya</a>
-                </div> -->
-            <!-- </div> -->
-
-            <!-- <div class="hp_discover_single">
-                <div class="hp_discover_single_left">
-                    <img src="assets/images/products/Alcatel-1SE4GB128GB.webp">
-                </div>
-                <div class="hp_discover_single_right">
-                    <span>Más vendido</span>
-                    <h4>Alcatel 1SE (4GB + 128GB)</h4>
-                    <p>HERTECH</p>
-                    <div class="tv-reviews-star-container">
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                    </div>
-                </div>
-                <div class="clear"></div>
-                <div class="hp_discover_single_bottom">
-                    <p><i class="fas fa-check" style="color:#00B47A; margin-right:5px;"></i> 50% Inicial</p>
-                    <p><i class="fas fa-check" style="color:#00B47A; margin-right:5px;"></i> Pagas entre 3 a 9 Cuotas.
-                    </p>
-                </div>
-                <div class="hp_discover_single_link">
-                    <a class="scroll_bottom_btn">Adquirir ya</a>
-                </div>
-            </div>
-
-            <div class="hp_discover_single">
-                <div class="hp_discover_single_left">
-                    <img src="assets/images/products/Alcatel-Tablet-1T10-Smart-10_ 2-32 GB-WiFi.webp">
-                </div>
-                <div class="hp_discover_single_right">
-                    <span>Más vendido</span>
-                    <h4>Alcatel Tablet 1T10 Smart 10" 2+32 GB</h4>
-                    <p>HERTECH</p>
-                    <div class="tv-reviews-star-container">
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                    </div>
-                </div>
-                <div class="clear"></div>
-                <div class="hp_discover_single_bottom">
-                    <p><i class="fas fa-check" style="color:#00B47A; margin-right:5px;"></i> 50% Inicial</p>
-                    <p><i class="fas fa-check" style="color:#00B47A; margin-right:5px;"></i> Pagas entre 3 a 9 Cuotas.
-                    </p>
-                </div>
-                <div class="hp_discover_single_link">
-                    <a class="scroll_bottom_btn">Adquirir ya</a>
-                </div>
-            </div>
-
-            <div class="hp_discover_single">
-                <div class="hp_discover_single_left">
-                    <img src="assets/images/products/hp-highlight-img-9.webp">
-                </div>
-                <div class="hp_discover_single_right">
-                    <span>Más Vendido</span>
-                    <h4>Samsung Galaxy A32 5G Blue</h4>
-                    <p>HERTECH</p>
-                    <div class="tv-reviews-star-container">
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                    </div>
-                </div>
-                <div class="clear"></div>
-                <div class="hp_discover_single_bottom">
-                    <p><i class="fas fa-check" style="color:#00B47A; margin-right:5px;"></i> 50% Inicial</p>
-                    <p><i class="fas fa-check" style="color:#00B47A; margin-right:5px;"></i> Pagas entre 3 a 9 Cuotas.
-                    </p>
-                </div>
-                <div class="hp_discover_single_link">
-                    <a class="scroll_bottom_btn">Adquirir ya</a>
-                </div>
-            </div>
-
-            <div class="hp_discover_single">
-                <div class="hp_discover_single_left">
-                    <img src="assets/images/products/hp-highlight-img-9.webp">
-                </div>
-                <div class="hp_discover_single_right">
-                    <span>Más Vendido</span>
-                    <h4>Samsung Galaxy A32 5G Blue</h4>
-                    <p>HERTECH</p>
-                    <div class="tv-reviews-star-container">
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                    </div>
-                </div>
-                <div class="clear"></div>
-                <div class="hp_discover_single_bottom">
-                    <p><i class="fas fa-check" style="color:#00B47A; margin-right:5px;"></i> 50% Inicial</p>
-                    <p><i class="fas fa-check" style="color:#00B47A; margin-right:5px;"></i> Pagas entre 3 a 9 Cuotas.
-                    </p>
-                </div>
-                <div class="hp_discover_single_link">
-                    <a class="scroll_bottom_btn">Adquirir ya</a>
-                </div>
-            </div>
-
-            <div class="hp_discover_single">
-                <div class="hp_discover_single_left">
-                    <img src="assets/images/products/hp-highlight-img-9.webp">
-                </div>
-                <div class="hp_discover_single_right">
-                    <span>Más Vendido</span>
-                    <h4>Samsung Galaxy A32 5G Blue</h4>
-                    <p>HERTECH</p>
-                    <div class="tv-reviews-star-container">
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                        <i class="fas fa-star" style="color:#f35716;"></i>
-                    </div>
-                </div>
-                <div class="clear"></div>
-                <div class="hp_discover_single_bottom">
-                    <p><i class="fas fa-check" style="color:#00B47A; margin-right:5px;"></i> 50% Inicial</p>
-                    <p><i class="fas fa-check" style="color:#00B47A; margin-right:5px;"></i> Pagas entre 3 a 9 Cuotas.
-                    </p>
-                </div>
-                <div class="hp_discover_single_link">
-                    <a class="scroll_bottom_btn">Adquirir ya</a>
-                </div>
-            </div> -->
-
             <div class="clear"></div>
         </div>
-    </section>
+    </section> -->
 
-    <section class="hp_next_day_delivery_wrapper">
+    <!-- <section class="hp_next_day_delivery_wrapper">
         <div class="hp_next_day_delivery_container">
 
         </div>
-    </section>
+    </section> -->
 
     <section class="customer_favourites_wrapper">
 	<div class="customer_favourites_container">
-		<h3 class="hp_title">Customer favourites</h3>
-		<div class="customer_favourites_single">
-			<span class="top-pick">Top Pick</span>
+    <p class="home_heatures_header">
+                ¡Los mejores <span>Productos</span> para ti!
+    </p>
+    <p class="home_heatures_post_header">Te ofrecemos los mejores telefonos del mercado.</p>
+
+		<!-- <h3 class="hp_title">Los más destacados</h3> -->
+		<!-- <div class="customer_favourites_single">
+			<span class="top-pick">Más vendido</span>
 			<img src="https://madforit.com/images/hp-highlight-img-11.jpg" alt="" title="">
 			<p class="customer_favourite_brand">Sony</p>
 			<p class="customer_favourite_product">Playstation 5</p>
-			<p class="customer_favourite_price">£10 off^</p>
+			<p class="customer_favourite_price">50% de inicial</p>
 			<div class="customer_favourite_ndd">
-				<label><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Next day dispatch*</label>
+				<label><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> * 3 a 7 cuotas para pagar </label>
 			</div>
-			<a href="/apply.php" class="customer_favourite_more_btn">View more</a>
-		</div>
+			<a href="/apply.php" class="customer_favourite_more_btn">Adquierelo ya</a>
+		</div> -->
 
-		<div class="customer_favourites_single">
+        <?php 
+                if (is_array($pJSON) || is_object($pJSON))
+                {
+                    foreach ($pJSON as $value)
+                    {
+                        echo '<div class="customer_favourites_single">';
+                            echo '<span class="top-pick">Más vendido</span>';
+                            echo '<img src="https://admin.chollo.app/src/storage/app/public/products/'.$value->image.'" alt="imagen '.$value->name.'" title="'.$value->name.'">';    
+                            echo '<p class="customer_favourite_brand">Sony</p>';
+                            echo '<p class="customer_favourite_product">'.$value->name.'</p>';
+                            echo '<p class="customer_favourite_price">50% de inicial</p>';
+                            echo '<div class="customer_favourite_ndd">';
+                                echo '<label><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> * 3 a 7 cuotas para pagar </label>';
+                            echo '</div>';
+                            echo '<a class="customer_favourite_more_btn scroll_bottom_btn">Adquierelo ya</a>';
+                        echo '</div>';
+                    }
+                }
+            ?>
+
+		<!-- <div class="customer_favourites_single">
 			<span class="top-pick">Top Pick</span>
 			<img src="https://madforit.com/images/hp-highlight-img-2.jpg" alt="" title="">
 			<p class="customer_favourite_brand">Lenovo</p>
@@ -828,7 +690,7 @@
 				<label><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Next day dispatch*</label>
 			</div>
 			<a href="/apply.php" class="customer_favourite_more_btn">View more</a>			
-		</div>
+		</div> -->
 		<div class="clear"></div>
 	</div>
 </section>
