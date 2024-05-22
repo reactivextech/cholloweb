@@ -103,7 +103,6 @@
         $pJSON=json_decode($result);    
         // var_dump($pJSON);
 ?>         
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -120,19 +119,19 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
 
     <!-- Primary Meta Tags -->
-    <title>Chollo — Compralo ahora, pagalo despues</title>
+    <title>Chollo — Compralo ahora, pagalo después</title>
     <link rel="canonical" href="https://www.chollo.app">
-    <meta name="title" content="Chollo — Compralo ahora, pagalo despues">
+    <meta name="title" content="Chollo — Compralo ahora, pagalo después">
     <meta name="author" content="Chollo">
     <meta name="description" content="Compra lo que más te gusta y pagalo en cuotas con total facilidad.">
-    <meta name="keywords" content="credit, phone, cuotas, credito, celular, telefono, marca, compra, financiamiento, despues, pagalo, paga, tablet, ahora">
+    <meta name="keywords" content="credit, phone, cuotas, credito, celular, telefono, marca, compra, financiamiento, después, pagalo, paga, tablet, ahora">
     <meta name="theme-color" content="#0012c6">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Chollo — Compralo ahora, pagalo despues">
+    <meta property="og:site_name" content="Chollo — Compralo ahora, pagalo después">
     <meta property="og:url" content="https://www.chollo.app">
-    <meta property="og:title" content="Chollo — Compralo ahora, pagalo despues">
+    <meta property="og:title" content="Chollo — Compralo ahora, pagalo después">
     <meta property="og:description" content="Compra lo que más te gusta y pagalo en cuotas con total facilidad.">
     <meta property="og:image" content="https://www.chollo.app/assets/images/meta/meta-f.webp">
     <meta property="og:image:width" content="640">
@@ -142,7 +141,7 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://chollo.app">
     <meta property="twitter:domain" content="www.chollo.app">
-    <meta property="twitter:title" content="Chollo — Compralo ahora, pagalo despues">
+    <meta property="twitter:title" content="Chollo — Compralo ahora, pagalo después">
     <meta property="twitter:description" content="Compra lo que más te gusta y pagalo en cuotas con total facilidad.">
     <meta property="twitter:image" content="https://chollo.app/assets/images/meta/meta-t.webp">
 
@@ -179,6 +178,8 @@
 
         gtag('config', 'G-F0Z8JJZHLM');
     </script>
+
+    
 </head>
 
 <body>
@@ -196,13 +197,13 @@
                     <img src="assets/images/icon_logo.webp" alt="Chollo App">
                 </a>
             </div>
-            <!-- <div id="header_bottom_mid">
+            <div id="header_bottom_mid">
                 <a href="apply.html" class="header_bottom_link_item">Dónde Comprar</a>
                 <a href="howwework.html" class="header_bottom_link_item">Cómo funciona</a>
                 <a href="faq.html" class="header_bottom_link_item">FAQ's</a>
-                <a href="contact.html" class="header_bottom_link_item">Ayuda</a>
-                <a class="header_bottom_link_item header-login-btn">Login</a>
-            </div> -->
+                <!-- <a href="contact.html" class="header_bottom_link_item">Ayuda</a>
+                <a class="header_bottom_link_item header-login-btn">Login</a> -->
+            </div>
             <div id="header_bottom_right">
                 <!--<div class="header_bottom_right_search_container">
 					<p>Find anything...</p>
@@ -224,7 +225,7 @@
                     </a>
                 </div>
                 <!-- <div class="header_bottom_right_login">
-                    <a>Login
+                    <a>Pagar cuota
                         <div class="header_bottom_right_arrow_cont">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="7.98px"
@@ -239,7 +240,7 @@
                 </div> -->
             </div>
             <div id="mobile_navigation_wrapper">
-                <span></span>
+                <span>A</span>
                 <span></span>
                 <span></span>
             </div>
@@ -379,7 +380,7 @@
 
     <section class="article_wrapper">
 		<div class="article_container">
-			<h1 class="article_page_title">Chollo es la forma de pagar poco a poco tus compras más importantes. </h1>
+			<h2 class="article_page_title">Chollo es la forma de pagar poco a poco tus compras más importantes. </h2>
 			<!-- <p class="article_page_sub_title">Simply contact our friendly complaints team today on 01909 499164 regarding any unregulated complaints or queries you may have.</p>
 		 -->
 
@@ -412,7 +413,7 @@
             <div class="features_single_container">
                 <img src="assets/images/item-facil.png" alt="Fácil - Chollo">
                 <!-- <h3>Sin intereses</h3> -->
-                <p>Comprar es muy facil con nuestra App. Y atención exclusiva en nuestras tiendas aliadas.</p>
+                <p>Comprar es muy fácil con nuestra App. Y atención exclusiva en nuestras tiendas aliadas.</p>
             </div>
             <div class="clear"></div>
         </div>
@@ -838,7 +839,7 @@
                 <h3 class="home_h3_title" id="home_apply_now_title">
                     ¡Todo es más fácil en <span>nuestra app!</span>
                 </h3>
-                <p class="home_app_sub_headline">Crea tu cuenta ahora y comienza a comprar hoy.<br /><br /></p>
+                <p class="home_app_sub_headline">Crea tu cuenta ahora y comienza a comprar hoy.</p>
             </div>
 
             <div id="home_application_right_col">
