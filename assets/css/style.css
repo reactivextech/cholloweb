@@ -9051,9 +9051,9 @@ footer {
 	#header_bottom_mid {
 		display: none;
 	}
-	/* #mobile_navigation_wrapper {
+	#mobile_navigation_wrapper {
 		display: block;
-	} */
+	}
 	#home_application_right_col {
 		width: 90%;
 		padding: 10px 5%;
@@ -10640,6 +10640,8 @@ footer {
 	}
 	#header_bottom_right {
 		width: 60%;
+		top: -5px;
+		right: 60px;
 	}
 	#header_bottom_wrapper {
 		height: 25px;

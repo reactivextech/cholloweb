@@ -198,9 +198,9 @@
                 </a>
             </div>
             <div id="header_bottom_mid">
-                <a href="apply.html" class="header_bottom_link_item">Dónde Comprar</a>
-                <a href="howwework.html" class="header_bottom_link_item">Cómo funciona</a>
-                <a href="faq.html" class="header_bottom_link_item">FAQ's</a>
+                <a href="#" class="header_bottom_link_item">Dónde Comprar</a>
+                <a href="#" class="header_bottom_link_item">Pagar Cuota</a>
+                <!-- <a href="faq.html" class="header_bottom_link_item">FAQ's</a> -->
                 <!-- <a href="contact.html" class="header_bottom_link_item">Ayuda</a>
                 <a class="header_bottom_link_item header-login-btn">Login</a> -->
             </div>
@@ -240,7 +240,7 @@
                 </div> -->
             </div>
             <div id="mobile_navigation_wrapper">
-                <span>A</span>
+                <span></span>
                 <span></span>
                 <span></span>
             </div>
@@ -1187,14 +1187,14 @@
             <div class="mobile-nav-container-body">
                 <ul>
                     <li>
-                        <a href="index.html">Donde Comprar <i class="fas fa-arrow-right"
+                        <a href="#">Donde Comprar <i class="fas fa-arrow-right"
                                 style="margin-left:10px;"></i></a>
                     </li>
                     <li>
-                        <a href="apply.html">Crear una Cuenta <i class="fas fa-arrow-right"
+                        <a href="#">Pagar Cuota <i class="fas fa-arrow-right"
                                 style="margin-left:10px;"></i></a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a id="login_mobile_btn">Portal de Tiendas <i class="fas fa-arrow-right"
                                 style="margin-left:10px;"></i></a>
                     </li>
@@ -1215,7 +1215,7 @@
                     <li>
                         <a href="sitemap.html">Mapa del Sitio <i class="fas fa-arrow-right"
                                 style="margin-left:10px;"></i></a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
