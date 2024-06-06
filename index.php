@@ -199,7 +199,7 @@
             </div>
             <div id="header_bottom_mid">
                 <a href="#" class="header_bottom_link_item">Dónde Comprar</a>
-                <a href="/pagos" class="header_bottom_link_item">Pagar Cuota</a>
+                <a href="./pagos" class="header_bottom_link_item">Pagar Cuota</a>
                 <!-- <a href="faq.html" class="header_bottom_link_item">FAQ's</a> -->
                 <!-- <a href="contact.html" class="header_bottom_link_item">Ayuda</a>
                 <a class="header_bottom_link_item header-login-btn">Login</a> -->
