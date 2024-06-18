@@ -635,7 +635,7 @@
                             echo '<img src="https://admin.chollo.app/src/storage/app/public/products/'.$value->image.'" alt="imagen '.$value->name.'" title="'.$value->name.'">';    
                             echo '<p class="customer_favourite_brand">HERTECH</p>';
                             echo '<p class="customer_favourite_product">'.$value->name.'</p>';
-                            echo '<p class="customer_favourite_price">50% de inicial</p>';
+                            echo '<p class="customer_favourite_price">40% de inicial</p>';
                             echo '<div class="customer_favourite_ndd">';
                                 echo '<label><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> * 3 a 7 cuotas para pagar </label>';
                             echo '</div>';
