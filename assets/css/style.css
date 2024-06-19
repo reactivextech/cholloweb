@@ -7806,6 +7806,11 @@ footer {
 .text_center{
 	text-align: center;
 }
+.link-none {
+	text-decoration: none;
+    color: #ffffff;
+    cursor: text;
+}
 
 @media only screen and (max-width: 1350px) {
 	.slideshow_home_playstation .home_slideshow_1_img {
