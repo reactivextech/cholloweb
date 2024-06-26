@@ -1,108 +1,114 @@
 <?php
 
-		$curl = curl_init('https://admin.chollo.app/api/customer/login');
+$curl = curl_init('https://admin.chollo.app/api/customer/login');
 
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
-        curl_setopt( $curl, CURLOPT_FOLLOWLOCATION, true );
+curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
 
-        curl_setopt($curl, CURLOPT_POST, true);/** Autorizamos enviar datos*/
+curl_setopt($curl, CURLOPT_POST, true);
+/** Autorizamos enviar datos*/
 
-        $email = 'webmaster.jg.51@hotmail.com';
+$email = 'webmaster.jg.51@hotmail.com';
 
-        $pass = 'xyz709095';
+$pass = 'xyz709095';
 
-        $my_user = array(
+$my_user = array(
 
-          "email"=> $email,
+    "email" => $email,
 
-          "password"=> $pass
+    "password" => $pass
 
-          );
+);
 
-          $payload = json_encode($my_user);/** convertimos los datos en el formato solicitado normalmente json*/
+$payload = json_encode($my_user);
+/** convertimos los datos en el formato solicitado normalmente json*/
 
-          curl_setopt($curl, CURLOPT_POSTFIELDS, $payload);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $payload);
 
-          curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
 
-          $result = curl_exec($curl);/** Ejecutamos petición*/
+$result = curl_exec($curl);
+/** Ejecutamos petición*/
 
-          curl_close($curl);
-
- 
-
-		  $mJSON=json_decode($result);
-
-        // var_dump($mJSON);
-        // echo($mJSON->data->session_token);
-        
-		$p_o_sesion = $mJSON->data->session_token;
-
-		// $token = $mJSON->token;
-
-		// $p_cod_prod = 99527;
-
-		// $p_fec_desde = "2019-01-01";
-
-		// $p_fec_hasta = "2023-01-31";
+curl_close($curl);
 
 
- 
 
- 		//  $listarproductos = array(
+$mJSON = json_decode($result);
 
-        //   "p_o_sesion"=> $p_o_sesion,
+// var_dump($mJSON);
+// echo($mJSON->data->session_token);
 
-        //   "p_cod_prod"=> $p_cod_prod,
+$p_o_sesion = $mJSON->data->session_token;
 
-		//   "p_fec_desde"=> $p_fec_desde,
+// $token = $mJSON->token;
 
-		//   "p_fec_hasta"=> $p_fec_hasta
+// $p_cod_prod = 99527;
 
-        //  );
+// $p_fec_desde = "2019-01-01";
 
-        //   $payload = json_encode($listarproductos);
+// $p_fec_hasta = "2023-01-31";
 
- 
 
-		$curl = curl_init('https://admin.chollo.app/api/product/findByFeatured/1');/** Ingresamos la url de la api o servicio a consumir */
 
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
-        curl_setopt( $curl, CURLOPT_FOLLOWLOCATION, true );
+//  $listarproductos = array(
 
-        curl_setopt($curl, CURLOPT_POST, false);/** Autorizamos enviar datos*/
+//   "p_o_sesion"=> $p_o_sesion,
 
-        // curl_setopt($curl, CURLOPT_POSTFIELDS, $payload);
+//   "p_cod_prod"=> $p_cod_prod,
 
-        curl_setopt($curl, CURLOPT_HTTPHEADER, ['Authorization: Bearer '.$p_o_sesion]); 
+//   "p_fec_desde"=> $p_fec_desde,
 
-          $result = curl_exec($curl);/** Ejecutamos petición*/
+//   "p_fec_hasta"=> $p_fec_hasta
 
-          curl_close($curl);
+//  );
 
- 
+//   $payload = json_encode($listarproductos);
 
- 
 
-		//  var_dump($result);
 
-        // foreach ($result as $value) {
-            
-        //     echo $value['id'];
-        // }
+$curl = curl_init('https://admin.chollo.app/api/product/findByFeatured/1');
+/** Ingresamos la url de la api o servicio a consumir */
 
-        // foreach ($result as $key => $value) {
-        //     echo "$key => $value", PHP_EOL;
-        // }
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
-        // foreach ($result as $item) {
-        //     echo $item->id;
-        // }
-        $pJSON=json_decode($result);    
-        // var_dump($pJSON);
-?>         
+curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+
+curl_setopt($curl, CURLOPT_POST, false);
+/** Autorizamos enviar datos*/
+
+// curl_setopt($curl, CURLOPT_POSTFIELDS, $payload);
+
+curl_setopt($curl, CURLOPT_HTTPHEADER, ['Authorization: Bearer ' . $p_o_sesion]);
+
+$result = curl_exec($curl);
+/** Ejecutamos petición*/
+
+curl_close($curl);
+
+
+
+
+
+//  var_dump($result);
+
+// foreach ($result as $value) {
+
+//     echo $value['id'];
+// }
+
+// foreach ($result as $key => $value) {
+//     echo "$key => $value", PHP_EOL;
+// }
+
+// foreach ($result as $item) {
+//     echo $item->id;
+// }
+$pJSON = json_decode($result);
+// var_dump($pJSON);
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -159,11 +165,8 @@
     <!-- Vendor CSS -->
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com/"> -->
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin> -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;300;400;500;700;800;900&amp;family=Poppins:wght@100;300;400;500;600;800&amp;display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;600;700&amp;display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;300;400;500;700;800;900&amp;family=Poppins:wght@100;300;400;500;600;800&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link href="assets/css/vendor/fontawesome/all.css" rel='stylesheet' type='text/css'>
     <link href='assets/css/vendor/animate.css' rel='stylesheet' type='text/css'>
     <!-- Main CSS -->
@@ -173,13 +176,16 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0Z8JJZHLM"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
 
         gtag('config', 'G-F0Z8JJZHLM');
     </script>
 
-    
+
 </head>
 
 <body>
@@ -212,14 +218,10 @@
                     <a class="scroll_bottom_btn">Descarga la App
                         <div class="header_bottom_right_arrow_cont">
                             <!-- Generator: Adobe Illustrator 24.2.1, SVG Export Plug-In  -->
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="7.98px"
-                                height="9.21px" viewBox="0 0 7.98 9.21"
-                                style="overflow:visible;enable-background:new 0 0 7.98 9.21;" xml:space="preserve">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="7.98px" height="9.21px" viewBox="0 0 7.98 9.21" style="overflow:visible;enable-background:new 0 0 7.98 9.21;" xml:space="preserve">
                                 <defs>
                                 </defs>
-                                <polygon class="st0_arrow" style="fill: #FFFFFF;"
-                                    points="7.98,4.61 3.99,6.91 0,9.21 0,4.61 0,0 3.99,2.3 " />
+                                <polygon class="st0_arrow" style="fill: #FFFFFF;" points="7.98,4.61 3.99,6.91 0,9.21 0,4.61 0,0 3.99,2.3 " />
                             </svg>
                         </div>
                     </a>
@@ -269,18 +271,15 @@
                     <p class="error-msg" style="display:none"></p>
                     <p class="sent" style="display:none; margin:20px 0;">An email with recovery instructions was just
                         sent.</p>
-                    <button type="button" class="recover-back"><i class="fa fa-arrow-left"
-                            style="margin-right:10px;"></i>Back</button>
-                    <button type="submit" class="recover">Send email<i class="fa fa-arrow-right"
-                            style="margin-left:10px;"></i></button>
+                    <button type="button" class="recover-back"><i class="fa fa-arrow-left" style="margin-right:10px;"></i>Back</button>
+                    <button type="submit" class="recover">Send email<i class="fa fa-arrow-right" style="margin-left:10px;"></i></button>
                 </form>
                 <div class="facebook-link-form" style="display:none">
                     <p style="text-align:center"><strong>Whoops!</strong> It looks like the email of your Facebook
                         account already exists at Mad For It.<br>
                         <br>In order to continue, we have sent you an email to connect your Facebook and Mad For It
                         account together.<br><br>
-                        Please check for the email sent to: <strong style="font-weight:bold;"><span
-                                class="facebook-link-email"></span></strong>
+                        Please check for the email sent to: <strong style="font-weight:bold;"><span class="facebook-link-email"></span></strong>
                 </div>
                 <form class="login-form">
                     <div class="input-control">
@@ -312,13 +311,12 @@
 		</div>
 		<div id="home_slideshow_right_arrow">
 		</div> -->
-        <div class="accepted_slideshow_banner slideshow_home_playstation home_slideshow_single homepage_active"
-            data-slideno="1" data-homeslideactive="1" style="display: block;">
+        <div class="accepted_slideshow_banner slideshow_home_playstation home_slideshow_single homepage_active" data-slideno="1" data-homeslideactive="1" style="display: block;">
             <!--<img src="assets/images/catalogue-img-trans.png" class="home_slideshow_4_img animated slideInUp" alt="Chollo" style="max-width: 695px;"> -->
             <!-- <img src="assets/images/cover/chollo-bn-1.webp" class="home_slideshow_4_img animated slideInUp"
                 alt="Bienvenido - Chollo" style="max-width: 350px;"> -->
 
-                
+
 
             <div class="accepted_slideshow_banner_inside">
                 <div class="home_slideshow_4_txt_container animated slideInLeft" style="top: 130px;">
@@ -329,14 +327,10 @@
                     <a class="scroll_bottom_btn home_slider_3_btn">Descarga la App
                         <div class="header_bottom_right_arrow_cont">
                             <!-- Generator: Adobe Illustrator 24.2.1, SVG Export Plug-In  -->
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="7.98px"
-                                height="9.21px" viewBox="0 0 7.98 9.21"
-                                style="overflow:visible;enable-background:new 0 0 7.98 9.21;" xml:space="preserve">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="7.98px" height="9.21px" viewBox="0 0 7.98 9.21" style="overflow:visible;enable-background:new 0 0 7.98 9.21;" xml:space="preserve">
                                 <defs>
                                 </defs>
-                                <polygon class="st0_arrow" style="fill: #060818;"
-                                    points="7.98,4.61 3.99,6.91 0,9.21 0,4.61 0,0 3.99,2.3 " />
+                                <polygon class="st0_arrow" style="fill: #060818;" points="7.98,4.61 3.99,6.91 0,9.21 0,4.61 0,0 3.99,2.3 " />
                             </svg>
                         </div>
 
@@ -344,8 +338,7 @@
                 </div>
             </div>
 
-            <img src="assets/images/cover/chollo-banner8-1080.png" class="home_slideshow_4_img animated slideInUp"
-                alt="Bienvenido - Chollo" style="max-width: 350px;">
+            <img src="assets/images/cover/chollo-banner8-1080.png" class="home_slideshow_4_img animated slideInUp" alt="Bienvenido - Chollo" style="max-width: 350px;">
 
             <div class="home-slider-drop-shadow"></div>
 
@@ -379,22 +372,22 @@
     </section> -->
 
     <section class="article_wrapper">
-		<div class="article_container">
-			<h2 class="article_page_title">Chollo es la forma de pagar poco a poco tus compras más importantes. </h2>
-			<!-- <p class="article_page_sub_title">Simply contact our friendly complaints team today on 01909 499164 regarding any unregulated complaints or queries you may have.</p>
+        <div class="article_container">
+            <h2 class="article_page_title">Chollo es la forma de pagar poco a poco tus compras más importantes. </h2>
+            <!-- <p class="article_page_sub_title">Simply contact our friendly complaints team today on 01909 499164 regarding any unregulated complaints or queries you may have.</p>
 		 -->
 
-		</div>
-	</section>
+        </div>
+    </section>
 
     <section class="features_wrapper">
         <div class="features_container">
 
-            
+
 
             <div class="features_single_container">
                 <img src="assets/images/item-inmediata.png" alt="Inmediata - Chollo">
-                
+
 
                 <!-- <h3>Transparente</h3> -->
                 <p>Con solo tu rostro y tu cedula tu chollo es aprobado en minutos.</p>
@@ -528,13 +521,10 @@
                 <a class="scroll_bottom_btn">Descarga la App
                     <div class="header_bottom_right_arrow_cont">
                         <!-- Generator: Adobe Illustrator 24.2.1, SVG Export Plug-In  -->
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            x="0px" y="0px" width="7.98px" height="9.21px" viewBox="0 0 7.98 9.21"
-                            style="overflow:visible;enable-background:new 0 0 7.98 9.21;" xml:space="preserve">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="7.98px" height="9.21px" viewBox="0 0 7.98 9.21" style="overflow:visible;enable-background:new 0 0 7.98 9.21;" xml:space="preserve">
                             <defs>
                             </defs>
-                            <polygon class="st0_arrow" style="fill: #FFFFFF;"
-                                points="7.98,4.61 3.99,6.91 0,9.21 0,4.61 0,0 3.99,2.3 " />
+                            <polygon class="st0_arrow" style="fill: #FFFFFF;" points="7.98,4.61 3.99,6.91 0,9.21 0,4.61 0,0 3.99,2.3 " />
                         </svg>
                     </div>
 
@@ -553,45 +543,45 @@
             </p>
             <p class="home_heatures_post_header">Te ofrecemos los mejores telefonos del mercado.</p>
 
-            <?php 
-                // if (is_array($pJSON) || is_object($pJSON))
-                // {
-                //     foreach ($pJSON as $value)
-                //     {
-                //         echo '<div class="hp_discover_single">';
-                //             echo '<div class="hp_discover_single_left">';
-                //                 echo '<img src="https://admin.chollo.app/src/storage/app/public/products/'.$value->image.'">';
-                //             echo '</div>';
+            <?php
+            // if (is_array($pJSON) || is_object($pJSON))
+            // {
+            //     foreach ($pJSON as $value)
+            //     {
+            //         echo '<div class="hp_discover_single">';
+            //             echo '<div class="hp_discover_single_left">';
+            //                 echo '<img src="https://admin.chollo.app/src/storage/app/public/products/'.$value->image.'">';
+            //             echo '</div>';
 
-                //             echo '<div class="hp_discover_single_right">';
-                //                 echo '<span>Más vendido</span>';
-                //                 echo '<h4>'.$value->name.'</h4>';
-                //                 echo '<p>HERTECH</p>';
-                //                 echo '<div class="tv-reviews-star-container">';
-                //                     echo '<i class="fas fa-star" style="color:#f35716;"></i>';
-                //                     echo '<i class="fas fa-star" style="color:#f35716;"></i>';
-                //                     echo '<i class="fas fa-star" style="color:#f35716;"></i>';
-                //                     echo '<i class="fas fa-star" style="color:#f35716;"></i>';
-                //                     echo '<i class="fas fa-star" style="color:#f35716;"></i>';
-                //                 echo '</div>';
+            //             echo '<div class="hp_discover_single_right">';
+            //                 echo '<span>Más vendido</span>';
+            //                 echo '<h4>'.$value->name.'</h4>';
+            //                 echo '<p>HERTECH</p>';
+            //                 echo '<div class="tv-reviews-star-container">';
+            //                     echo '<i class="fas fa-star" style="color:#f35716;"></i>';
+            //                     echo '<i class="fas fa-star" style="color:#f35716;"></i>';
+            //                     echo '<i class="fas fa-star" style="color:#f35716;"></i>';
+            //                     echo '<i class="fas fa-star" style="color:#f35716;"></i>';
+            //                     echo '<i class="fas fa-star" style="color:#f35716;"></i>';
+            //                 echo '</div>';
 
-                //             echo '</div>';
+            //             echo '</div>';
 
-                //             echo '<div class="clear"></div>';
-                //             // echo $value->id;
-                //             echo '<div class="hp_discover_single_bottom">';
-                //             echo '<p><i class="fas fa-check" style="color:#00B47A; margin-right:5px;"></i> 50% Inicial</p>';
-                //             echo '<p><i class="fas fa-check" style="color:#00B47A; margin-right:5px;"></i> Pagas entre 3 a 7 Cuotas.
-                //             </p>';
-                //             echo '</div>';
+            //             echo '<div class="clear"></div>';
+            //             // echo $value->id;
+            //             echo '<div class="hp_discover_single_bottom">';
+            //             echo '<p><i class="fas fa-check" style="color:#00B47A; margin-right:5px;"></i> 50% Inicial</p>';
+            //             echo '<p><i class="fas fa-check" style="color:#00B47A; margin-right:5px;"></i> Pagas entre 3 a 7 Cuotas.
+            //             </p>';
+            //             echo '</div>';
 
-                //             echo '<div class="hp_discover_single_link">';
-                //             echo '<a class="scroll_bottom_btn">Adquirir ya</a>';
-                //             echo '</div>';
+            //             echo '<div class="hp_discover_single_link">';
+            //             echo '<a class="scroll_bottom_btn">Adquirir ya</a>';
+            //             echo '</div>';
 
-                //         echo '</div>';
-                //     }
-                // }
+            //         echo '</div>';
+            //     }
+            // }
             ?>
 
 
@@ -606,14 +596,14 @@
     </section> -->
 
     <section class="customer_favourites_wrapper">
-	<div class="customer_favourites_container">
-    <p class="home_heatures_header">
+        <div class="customer_favourites_container">
+            <p class="home_heatures_header">
                 ¡Los mejores <span>Productos</span> para ti!
-    </p>
-    <p class="home_heatures_post_header">Te ofrecemos los mejores telefonos del mercado.</p>
+            </p>
+            <p class="home_heatures_post_header">Te ofrecemos los mejores telefonos del mercado.</p>
 
-		<!-- <h3 class="hp_title">Los más destacados</h3> -->
-		<!-- <div class="customer_favourites_single">
+            <!-- <h3 class="hp_title">Los más destacados</h3> -->
+            <!-- <div class="customer_favourites_single">
 			<span class="top-pick">Más vendido</span>
 			<img src="https://madforit.com/images/hp-highlight-img-11.jpg" alt="" title="">
 			<p class="customer_favourite_brand">Sony</p>
@@ -625,27 +615,25 @@
 			<a href="/apply.php" class="customer_favourite_more_btn">Adquierelo ya</a>
 		</div> -->
 
-        <?php 
-                if (is_array($pJSON) || is_object($pJSON))
-                {
-                    foreach ($pJSON as $value)
-                    {
-                        echo '<div class="customer_favourites_single">';
-                            echo '<span class="top-pick">Más vendido</span>';
-                            echo '<img src="https://admin.chollo.app/src/storage/app/public/products/'.$value->image.'" alt="imagen '.$value->name.'" title="'.$value->name.'">';    
-                            echo '<p class="customer_favourite_brand">HERTECH</p>';
-                            echo '<p class="customer_favourite_product">'.$value->name.'</p>';
-                            echo '<p class="customer_favourite_price">40% de inicial</p>';
-                            echo '<div class="customer_favourite_ndd">';
-                                echo '<label><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> * 3 a 7 cuotas para pagar </label>';
-                            echo '</div>';
-                            echo '<a class="customer_favourite_more_btn scroll_bottom_btn">Adquierelo ya</a>';
-                        echo '</div>';
-                    }
+            <?php
+            if (is_array($pJSON) || is_object($pJSON)) {
+                foreach ($pJSON as $value) {
+                    echo '<div class="customer_favourites_single">';
+                    echo '<span class="top-pick">Más vendido</span>';
+                    echo '<img src="https://admin.chollo.app/src/storage/app/public/products/' . $value->image . '" alt="imagen ' . $value->name . '" title="' . $value->name . '">';
+                    echo '<p class="customer_favourite_brand">HERTECH</p>';
+                    echo '<p class="customer_favourite_product">' . $value->name . '</p>';
+                    echo '<p class="customer_favourite_price">40% de inicial</p>';
+                    echo '<div class="customer_favourite_ndd">';
+                    echo '<label><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> * 3 a 7 cuotas para pagar </label>';
+                    echo '</div>';
+                    echo '<a class="customer_favourite_more_btn scroll_bottom_btn">Adquierelo ya</a>';
+                    echo '</div>';
                 }
+            }
             ?>
 
-		<!-- <div class="customer_favourites_single">
+            <!-- <div class="customer_favourites_single">
 			<span class="top-pick">Top Pick</span>
 			<img src="https://madforit.com/images/hp-highlight-img-2.jpg" alt="" title="">
 			<p class="customer_favourite_brand">Lenovo</p>
@@ -692,9 +680,9 @@
 			</div>
 			<a href="/apply.php" class="customer_favourite_more_btn">View more</a>			
 		</div> -->
-		<div class="clear"></div>
-	</div>
-</section>
+            <div class="clear"></div>
+        </div>
+    </section>
 
     <!-- BANNER -->
     <section id="no_credit_checks_wrapper">
@@ -741,9 +729,9 @@
             </div> -->
 
 
-            
-            
-            
+
+
+
         </div>
 
         <div class="slider">
@@ -1074,9 +1062,7 @@
 
                     <div class="block_dowload_app">
                         <div class="qr_code">
-                            <img src="assets/images/qr-app.webp" alt="QR - Chollo" width="350" height="357"
-                                srcset="assets/images/qr-app.webp 175w, assets/images/qr-app.webp 350w, assets/images/qr-app.webp 525w, assets/images/qr-app.webp 700w, assets/images/qr-app.webp 875w, assets/images/qr-app.webp 1050w"
-                                sizes="(max-width: 350px) 100vw, 350px">
+                            <img src="assets/images/qr-app.webp" alt="QR - Chollo" width="350" height="357" srcset="assets/images/qr-app.webp 175w, assets/images/qr-app.webp 350w, assets/images/qr-app.webp 525w, assets/images/qr-app.webp 700w, assets/images/qr-app.webp 875w, assets/images/qr-app.webp 1050w" sizes="(max-width: 350px) 100vw, 350px">
 
                             <small> Escanea para descargar la app.</small>
                         </div>
@@ -1084,12 +1070,7 @@
                         <div class="button_store">
                             <!-- <a class="btn app_play_store" href="https://play.google.com/store/apps/details?id=com.addimobile" target="_blank" title="Play_store"> <img src="https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=187&amp;height=55&amp;name=play-store.png" alt="play_store_ADDI" loading="lazy" width="187" height="55" srcset="https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=94&amp;height=28&amp;name=play-store.png 94w, https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=187&amp;height=55&amp;name=play-store.png 187w, https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=281&amp;height=83&amp;name=play-store.png 281w, https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=374&amp;height=110&amp;name=play-store.png 374w, https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=468&amp;height=138&amp;name=play-store.png 468w, https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=561&amp;height=165&amp;name=play-store.png 561w" sizes="(max-width: 187px) 100vw, 187px"></a> -->
 
-                            <a href="https://play.google.com/store/apps/details?id=com.grupochollo.cholloapp" class="btn app_play_store" target="_blank"
-                                title="Play_store"> <img
-                                    src="https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=187&amp;height=55&amp;name=play-store.png"
-                                    alt="play_store_ADDI" loading="lazy" width="187" height="55"
-                                    srcset="https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=94&amp;height=28&amp;name=play-store.png 94w, https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=187&amp;height=55&amp;name=play-store.png 187w, https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=281&amp;height=83&amp;name=play-store.png 281w, https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=374&amp;height=110&amp;name=play-store.png 374w, https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=468&amp;height=138&amp;name=play-store.png 468w, https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=561&amp;height=165&amp;name=play-store.png 561w"
-                                    sizes="(max-width: 187px) 100vw, 187px"></a>
+                            <a href="https://play.google.com/store/apps/details?id=com.grupochollo.cholloapp" class="btn app_play_store" target="_blank" title="Play_store"> <img src="https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=187&amp;height=55&amp;name=play-store.png" alt="play_store_ADDI" loading="lazy" width="187" height="55" srcset="https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=94&amp;height=28&amp;name=play-store.png 94w, https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=187&amp;height=55&amp;name=play-store.png 187w, https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=281&amp;height=83&amp;name=play-store.png 281w, https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=374&amp;height=110&amp;name=play-store.png 374w, https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=468&amp;height=138&amp;name=play-store.png 468w, https://5471282.fs1.hubspotusercontent-na1.net/hub/5471282/hubfs/play-store.png?width=561&amp;height=165&amp;name=play-store.png 561w" sizes="(max-width: 187px) 100vw, 187px"></a>
                         </div>
                     </div>
                 </div>
@@ -1152,17 +1133,17 @@
         </div> -->
         <div id="footer_container" class="site_content_header_remove">
             <div class="footer_social_li">
-                <a href="https://www.facebook.com/profile.php?id=61556991779659">
+                <a href="https://www.facebook.com/profile.php?id=61556991779659" target="_blank">
                     <img src="assets/images/icons/facebook.png" alt="Facebook">
                 </a>
             </div>
             <div class="footer_social_li">
-                <a href="https://www.instagram.com/cholloapp">
+                <a href="https://www.instagram.com/cholloapp" target="_blank">
                     <img src="assets/images/icons/instagram.png" alt="Instagram">
                 </a>
             </div>
             <div class="footer_social_li">
-                <a href="https://www.youtube.com/@cholloapp">
+                <a href="https://www.youtube.com/@cholloapp" target="_blank">
                     <img src="assets/images/icons/youtube.png" alt="YouTube">
                 </a>
             </div>
@@ -1171,8 +1152,7 @@
             <p>Copyright © 2024 — GRUPO CHOLLO VE, C.A. J-504776521-1.</p>
         </div>
         <div class="disclaimer_container">
-            <p>Todos los derechos reservados. <a href="privacy-policy">Políticas de Privacidad</a> y <a
-                    href="terms-conditions">Términos y Condiciones</a></p>
+            <p>Todos los derechos reservados. <a href="privacy-policy">Políticas de Privacidad</a> y <a href="terms-conditions">Términos y Condiciones</a></p>
         </div>
     </footer>
 
@@ -1187,12 +1167,10 @@
             <div class="mobile-nav-container-body">
                 <ul>
                     <li>
-                        <a href="#">Donde Comprar <i class="fas fa-arrow-right"
-                                style="margin-left:10px;"></i></a>
+                        <a href="#">Donde Comprar <i class="fas fa-arrow-right" style="margin-left:10px;"></i></a>
                     </li>
                     <li>
-                        <a href="#">Pagar Cuota <i class="fas fa-arrow-right"
-                                style="margin-left:10px;"></i></a>
+                        <a href="#">Pagar Cuota <i class="fas fa-arrow-right" style="margin-left:10px;"></i></a>
                     </li>
                     <!-- <li>
                         <a id="login_mobile_btn">Portal de Tiendas <i class="fas fa-arrow-right"
@@ -1238,8 +1216,13 @@
     </div>
 
     <!-- Vendor JS -->
-    <script
-        type="text/javascript">!function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);</script>
+    <script type="text/javascript">
+        ! function(o, c) {
+            var n = c.documentElement,
+                t = " w-mod-";
+            n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+        }(window, document);
+    </script>
     <script src="assets/js/vendor/jquery.min.js"></script>
     <script src="assets/js/vendor/jquery-ui.js"></script>
     <link rel="stylesheet" href="assets/js/vendor/themes/base/jquery-ui.css">
