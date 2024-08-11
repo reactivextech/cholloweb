@@ -2,26 +2,25 @@
     <p class="home_application_create_title">Reporta tu pago</p>
     <!-- <p class="home_application_create_sub_title">Escribe tus datos a continuación:</p> -->
     <form id="form-stage1" name="form-stage1" action="" method="POST" onsubmit="login(event)">
-        <form id="form-stage1" name="form-stage1" action="" method="POST">
-            <div class="home_apply_left_col_input_container" id="home_form_single_fname">
-                <label><span>*</span> Cédula:</label>
-                <input type="text" id="identification" name="identification" onblur="check_fname_input();" tabindex="2" placeholder="Documento de Identidad">
+        <div class="home_apply_left_col_input_container" id="home_form_single_fname">
+            <label><span>*</span> Cédula:</label>
+            <input type="text" id="identification" name="identification" onblur="check_fname_input();" tabindex="2" placeholder="Documento de Identidad">
+        </div>
+        <div class="clear"></div>
+        <div class="home_apply_left_col_input_container" id="home_form_single_sec1">
+            <label><span>*</span> Contraseña:</label>
+            <input type="password" id="password" name="password" onblur="check_app_password();" tabindex="9" placeholder="Contraseña">
+            <span class="invalid-message">La contraseña es muy corta</span>
+        </div>
+        <div id='create_account' style='text-align: center;'>
+            <div id='please_wait_image' style='display:none'>
+                <img src='assets/images/chollo-phone.webp' width='200px;' style='position:relative; margin-left: auto; margin-right: auto;'>
             </div>
-            <div class="clear"></div>
-            <div class="home_apply_left_col_input_container" id="home_form_single_sec1">
-                <label><span>*</span> Contraseña:</label>
-                <input type="password" id="password" name="password" onblur="check_app_password();" tabindex="9" placeholder="Contraseña">
-                <span class="invalid-message">La contraseña es muy corta</span>
+            <div id='create_account_button'>
+                <button id="application_process_app_btn" type="submit" class="application_send_app_btn" style="clear:both;">Ingresar</button>
             </div>
-            <div id='create_account' style='text-align: center;'>
-                <div id='please_wait_image' style='display:none'>
-                    <img src='assets/images/chollo-phone.webp' width='200px;' style='position:relative; margin-left: auto; margin-right: auto;'>
-                </div>
-                <div id='create_account_button'>
-                    <button id="application_process_app_btn" type="submit" class="application_send_app_btn" style="clear:both;">Ingresar</button>
-                </div>
-            </div>
-        </form>
+        </div>
+    </form>
 </div>
 
 <script>

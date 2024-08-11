@@ -4,14 +4,31 @@
 require_once 'includes/config.php';
 require_once 'includes/function.php';
 
-session_start();
+// session_start();
 
-$token = isset($_SESSION['api_token']) ? $_SESSION['api_token'] : null;
-$authenticated = false;
+// $token = isset($_SESSION['api_token']) ? $_SESSION['api_token'] : null;
+// $authenticated = false;
 
-if ($token) {
-  $authenticated = checkSession($token); // checkSession() de function.php
+// if ($token) {
+//   $authenticated = checkSession($token); // checkSession() de function.php
+// }
+
+
+$credential = '26466124';
+$password = '123456';
+
+$resultLogin = login($credential, $password);
+
+if ($resultLogin) {
+  // Extraer el session_token y el customerId
+  $sessionToken = $resultLogin->data->session_token;
+  $customerId = $resultLogin->data->id;
+
+  $orders = getOrdersByCustomer($customerId, $sessionToken);
+} else {
+  echo 'Login failed. Cannot fetch orders.';
 }
+
 ?>
 
 <!-- HEAD:BEGIN -->
@@ -36,12 +53,83 @@ require_once 'layouts/head.php';
   <section id="section_payment" class="payment-form">
     <div id="home_application_container">
       <div id="home_application_right_col">
-        <div id="home-account-type-wrapper-stage0">
-          <p class="home_application_create_title">Create your account &amp; start shopping today</p>
-          <p class="home_application_create_sub_title">Registering an account won't affect your credit rating,
-            we only perform a soft search to check your eligability. If approved for your order, then a hard
-            search will be performed.</p>
-          <form id="form-stage1" name="form-stage1" action="https://madforit.com/ajax/save_application2.ajax.php" method="POST">
+        <div id="home-account-type-wrapper-stage0 stage1">
+          <p class="home_application_create_title">Mis compras</p>
+          <?php
+          if ($orders) {
+            foreach ($orders as $index => $order) :
+          ?>
+              <div class="card mb-3 card-selectable" style="max-width: 540px;" onclick="showForm(<?php echo $index; ?>)">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="<?php echo CONFIG_API_URL ?>src/storage/app/public/products/<?php echo $order->product->image ?>" class="img-fluid rounded-start" alt="<?php echo $order->product->name ?>">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title"><?php echo $order->product->name ?></h5>
+                      <p class="card-text">Tienda: <?php echo $order->store_name ?></p>
+                      <p class="card-text">Sucursal: <?php echo $order->branch_name ?></p>
+                      <p class="card-text"><small class="text-body-secondary">Inicial: <?php echo $order->fee_initial ?></small></p>
+                      <p class="card-text"><small class="text-body-secondary">Cuotas: <?php echo $order->quota_qty ?> x <?php echo $order->fee_amount ?></small></p>
+                      <p class="card-text"><small class="text-body-secondary">Fecha de compra: <?php echo $order->date_registration ?></small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Formulario oculto por defecto -->
+              <div class="form-container" id="form-<?php echo $index; ?>" style="display:none;">
+                <form>
+                  <h5><?php echo $order->product->name ?></h5>
+                  <div class="mb-3">
+                    <label class="form-label">Tienda</label>
+                    <input type="text" class="form-control" value="<?php echo $order->store_name ?>" readonly>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Sucursal</label>
+                    <input type="text" class="form-control" value="<?php echo $order->branch_name ?>" readonly>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Monto a Pagar</label>
+                    <input type="text" class="form-control" value="<?php echo $order->fee_amount ?>" readonly>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Otro Monto</label>
+                    <input type="text" class="form-control" name="other_amount">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Método de Pago</label>
+                    <select class="form-select" name="payment_method">
+                      <option value="credit_card">Tarjeta de Crédito</option>
+                      <option value="bank_transfer">Transferencia Bancaria</option>
+                      <option value="cash">Efectivo</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Pagar</button>
+                </form>
+              </div>
+          <?php
+            endforeach;
+          } else {
+            // echo 'No orders found.';
+          }
+          ?>
+
+          <script>
+            function showForm(index) {
+              // Ocultar todos los cards y formularios
+              document.querySelectorAll('.card-selectable').forEach(card => card.style.display = 'none');
+              document.querySelectorAll('.form-container').forEach(form => form.style.display = 'none');
+
+              // Mostrar el formulario correspondiente
+              document.getElementById('form-' + index).style.display = 'block';
+            }
+          </script>
+        </div>
+        <!-- <div id="home-account-type-wrapper-stage0 stage1">
+          <p class="home_application_create_title">Registrar pago</p>
+          <p class="home_application_create_sub_title">Registrar el pago.</p>
+          <form id="form-stage1" name="form-stage1" action="" method="POST">
             <p style="margin-bottom:10px; display:none;">Sign up with Facebook</p>
 
             <div style="text-align:left; width:100%; margin-bottom:10px; height:40px; display:none;">
@@ -58,9 +146,9 @@ require_once 'layouts/head.php';
             <p style="display:none; margin-bottom:15px;">Create your account</p>
 
             <div class="home_apply_left_col_input_container" id="home_form_single_title">
-              <label><span>*</span> Title:</label>
+              <label><span>*</span> Metodo de pago:</label>
               <select id="title" name="title" class="dropdown" onchange="javascript:personal_title_check();" tabindex="1">
-                <option value="" selected>Please select </option>
+                <option value="" selected>Seleccionar </option>
                 <option value="Mr">Mr</option>
                 <option value="Miss">Miss</option>
                 <option value="Mrs">Mrs</option>
@@ -68,16 +156,16 @@ require_once 'layouts/head.php';
               </select>
             </div>
             <div class="home_apply_left_col_input_container" id="home_form_single_fname">
-              <label><span>*</span> First Name:</label>
+              <label><span>*</span> Numero de referencia del pago:</label>
               <input type="text" id="first_name" name="first_name" onblur="check_fname_input();" tabindex="2" value="" />
             </div>
             <div class="home_apply_left_col_input_container" id="home_form_single_surname">
-              <label><span>*</span> Surname:</label>
+              <label><span>*</span> Numero de telefono:</label>
               <input type="text" id="surname" name="surname" onblur="check_sname_input();" tabindex="3" value="" />
             </div>
             <div class="clear"></div>
             <div class="home_apply_left_col_input_container" id="home_form_single_dob" style="width:49%;">
-              <label><span>*</span> Date of Birth:</label>
+              <label><span>*</span> Fecha en la que fue realizado el pago:</label>
               <select id="d_o_b_d1" name="d_o_b_d1" tabIndex="4" class="dropdown dateofbirth_dropdown" onchange="javascript:dob_day_check();" onblur="javascript:dob_day_check();">
                 <option value="" selected>Day </option>
                 <option value="01">01</option>
@@ -128,7 +216,6 @@ require_once 'layouts/head.php';
                 <option value="12">December</option>
               </select>
               <select id="d_o_b_y1" name="d_o_b_y1" tabIndex="6" class="dropdown dateofbirth_dropdown" onchange="javascript:dob_year_check();" onblur="javascript:dob_year_check();">
-
                 <option value="" selected>Year </option>
                 <option value='2005'>2005</option>
                 <option value='2004'>2004</option>
@@ -226,24 +313,17 @@ require_once 'layouts/head.php';
               <div style="clear:both;"></div>
             </div>
 
-            <img class="home_form_visa_img" src="assets/images/creditcardIcons.webp" alt="Chollo">
             <div id='create_account' style='text-align: center;'>
-              <div id='please_wait_image' style='display:none'>
-                <image src='assets/images/chollo-phone.webp' width='200px;' style=' position:relative; margin-left: auto; margin-right: auto; '>
-              </div>
               <div id='create_account_button'>
-                <button id="application_process_app_btn" type="submit" class="application_send_app_btn" style="clear:both;">Create My Account <i class="fas fa-arrow-right" style="color:#fff; position:relative; font-size:20px; margin-left:10px;"></i></button>
+                <button id="application_process_app_btn" type="submit" class="application_send_app_btn" style="clear:both;">Pagar <i class="fas fa-arrow-right" style="color:#fff; position:relative; font-size:20px; margin-left:10px;"></i></button>
               </div>
             </div>
 
             <div class="clear"></div>
-            <p class="apply-form-disclaimer">Forefront Solutions Limited offers unregulated credit
-              agreements. Borrowing more than you can afford or paying late may negatively impact your
-              credit score and ability to shop with us again. Please note: This is a 12 month unregulated
-              credit agreement. This is not running account credit.</p>
+            <p class="apply-form-disclaimer">Texto informativo.</p>
             <input type="hidden" name="csrf-token" value="0fdc1021f7eeefc32bc6f5bde2ebbb87e5c6880d8871ae4e430f42c072b46265" />
           </form>
-        </div>
+        </div> -->
         <div class="clear"></div>
       </div>
       <div class="clear"></div>
@@ -260,19 +340,6 @@ require_once 'layouts/head.php';
   <!-- FOOTER:END -->
 
   <div id="mobile_nav_overlay_wrapper"></div>
-
-  <div class="lds-roller">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-
-  <div class="loading-spinner-bg"></div>
 
   <div id="homepage_overlay_wrapper"></div>
 

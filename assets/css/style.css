@@ -246,7 +246,10 @@ li {
 	font-size: 14px;
 	color: #808080;
 	text-indent: 10px;
-	-webkit-appearance: none;
+	appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
 }
 .error-msg {
 	color: red;
@@ -392,7 +395,10 @@ li {
 	font-size: 14px;
 	color: #808080;
 	text-indent: 10px;
-	-webkit-appearance: none;
+	appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
 }
 #login-page .error-msg {
 	text-align: center;
@@ -438,7 +444,6 @@ li {
 	text-align: center;
 	line-height: 40px;
 }
-
 #header_top_container p > a {
 	font-family: 'Poppins', helvetica, arial, sans-serif;
 	font-size: 14px;
@@ -449,14 +454,11 @@ li {
 	text-align: center;
 	line-height: 40px;
 }
-
 #header_bottom_wrapper {
 	width: 100%;
 	position: relative;
-	height: 60px;
-	z-index: 2000;
-	/* background: #19020c; */
-	/* background:#060818; */
+	height: 100px;
+	z-index: 20;
 	background: #0012c6;
 	padding: 20px 0px;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -1657,7 +1659,10 @@ li {
 	text-indent: 0px;
 	cursor: pointer;
 	font-size: 12px;
-	-webkit-appearance: none;
+	appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
 }
 .apply_create_title {
 	font-size: 18px;
@@ -2061,6 +2066,7 @@ li {
 	background-repeat: no-repeat;
 	background-position: 96%;
 	-webkit-appear: none;
+	appearance: none;
 	-moz-appearance: none;
 	-ms-appearance: none;
 	-o-appearance: none;
@@ -2212,9 +2218,6 @@ li {
 	margin-top: 55px;
 	margin-bottom: 20px;
 }
-.faq_single_container {
-}
-
 .faq_single_header {
 	border-top: 1px solid rgba(0, 0, 0, 0.1);
 	width: 100%;
@@ -2236,7 +2239,11 @@ li {
 	font-weight: 400;
 	text-align: center;
 	display: inline-block;
+	transition: all 0.5s;
 	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
 }
 .faq_single_content {
 	display: none;
@@ -2324,10 +2331,6 @@ li {
 #application_right_col_your_order_sub {
 	padding: 20px 0px 0px 0px;
 }
-#application_right_col_your_order_detail {
-}
-#application_right_col_your_order_detail ul {
-}
 #application_right_col_your_order_detail ul li {
 	position: relative;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -2390,7 +2393,10 @@ li {
 	border-radius: 4px;
 	font-size: 14px;
 	color: #808080;
-	-webkit-appearance: none;
+	appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
 }
 .application_form_span select {
 	background-color: #fff;
@@ -2406,6 +2412,7 @@ li {
 	background-repeat: no-repeat;
 	background-position: 94%;
 	-webkit-appear: none;
+	appearance: none;
 	-moz-appearance: none;
 	-ms-appearance: none;
 	-o-appearance: none;
@@ -2626,6 +2633,7 @@ li {
 	background-repeat: no-repeat;
 	background-position: 94%;
 	-webkit-appear: none;
+	appearance: none;
 	-moz-appearance: none;
 	-ms-appearance: none;
 	-o-appearance: none;
@@ -2756,7 +2764,11 @@ li {
 	line-height: 21px !important;
 	color: #1f2f6b !important;
 	font-weight: 300 !important;
+	transition: all 0.3s;
 	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
 }
 .header_mid_sub_items li a:hover {
 	color: #1f2f6b;
@@ -3244,8 +3256,6 @@ li {
 	width: 70px;
 	z-index: 2;
 }
-#home_slideshow_toggle_container {
-}
 #home_slideshow_toggle_container span {
 	width: 15px;
 	height: 15px;
@@ -3630,7 +3640,6 @@ li {
 	color: #ffffff !important;
 	text-shadow: none !important;
 }
-
 #manufacturing_page_right_col {
 	position: absolute;
 	bottom: -46%;
@@ -3646,12 +3655,14 @@ li {
 	border-radius: 4px;
 	font-size: 13px;
 	color: #808080;
-	-webkit-appearance: none;
 	background-image: url(../images/icons/sunshine_dropdown_menu_icon.webp);
 	background-repeat: no-repeat;
 	background-position: 98%;
+	appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
 }
-
 .application_acc_overview_sub_title {
 	font-size: 14px;
 	line-height: 21px;
@@ -3919,7 +3930,6 @@ li {
 }
 .application_bank_details_info_container img {
 	position: relative;
-	display: inline-block;
 	width: 20%;
 	float: left;
 	max-width: 35px;
@@ -4640,8 +4650,6 @@ li {
 	color: #37354a;
 	text-decoration: none !important;
 }
-.you_choose_li_single a:hover p {
-}
 #header_nav_logo {
 	position: relative;
 	width: 208px;
@@ -4706,7 +4714,6 @@ li {
 	top: 0px;
 	width: 80%;
 	text-align: left;
-	display: inline-block;
 	font-size: 14px;
 	line-height: 19px;
 	font-size: 15px;
@@ -5178,7 +5185,6 @@ li {
 	height: 20px;
 	text-align: center;
 	background-color: #0ab21b;
-	display: inline-block;
 	line-height: 20px;
 	border-radius: 50%;
 	float: left;
@@ -5509,7 +5515,6 @@ li {
 	cursor: pointer;
 	padding: 0px 0px;
 }
-
 .you_choose_li_single img {
 	margin-bottom: 10px;
 	position: relative;
@@ -5519,7 +5524,6 @@ li {
 	margin: 50px auto 20px auto;
 	max-width: 100%;
 }
-
 .phone_choices_single_item_name {
 	font-size: 12px;
 	color: #37354a;
@@ -5533,7 +5537,6 @@ li {
 	display: block;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-
 .phone_choices_single_item_price {
 	font-size: 14px;
 	line-height: 18px;
@@ -5542,7 +5545,6 @@ li {
 	display: block;
 	color: #333332;
 }
-
 .phone_choices_single_view {
 	border-radius: 26px;
 	font-size: 13px;
@@ -5598,7 +5600,6 @@ li {
 	background-size: cover;
 	background-repeat: no-repeat;
 }
-
 #you_decide_to_pay_wrapper {
 	width: 100%;
 	position: relative;
@@ -5636,7 +5637,6 @@ li {
 	width: 100%;
 	height: auto;
 }
-
 .home_h3_title {
 	font-size: 50px;
 	line-height: 57px;
@@ -5658,14 +5658,12 @@ li {
 	text-align: left;
 	margin-bottom: 15px;
 }
-
 .browse_phones_btn {
 	font-family: 'Lexend', serif;
 	width: fit-content;
 	position: relative;
 	display: block;
 	height: auto;
-	/* background: #e3116e; */
 	background: #0012c6;
 	color: #ffffff;
 	font-size: 18px;
@@ -5682,7 +5680,6 @@ li {
 	margin: 30px 0px 0px 0px;
 }
 .browse_phones_btn:hover {
-	/* background: #9c0145; */
 	background: #403bd9;
 }
 #home_application_left_col {
@@ -5701,7 +5698,7 @@ li {
 }
 #home_application_right_col {
 	width: 95%;
-	padding: 30px 2.5%;
+	padding: 30px;
 	background-color: #ffffff;
 	border-radius: 6px;
 	position: relative;
@@ -5717,7 +5714,6 @@ li {
 	font-family: 'Lexend', serif;
 	text-align: left;
 }
-
 .home_application_create_sub_title {
 	font-size: 14px;
 	text-align: left;
@@ -5725,11 +5721,8 @@ li {
 	color: #000;
 	margin-bottom: 30px;
 }
-.payment-form #home_application_right_col  {
-	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-}
 .payment-form #home_application_container {
-    width: 10%;
+	width: 10%;
     max-width: 650px;
     position: relative;
     margin: auto;
@@ -5738,9 +5731,9 @@ li {
     justify-content: center;
 }
 .payment-form #home_application_right_col {
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 	display: flex;
-    justify-content: center;
-    min-width: 500px;
+    min-width: 600px;
     width: auto;
 }
 .payment-form .home_apply_left_col_input_container {
@@ -5748,6 +5741,9 @@ li {
 }
 .payment-form .application_send_app_btn {
     line-height: 50px;
+}
+#section_payment .home_application_create_title {
+	font-size: 18px;
 }
 #footer_container {
 	width: 95%;
@@ -5930,6 +5926,7 @@ li {
 	background-repeat: no-repeat;
 	background-position: 96%;
 	-webkit-appear: none;
+	appearance: none;
 	-moz-appearance: none;
 	-ms-appearance: none;
 	-o-appearance: none;
@@ -6278,23 +6275,18 @@ footer {
 .mobile-nav-container {
 	width: 100%;
 }
-
 .mobile-nav-container-header {
-	/* background-color: #121212; */
 	background-color: #0012c6;
 	padding: 15px 20px 15px 20px;
 	height: 35px;
 }
 .mobile-nav-container-header img {
-	/* max-width: 85px; */
 	max-width: 130px;
 	position: absolute;
 }
 .landing-mobile-nav-close {
-	display: inline-block;
 	margin: 7px 0px 0px 0px;
 	border: 0px;
-	/* background-color: #7b7b7b; */
 	background-color: #80ff72;
 	padding: 7px 20px;
 	border-radius: 14px;
@@ -6302,8 +6294,7 @@ footer {
 	color: #fff;
 	font-size: 14px;
 }
-.landing-mobile-nav-close:focus,
-.landing-mobile-nav-close:active {
+.landing-mobile-nav-close:focus, .landing-mobile-nav-close:active {
 	outline: none;
 	border: 0px;
 }
@@ -7249,7 +7240,10 @@ footer {
 	border-radius: 4px;
 	font-size: 14px;
 	color: grey;
-	-webkit-appearance: none;
+	appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
 }
 .application_form_span select {
 	background-color: #faf9f9;
@@ -7265,6 +7259,7 @@ footer {
 	background-repeat: no-repeat;
 	background-position: 94%;
 	-webkit-appear: none;
+	appearance: none;
 	-moz-appearance: none;
 	-ms-appearance: none;
 	-o-appearance: none;
@@ -8296,8 +8291,6 @@ footer {
 	#product_details_features_flexible_payments {
 		display: none;
 	}
-	#product_details_features_no_credit_checks {
-	}
 	#product_details_features_guaranteed {
 		float: right;
 	}
@@ -8955,7 +8948,7 @@ footer {
 		padding: 20px 0px;
 	}
 	#header_bottom_wrapper {
-		height: 30px;
+		height: 70px;
 	}
 	.article_page_title {
 		font-size: 28px;
@@ -10045,9 +10038,6 @@ footer {
 		margin-bottom: 10px;
 		font-weight: 600;
 	}
-	.apply_create_bank_title {
-	}
-
 	.home_slideshow_3_txt_container {
 		width: 100%;
 		top: 35px;
@@ -10305,8 +10295,6 @@ footer {
 	.starter_phone_more_info_icon {
 		position: absolute;
 		top: 0px;
-	}
-	.product_details_starter_pack_heading {
 	}
 	.review_video_left_col {
 		width: 100%;
@@ -10675,7 +10663,7 @@ footer {
 		right: 60px;
 	}
 	#header_bottom_wrapper {
-		height: 25px;
+		height: 62px;
 	}
 	.features_single_container {
 		width: 100%;
@@ -11100,8 +11088,6 @@ footer {
 	}
 	#product_details_features_flexible_payments {
 		display: none;
-	}
-	#product_details_features_no_credit_checks {
 	}
 	#product_details_features_guaranteed {
 		float: right;

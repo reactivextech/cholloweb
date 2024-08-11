@@ -2,7 +2,7 @@
     <div id="header_bottom_container">
         <div id="header_bottom_left">
             <a href="./" target="_self">
-                <img src="<?php echo SITE_URL; ?>assets/images/icon_logo.webp" alt="Chollo App">
+                <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/icon_logo.webp" alt="Chollo App">
             </a>
         </div>
         <div id="header_bottom_mid">
@@ -44,7 +44,7 @@
 <section class="mobile-nav-wrapper">
     <div class="mobile-nav-container">
         <div class="mobile-nav-container-header">
-            <img src="<?php echo SITE_URL; ?>assets/images/icon_logo.webp" alt="Chollo App">
+            <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/icon_logo.webp" alt="Chollo App">
             <button class="landing-mobile-nav-close">Cerrar</button>
         </div>
         <div class="mobile-nav-container-body">

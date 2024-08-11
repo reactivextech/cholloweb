@@ -79,19 +79,6 @@ require_once 'layouts/head.php';
 
     <div id="mobile_nav_overlay_wrapper"></div>
 
-    <div class="lds-roller">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-
-    <div class="loading-spinner-bg"></div>
-
     <div id="homepage_overlay_wrapper"></div>
 
     <!-- SCRIPTS:BEGIN -->

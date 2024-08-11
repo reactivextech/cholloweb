@@ -93,7 +93,7 @@ require_once 'layouts/head.php';
                             <div class="modal-title">Reporta tu Pago</div>
                             <p class="modal-description">Para iniciar el proceso, ingrese su cédula o correo electrónico de su cuenta registrada.</p>
                         </div>
-                        <form class="login-form">
+                        <form class="login-form" action="" method="POST" onsubmit="login(event)">
                             <div class="input-control">
                                 <label>Cédula o Correo electrónico</label>
                                 <input type="text" id="credential" tabindex="5" name="credential" placeholder="Ingresa tu cédula o correo electrónico">
@@ -126,20 +126,68 @@ require_once 'layouts/head.php';
 
     <div id="mobile_nav_overlay_wrapper"></div>
 
-    <div class="lds-roller">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-
-    <div class="loading-spinner-bg"></div>
-
     <div id="homepage_overlay_wrapper"></div>
+
+    <script>
+        async function login(event) {
+            event.preventDefault();
+
+            const credential = document.getElementById('credential').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('http://192.168.18.3:8000/api/v1/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        credential: credential,
+                        password: password
+                    })
+                });
+
+                // console.log(JSON.stringify({
+                //     credential: credential,
+                //     password: password
+                // }));
+
+                const data = await response.json();
+
+                if (data.success) {
+                    const token = data.data.session_token;
+                    const storeTokenResponse = await fetch('includes/token.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: `token=${token}`
+                    });
+
+                    const storeTokenResult = await storeTokenResponse.json();
+                    console.log(storeTokenResponse.json());
+                    console.log(storeTokenResult.success);
+                    if (storeTokenResult.success) {
+                        if ($loginSuccessful) {
+                            session_start();
+                            $_SESSION['api_token'] = $responseData['data']['session_token'];
+                            // Redireccionar o mostrar contenido según sea necesario
+                        }
+
+                        window.location.href = './pay';
+                    } else {
+                        alert('Error al guardar el token en la sesión.');
+                    }
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al iniciar sesión, por favor intenta de nuevo.');
+            }
+        }
+    </script>
 
     <!-- SCRIPTS:BEGIN -->
     <?php require_once 'common/scripts.php'; ?>

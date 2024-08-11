@@ -152,22 +152,22 @@ require_once 'layouts/head.php';
                 </div>
             </div>
 
-            <img src="<?php echo SITE_URL; ?>assets/images/cover/chollo-banner8-1080.png" class="home_slideshow_4_img animated slideInUp" alt="Bienvenido - Chollo" style="max-width: 350px;">
+            <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/cover/chollo-banner8-1080.png" class="home_slideshow_4_img animated slideInUp" alt="Bienvenido - Chollo" style="max-width: 350px;">
 
             <div class="home-slider-drop-shadow"></div>
 
             <div class="area">
                 <ul class="circles">
-                    <li><img src="<?php echo SITE_URL; ?>assets/images/icon_x.webp" alt="Logo - Chollo"></li>
-                    <li><img src="<?php echo SITE_URL; ?>assets/images/icon_x.webp" alt="Logo - Chollo"></li>
-                    <li><img src="<?php echo SITE_URL; ?>assets/images/icon_x.webp" alt="Logo - Chollo"></li>
-                    <li><img src="<?php echo SITE_URL; ?>assets/images/icon_x.webp" alt="Logo - Chollo"></li>
-                    <li><img src="<?php echo SITE_URL; ?>assets/images/icon_x.webp" alt="Logo - Chollo"></li>
-                    <li><img src="<?php echo SITE_URL; ?>assets/images/icon_x.webp" alt="Logo - Chollo"></li>
-                    <li><img src="<?php echo SITE_URL; ?>assets/images/icon_x.webp" alt="Logo - Chollo"></li>
-                    <li><img src="<?php echo SITE_URL; ?>assets/images/icon_x.webp" alt="Logo - Chollo"></li>
-                    <li><img src="<?php echo SITE_URL; ?>assets/images/icon_x.webp" alt="Logo - Chollo"></li>
-                    <li><img src="<?php echo SITE_URL; ?>assets/images/icon_x.webp" alt="Logo - Chollo"></li>
+                    <li><img src="<?php echo CONFIG_SITE_URL; ?>assets/images/icon_x.webp" alt="Logo - Chollo"></li>
+                    <li><img src="<?php echo CONFIG_SITE_URL; ?>assets/images/icon_x.webp" alt="Logo - Chollo"></li>
+                    <li><img src="<?php echo CONFIG_SITE_URL; ?>assets/images/icon_x.webp" alt="Logo - Chollo"></li>
+                    <li><img src="<?php echo CONFIG_SITE_URL; ?>assets/images/icon_x.webp" alt="Logo - Chollo"></li>
+                    <li><img src="<?php echo CONFIG_SITE_URL; ?>assets/images/icon_x.webp" alt="Logo - Chollo"></li>
+                    <li><img src="<?php echo CONFIG_SITE_URL; ?>assets/images/icon_x.webp" alt="Logo - Chollo"></li>
+                    <li><img src="<?php echo CONFIG_SITE_URL; ?>assets/images/icon_x.webp" alt="Logo - Chollo"></li>
+                    <li><img src="<?php echo CONFIG_SITE_URL; ?>assets/images/icon_x.webp" alt="Logo - Chollo"></li>
+                    <li><img src="<?php echo CONFIG_SITE_URL; ?>assets/images/icon_x.webp" alt="Logo - Chollo"></li>
+                    <li><img src="<?php echo CONFIG_SITE_URL; ?>assets/images/icon_x.webp" alt="Logo - Chollo"></li>
                 </ul>
             </div>
         </div>
@@ -195,22 +195,22 @@ require_once 'layouts/head.php';
         </div>
         <div class="features_container">
             <div class="features_single_container">
-                <img src="<?php echo SITE_URL; ?>assets/images/item-inmediata.png" alt="Inmediata - Chollo">
+                <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/item-inmediata.png" alt="Inmediata - Chollo">
                 <!-- <h3>Transparente</h3> -->
                 <p>Con solo tu rostro y tu cedula tu chollo es aprobado en minutos.</p>
             </div>
             <div class="features_single_container">
-                <img src="<?php echo SITE_URL; ?>assets/images/item-flexible.png" alt="Flexible - Chollo">
+                <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/item-flexible.png" alt="Flexible - Chollo">
                 <!-- <h3>Flexible</h3> -->
                 <p>Puedes elegir entre 3 a 7 cuotas a pagar.</p>
             </div>
             <div class="features_single_container">
-                <img src="<?php echo SITE_URL; ?>assets/images/item-clara.png" alt="Clara - Chollo">
+                <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/item-clara.png" alt="Clara - Chollo">
                 <!-- <h3>Sin tarjeta de credito</h3> -->
                 <p>La letra pequeña en grande, para que sepas siempre cuánto pagas.</p>
             </div>
             <div class="features_single_container">
-                <img src="<?php echo SITE_URL; ?>assets/images/item-facil.png" alt="Fácil - Chollo">
+                <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/item-facil.png" alt="Fácil - Chollo">
                 <!-- <h3>Sin intereses</h3> -->
                 <p>Comprar es muy fácil con nuestra App. Y atención exclusiva en nuestras tiendas aliadas.</p>
             </div>
@@ -231,7 +231,7 @@ require_once 'layouts/head.php';
     <section class="home_highlight_wrapper">
         <div class="home_highlight_container">
             <div class="home_highlight_left">
-                <img src="<?php echo SITE_URL; ?>assets/images/chollo-phone.png" alt="App - Chollo">
+                <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/chollo-phone.png" alt="App - Chollo">
             </div>
             <div class="home_highlight_right">
                 <h2>Compra, ahorra y obtén más <span>Tiempo</span> para pagar</h2>
@@ -444,32 +444,32 @@ require_once 'layouts/head.php';
             <div class="slide-track">
                 <div class="slide">
                     <a href="#" tabindex="-1">
-                        <img src="<?php echo SITE_URL; ?>assets/images/logo-hertech.png" height="100" width="250" alt="HERTECH" />
+                        <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/logo-hertech.png" height="100" width="250" alt="HERTECH" />
                     </a>
                 </div>
                 <div class="slide">
                     <a href="#" tabindex="-1">
-                        <img src="<?php echo SITE_URL; ?>assets/images/logo-hertech.png" height="100" width="250" alt="HERTECH" />
+                        <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/logo-hertech.png" height="100" width="250" alt="HERTECH" />
                     </a>
                 </div>
                 <div class="slide">
                     <a href="#" tabindex="-1">
-                        <img src="<?php echo SITE_URL; ?>assets/images/logo-hertech.png" height="100" width="250" alt="HERTECH" />
+                        <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/logo-hertech.png" height="100" width="250" alt="HERTECH" />
                     </a>
                 </div>
                 <div class="slide">
                     <a href="#" tabindex="-1">
-                        <img src="<?php echo SITE_URL; ?>assets/images/logo-hertech.png" height="100" width="250" alt="HERTECH" />
+                        <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/logo-hertech.png" height="100" width="250" alt="HERTECH" />
                     </a>
                 </div>
                 <div class="slide">
                     <a href="#" tabindex="-1">
-                        <img src="<?php echo SITE_URL; ?>assets/images/logo-hertech.png" height="100" width="250" alt="HERTECH" />
+                        <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/logo-hertech.png" height="100" width="250" alt="HERTECH" />
                     </a>
                 </div>
                 <div class="slide">
                     <a href="#" tabindex="-1">
-                        <img src="<?php echo SITE_URL; ?>assets/images/logo-hertech.png" height="100" width="250" alt="HERTECH" />
+                        <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/logo-hertech.png" height="100" width="250" alt="HERTECH" />
                     </a>
                 </div>
             </div>
@@ -487,19 +487,6 @@ require_once 'layouts/head.php';
     <!-- FOOTER:END -->
 
     <div id="mobile_nav_overlay_wrapper"></div>
-
-    <div class="lds-roller">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-
-    <div class="loading-spinner-bg"></div>
 
     <div id="homepage_overlay_wrapper"></div>
 
