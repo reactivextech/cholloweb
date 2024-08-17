@@ -9,7 +9,7 @@ require_once 'includes/function.php';
 <!-- HEAD:BEGIN -->
 <?php
 
-$section = 'terms-conditions';
+$page = 'terms-conditions';
 require_once 'layouts/head.php';
 
 ?>

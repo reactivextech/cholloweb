@@ -118,7 +118,7 @@ $pJSON = json_decode($result);
 <!-- HEAD:BEGIN -->
 <?php
 
-$section = 'index';
+$page = 'index';
 require_once 'layouts/head.php';
 
 ?>

@@ -4,29 +4,70 @@
 require_once 'includes/config.php';
 require_once 'includes/function.php';
 
-// session_start();
+session_start();
 
-// $token = isset($_SESSION['api_token']) ? $_SESSION['api_token'] : null;
-// $authenticated = false;
+// Verificar autenticación
+$token = $_SESSION['session_token'] ?? null;
+$authenticated = $token ? checkSession($token) : false;
 
-// if ($token) {
-//   $authenticated = checkSession($token); // checkSession() de function.php
-// }
+if (!$authenticated) {
+  header('Location: login');
+  exit();
+}
 
+$customerId = $_SESSION['customer_id'] ?? null;
 
-$credential = '26466124';
-$password = '123456';
+// Determinar qué sección mostrar
+$section = $_GET['section'] ?? 'list'; // Default es listar órdenes
+$orderId = $_GET['order_id'] ?? null;
 
-$resultLogin = login($credential, $password);
+switch ($section) {
+  case 'select':
+    if ($orderId) {
+      $orderDetails = getOrderById($orderId, $token);
+      $orderQuota = getQuotasByOrder($orderId, $token);
+      if (!$orderDetails || !$orderQuota) {
+        echo "Orden no encontrada.";
+        exit();
+      }
+    } else {
+      header('Location: pay?section=list');
+      exit();
+    }
+    break;
+  case 'report':
+    if ($orderId) {
+      $feeAmount = $_GET['fee_amount'] ?? null;
+      $otherAmount = $_GET['other_amount'] ?? null;
+      $paymentMethod = $_GET['payment_method'] ?? null;
+      if (!$feeAmount || !$paymentMethod) {
+        header('Location: pay?section=select&order_id=' . $orderId);
+        exit();
+      }
+    } else {
+      header('Location: pay?section=list');
+      exit();
+    }
+    break;
+  case 'list':
+  default:
+    $orders = getOrdersByCustomer($customerId, $token);
+    break;
+}
 
-if ($resultLogin) {
-  // Extraer el session_token y el customerId
-  $sessionToken = $resultLogin->data->session_token;
-  $customerId = $resultLogin->data->id;
+// Maneja la solicitud de cierre de sesión
+if (isset($_POST['action']) && $_POST['action'] === 'logout') {
+  if ($token) {
+    $response = logout($token);
 
-  $orders = getOrdersByCustomer($customerId, $sessionToken);
-} else {
-  echo 'Login failed. Cannot fetch orders.';
+    // Elimina el token de la sesión
+    unset($_SESSION['session_token']);
+    // Redirige al usuario a la página de inicio o login
+    header('Location: login');
+    exit;
+  } else {
+    echo 'No hay sesión activa.';
+  }
 }
 
 ?>
@@ -34,7 +75,7 @@ if ($resultLogin) {
 <!-- HEAD:BEGIN -->
 <?php
 
-$section = 'pay';
+$page = 'pay';
 require_once 'layouts/head.php';
 
 ?>
@@ -52,81 +93,34 @@ require_once 'layouts/head.php';
   <!-- FORMPAYMENT:BEGIN -->
   <section id="section_payment" class="payment-form">
     <div id="home_application_container">
+
+      <form method="POST" action="pay">
+        <input type="hidden" name="action" value="logout">
+        <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+      </form>
+
+      <div id="home_application_right_col">
+        <?php if ($section === 'list'): ?>
+
+          <?php require_once 'layouts/pay-orders.php'; ?>
+
+        <?php elseif ($section === 'select'): ?>
+
+          <?php require_once 'layouts/pay-select.php'; ?>
+
+        <?php elseif ($section === 'report'): ?>
+
+          <?php require_once 'layouts/pay-report.php'; ?>
+
+        <?php endif; ?>
+
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <!-- <div id="home_application_container">
       <div id="home_application_right_col">
         <div id="home-account-type-wrapper-stage0 stage1">
-          <p class="home_application_create_title">Mis compras</p>
-          <?php
-          if ($orders) {
-            foreach ($orders as $index => $order) :
-          ?>
-              <div class="card mb-3 card-selectable" style="max-width: 540px;" onclick="showForm(<?php echo $index; ?>)">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="<?php echo CONFIG_API_URL ?>src/storage/app/public/products/<?php echo $order->product->image ?>" class="img-fluid rounded-start" alt="<?php echo $order->product->name ?>">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title"><?php echo $order->product->name ?></h5>
-                      <p class="card-text">Tienda: <?php echo $order->store_name ?></p>
-                      <p class="card-text">Sucursal: <?php echo $order->branch_name ?></p>
-                      <p class="card-text"><small class="text-body-secondary">Inicial: <?php echo $order->fee_initial ?></small></p>
-                      <p class="card-text"><small class="text-body-secondary">Cuotas: <?php echo $order->quota_qty ?> x <?php echo $order->fee_amount ?></small></p>
-                      <p class="card-text"><small class="text-body-secondary">Fecha de compra: <?php echo $order->date_registration ?></small></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Formulario oculto por defecto -->
-              <div class="form-container" id="form-<?php echo $index; ?>" style="display:none;">
-                <form>
-                  <h5><?php echo $order->product->name ?></h5>
-                  <div class="mb-3">
-                    <label class="form-label">Tienda</label>
-                    <input type="text" class="form-control" value="<?php echo $order->store_name ?>" readonly>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Sucursal</label>
-                    <input type="text" class="form-control" value="<?php echo $order->branch_name ?>" readonly>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Monto a Pagar</label>
-                    <input type="text" class="form-control" value="<?php echo $order->fee_amount ?>" readonly>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Otro Monto</label>
-                    <input type="text" class="form-control" name="other_amount">
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Método de Pago</label>
-                    <select class="form-select" name="payment_method">
-                      <option value="credit_card">Tarjeta de Crédito</option>
-                      <option value="bank_transfer">Transferencia Bancaria</option>
-                      <option value="cash">Efectivo</option>
-                    </select>
-                  </div>
-                  <button type="submit" class="btn btn-primary">Pagar</button>
-                </form>
-              </div>
-          <?php
-            endforeach;
-          } else {
-            // echo 'No orders found.';
-          }
-          ?>
-
-          <script>
-            function showForm(index) {
-              // Ocultar todos los cards y formularios
-              document.querySelectorAll('.card-selectable').forEach(card => card.style.display = 'none');
-              document.querySelectorAll('.form-container').forEach(form => form.style.display = 'none');
-
-              // Mostrar el formulario correspondiente
-              document.getElementById('form-' + index).style.display = 'block';
-            }
-          </script>
-        </div>
-        <!-- <div id="home-account-type-wrapper-stage0 stage1">
           <p class="home_application_create_title">Registrar pago</p>
           <p class="home_application_create_sub_title">Registrar el pago.</p>
           <form id="form-stage1" name="form-stage1" action="" method="POST">
@@ -323,11 +317,11 @@ require_once 'layouts/head.php';
             <p class="apply-form-disclaimer">Texto informativo.</p>
             <input type="hidden" name="csrf-token" value="0fdc1021f7eeefc32bc6f5bde2ebbb87e5c6880d8871ae4e430f42c072b46265" />
           </form>
-        </div> -->
+        </div>
         <div class="clear"></div>
       </div>
       <div class="clear"></div>
-    </div>
+    </div> -->
   </section>
   <!-- FORMPAYMENT:END -->
 

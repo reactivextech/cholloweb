@@ -4,71 +4,41 @@
 require_once 'includes/config.php';
 require_once 'includes/function.php';
 
-// session_start();
+session_start();
 
-// require_once "Autenticacion.php";
-// require_once "Clases.php";
+// Verificar si el usuario ya ha iniciado sesión
+if (isset($_SESSION['session_token'])) {
+    // Redirigir al usuario a pay.php si ya está autenticado
+    header('Location: pay');
+    exit();
+}
 
-// $auth = new Auth();
-// $db_handle = new DBController();
-// $util = new Util();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $credential = $_POST['credential'];
+    $password = $_POST['password'];
 
-// require_once "ValidacionSesion.php";
+    // Llamada a la API de autenticación
+    $loginResponse = login($credential, $password);
 
-// if ($isLoggedIn) {
-//     $util->redirect("pay.php");
-// }
+    if ($loginResponse && $loginResponse->success) {
+        // Guardar token de sesión
+        $_SESSION['session_token'] = $loginResponse->data->session_token;
+        $_SESSION['customer_id'] = $loginResponse->data->id;
 
-// if (!empty($_POST["login"])) {
-//     $isAuthenticated = false;
+        // Redirigir a la página de pagos
+        header('Location: pay');
+        exit();
+    } else {
+        $error = $loginResponse->message ?? 'No se pudo iniciar sesión, intente nuevamente.';
+    }
+}
 
-//     $username = $_POST["usuario_nombre"];
-//     $password = $_POST["usuario_password"];
-
-//     $user = $auth->getMemberByUsername($username);
-//     if (password_verify($password, $user[0]["usuario_password"])) {
-//         $isAuthenticated = true;
-//     }
-
-//     if ($isAuthenticated) {
-//         $_SESSION["usuario_id"] = $user[0]["usuario_id"];
-
-//         // Set Auth Cookies if 'Remember Me' checked
-//         if (!empty($_POST["remember"])) {
-//             setcookie("login_usuario", $username, $cookie_expiration_time);
-
-//             $random_password = $util->getToken(16);
-//             setcookie("random_password", $random_password, $cookie_expiration_time);
-
-//             $random_selector = $util->getToken(32);
-//             setcookie("random_selector", $random_selector, $cookie_expiration_time);
-
-//             $random_password_hash = password_hash($random_password, PASSWORD_DEFAULT);
-//             $random_selector_hash = password_hash($random_selector, PASSWORD_DEFAULT);
-
-//             $expiry_date = date("Y-m-d H:i:s", $cookie_expiration_time);
-
-//             // mark existing token as expired
-//             $userToken = $auth->getTokenByUsername($username, 0);
-//             if (!empty($userToken[0]["id"])) {
-//                 $auth->markAsExpired($userToken[0]["id"]);
-//             }
-//             // Insert new token
-//             $auth->insertToken($username, $random_password_hash, $random_selector_hash, $expiry_date);
-//         } else {
-//             $util->clearAuthCookie();
-//         }
-//         $util->redirect("pagos.php");
-//     } else {
-//         $mensaje = "Credenciales incorrectos, Por favor intente nuevamente.";
-//     }
-// }
 ?>
 
 <!-- HEAD:BEGIN -->
 <?php
 
-$section = 'login';
+$page = 'login';
 require_once 'layouts/head.php';
 
 ?>
@@ -93,7 +63,7 @@ require_once 'layouts/head.php';
                             <div class="modal-title">Reporta tu Pago</div>
                             <p class="modal-description">Para iniciar el proceso, ingrese su cédula o correo electrónico de su cuenta registrada.</p>
                         </div>
-                        <form class="login-form" action="" method="POST" onsubmit="login(event)">
+                        <form class="login-form" action="login.php" method="POST">
                             <div class="input-control">
                                 <label>Cédula o Correo electrónico</label>
                                 <input type="text" id="credential" tabindex="5" name="credential" placeholder="Ingresa tu cédula o correo electrónico">
@@ -104,7 +74,9 @@ require_once 'layouts/head.php';
                             </div>
 
                             <!-- <a href="javascript:;" class="forgotten">¿Olvidaste la contraseña?</a> -->
-                            <p class="error-msg" style="display:none"></p>
+                            <?php if (isset($error)): ?>
+                                <p class="error-msg"><?php echo $error; ?></p>
+                            <?php endif; ?>
 
                             <button type="submit" class="login">Ingresar</button>
                         </form>
@@ -127,67 +99,6 @@ require_once 'layouts/head.php';
     <div id="mobile_nav_overlay_wrapper"></div>
 
     <div id="homepage_overlay_wrapper"></div>
-
-    <script>
-        async function login(event) {
-            event.preventDefault();
-
-            const credential = document.getElementById('credential').value;
-            const password = document.getElementById('password').value;
-
-            try {
-                const response = await fetch('http://192.168.18.3:8000/api/v1/auth/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        credential: credential,
-                        password: password
-                    })
-                });
-
-                // console.log(JSON.stringify({
-                //     credential: credential,
-                //     password: password
-                // }));
-
-                const data = await response.json();
-
-                if (data.success) {
-                    const token = data.data.session_token;
-                    const storeTokenResponse = await fetch('includes/token.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded'
-                        },
-                        body: `token=${token}`
-                    });
-
-                    const storeTokenResult = await storeTokenResponse.json();
-                    console.log(storeTokenResponse.json());
-                    console.log(storeTokenResult.success);
-                    if (storeTokenResult.success) {
-                        if ($loginSuccessful) {
-                            session_start();
-                            $_SESSION['api_token'] = $responseData['data']['session_token'];
-                            // Redireccionar o mostrar contenido según sea necesario
-                        }
-
-                        window.location.href = './pay';
-                    } else {
-                        alert('Error al guardar el token en la sesión.');
-                    }
-                } else {
-                    alert(data.message);
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Error al iniciar sesión, por favor intenta de nuevo.');
-            }
-        }
-    </script>
 
     <!-- SCRIPTS:BEGIN -->
     <?php require_once 'common/scripts.php'; ?>

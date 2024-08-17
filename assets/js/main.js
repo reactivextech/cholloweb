@@ -38,22 +38,22 @@ $(document).ready(function () {
 	$('.modal-header .close').click(function () {
 		$(this).closest('.modal').hide();
 	});
-	$('.login-form .forgotten').click(function () {
-		$('.recover-form [name="username"]').val(
-			$('.login-form [name="username"]').val()
-		);
+	// $('.login-form .forgotten').click(function () {
+	// 	$('.recover-form [name="username"]').val(
+	// 		$('.login-form [name="username"]').val()
+	// 	);
 
-		setTimeout(function () {
-			$('.login-form').hide();
-			$('.recover-form').show();
-		}, 500);
-		// $('.login-form [name="password"]').closest('.input-control').addClass('puff-out-center');
-	});
+	// 	setTimeout(function () {
+	// 		$('.login-form').hide();
+	// 		$('.recover-form').show();
+	// 	}, 500);
+	// 	// $('.login-form [name="password"]').closest('.input-control').addClass('puff-out-center');
+	// });
 
 	$('.recover-back').click(function () {
 		setTimeout(function () {
 			$('.recover-form').hide();
-			$('.login-form').show();
+			// $('.login-form').show();
 		}, 500);
 	});
 
@@ -199,104 +199,19 @@ $('#application_process_payment_details_btn').on('click', function () {
 //     window.location = "https://sunshinemobile.co.uk/thankyou.php";
 // })
 
-$('.login-form').submit(function (e) {
-	var $submit_btn = $('button[type="submit"]', $(this)).attr(
-		'disabled',
-		'disabled'
-	);
+// $('.login-form').submit(function (e) {
+// 	var $submit_btn = $('button[type="submit"]', $(this)).attr(
+// 		'disabled',
+// 		'disabled'
+// 	);
 
-	$submit_btn.find('i').addClass('animated fadeOutRight');
-	e.preventDefault();
+// 	$submit_btn.find('i').addClass('animated fadeOutRight');
+// 	e.preventDefault();
 
-	var fields = $(this).serializeArray();
+// 	var fields = $(this).serializeArray();
 
-	if (redirectDispatch)
-		fields.push({name: 'dispatch', value: redirectDispatch});
-
-	$('.login-form .error-msg').hide();
-	$.post('assets/ajax/login.ajax.html', fields, function (response) {
-		response = JSON.parse(response);
-
-		if (response.error == null) {
-			window.location.href = response.redirect_url;
-		} else {
-			var error_msg = '';
-			switch (response.error) {
-				case 'missing': {
-					error_msg = 'Please enter your username and password.';
-					for (var i = 0; i < response.missing.length; i++) {
-						var missing = response.missing[i];
-						$('.login-form [name="' + missing + '"]').addClass(
-							'error'
-						);
-					}
-					break;
-				}
-				case 'user_missing_shop': {
-					error_msg =
-						"That user doesn't exist. Please check for any typing mistakes.";
-					break;
-				}
-				case 'region': {
-					error_msg =
-						"Unfortunately we're no longer shipping goods to your chosen area. Please contact customer service if you have an existing order with us.";
-					break;
-				}
-				case 'shop_pass': {
-					error_msg = 'Password is incorrect.';
-					break;
-				}
-			}
-			$('.login-form .error-msg')
-				.toggle(error_msg.length > 0)
-				.text(error_msg);
-		}
-	}).always(function () {
-		$submit_btn.removeAttr('disabled');
-		$submit_btn.find('i').removeClass('animated fadeOutRight');
-	});
-
-	return false;
-});
-
-$('.recover-form').submit(function (e) {
-	e.preventDefault();
-	var $submit_btn = $('button[type="submit"]', $(this)).attr(
-		'disabled',
-		'disabled'
-	);
-	var fields = $(this).serializeArray();
-	$submit_btn.find('i').addClass('animated fadeOutRight');
-	$('.recover-form .error-msg').hide();
-	$.post('ajax/recover.ajax.html', fields, function (response) {
-		var response = JSON.parse(response);
-		console.log(response);
-		var error_msg = '';
-		switch (response.error) {
-			case 'missing': {
-				error_msg = 'Please enter your username.';
-				$('.recover-form [name="username"]').addClass('error');
-				break;
-			}
-			case 'user_missing': {
-				error_msg =
-					"That user doesn't exist. Please check for any typing mistakes.";
-				break;
-			}
-		}
-
-		if (response.sent) {
-			$('.recover-form .sent').show();
-		}
-
-		$('.recover-form .error-msg').show().text(error_msg);
-	}).always(function () {
-		$submit_btn.removeAttr('disabled');
-		$submit_btn.find('i').removeClass('animated fadeOutRight');
-	});
-
-	return false;
-});
+// 	if (redirectDispatch)
+// 		fields.push({name: 'dispatch', value: redirectDispatch});
 
 // send application btn
 $('.application_send_save_btn').on('click', function () {
@@ -973,71 +888,71 @@ $(document).ready(function () {
 				document.getElementById('create_account_button').style.display =
 					'none';
 				// document.getElementById('please_wait_image').style.display = 'block';
-				$.post(
-					'ajax/save_application2.ajax.html',
-					$(this).serializeArray(),
-					function (response) {
-						response = JSON.parse(response);
-						document.getElementById(
-							'create_account_button'
-						).style.display = 'block';
-						document.getElementById(
-							'please_wait_image'
-						).style.display = 'none';
-						if (response.error) {
-							var msg = '';
-							var msgs = {
-								postcode:
-									"Unfortunately we don't deliver to this area. Apologies for any inconvenience.",
-							};
-							msg = msgs[response.error];
+				// $.post(
+				// 	'ajax/save_application2.ajax.html',
+				// 	$(this).serializeArray(),
+				// 	function (response) {
+				// 		response = JSON.parse(response);
+				// 		document.getElementById(
+				// 			'create_account_button'
+				// 		).style.display = 'block';
+				// 		document.getElementById(
+				// 			'please_wait_image'
+				// 		).style.display = 'none';
+				// 		if (response.error) {
+				// 			var msg = '';
+				// 			var msgs = {
+				// 				postcode:
+				// 					"Unfortunately we don't deliver to this area. Apologies for any inconvenience.",
+				// 			};
+				// 			msg = msgs[response.error];
 
-							if (!msg)
-								msg =
-									'An unknown error occured. Please contact support and we will be happy to assist.';
-							alert(msg);
-							return;
-						}
-						console.log(response);
-						console.log('redirect url is ' + response.redirect_url);
-						console.log('user ID ' + response.user_id);
-						benefits_user_id = response.user_id;
-						benefits_redirect = response.redirect_url;
-						//fbq('track', 'CompleteRegistration');
+				// 			if (!msg)
+				// 				msg =
+				// 					'An unknown error occured. Please contact support and we will be happy to assist.';
+				// 			alert(msg);
+				// 			return;
+				// 		}
+				// 		console.log(response);
+				// 		console.log('redirect url is ' + response.redirect_url);
+				// 		console.log('user ID ' + response.user_id);
+				// 		benefits_user_id = response.user_id;
+				// 		benefits_redirect = response.redirect_url;
+				// 		//fbq('track', 'CompleteRegistration');
 
-						if (
-							response.user_id == '' ||
-							response.user_id == null
-						) {
-							console.log('email already exists');
-							alert('email already exists');
-						} else {
-							_paq.push([
-								'trackEvent',
-								'Create an Account',
-								'Create an Account',
-								'Create an Account',
-								1,
-							]);
+				// 		if (
+				// 			response.user_id == '' ||
+				// 			response.user_id == null
+				// 		) {
+				// 			console.log('email already exists');
+				// 			alert('email already exists');
+				// 		} else {
+				// 			_paq.push([
+				// 				'trackEvent',
+				// 				'Create an Account',
+				// 				'Create an Account',
+				// 				'Create an Account',
+				// 				1,
+				// 			]);
 
-							window.location.href = response.redirect_url;
-							//  window.location.href='/pre-app2.php';
-							// document.getElementById('home-account-type-wrapper-stage0').style.display='none';
-							// document.getElementById('home-account-type-wrapper-stage1').style.display='block';
+				// 			window.location.href = response.redirect_url;
+				// 			//  window.location.href='/pre-app2.php';
+				// 			// document.getElementById('home-account-type-wrapper-stage0').style.display='none';
+				// 			// document.getElementById('home-account-type-wrapper-stage1').style.display='block';
 
-							$([
-								document.documentElement,
-								document.body,
-							]).animate(
-								{
-									scrollTop:
-										$('#form-stage2').offset().top - 140,
-								},
-								2000
-							);
-						}
-					}
-				);
+				// 			$([
+				// 				document.documentElement,
+				// 				document.body,
+				// 			]).animate(
+				// 				{
+				// 					scrollTop:
+				// 						$('#form-stage2').offset().top - 140,
+				// 				},
+				// 				2000
+				// 			);
+				// 		}
+				// 	}
+				// );
 			}
 		}
 		return false;
@@ -1065,17 +980,17 @@ $(document).ready(function () {
 		if (valids != 6) return;
 		$('#application_process_app_btn2').attr('disabled', 'disabled');
 
-		$.post(
-			'ajax/save_application_address.ajax.html',
-			$(this).serializeArray(),
-			function (response) {
-				console.log(response);
+		// $.post(
+		// 	'ajax/save_application_address.ajax.html',
+		// 	$(this).serializeArray(),
+		// 	function (response) {
+		// 		console.log(response);
 
-				$('#application_process_app_btn2').removeAttr('disabled');
+		// 		$('#application_process_app_btn2').removeAttr('disabled');
 
-				window.location.href = 'pre-app2.html';
-			}
-		);
+		// 		window.location.href = 'pre-app2.html';
+		// 	}
+		// );
 
 		return false;
 	});
@@ -1129,14 +1044,14 @@ $(document).ready(function () {
 	});
 
 	$('#home-account-flavva-benefits').on('click', function () {
-		$.post(
-			'ajax/user_group_insert.ajax.html',
-			{groups: [16, 20]},
-			function (response) {
-				response = JSON.parse(response);
-				window.location.href = response.redirect_url;
-			}
-		);
+		// $.post(
+		// 	'ajax/user_group_insert.ajax.html',
+		// 	{groups: [16, 20]},
+		// 	function (response) {
+		// 		response = JSON.parse(response);
+		// 		window.location.href = response.redirect_url;
+		// 	}
+		// );
 	});
 	$('#home-account-standard').on('click', function () {
 		window.location.href = benefits_redirect;
@@ -1820,25 +1735,25 @@ $('#home_apply_short_form').submit(function (e) {
 			$('.lds-roller').css('display', 'block');
 			$('.loading-spinner-bg').css('display', 'block');
 
-			$.post(
-				'ajax/save_application.ajax.html',
-				$(this).serializeArray(),
-				function (response) {
-					response = JSON.parse(response);
-					console.log(response);
-					console.log('redirect url is ' + response.redirect_url);
-					console.log('user ID ' + response.user_id);
-					if (response.user_id == '' || response.user_id == null) {
-						console.log('email already exists');
-						alert('email already exists');
-						// Remove loading icon
-						$('.lds-roller').css('display', 'none');
-						$('.loading-spinner-bg').css('display', 'none');
-					} else {
-						window.location.href = response.redirect_url;
-					}
-				}
-			);
+			// $.post(
+			// 	'ajax/save_application.ajax.html',
+			// 	$(this).serializeArray(),
+			// 	function (response) {
+			// 		response = JSON.parse(response);
+			// 		console.log(response);
+			// 		console.log('redirect url is ' + response.redirect_url);
+			// 		console.log('user ID ' + response.user_id);
+			// 		if (response.user_id == '' || response.user_id == null) {
+			// 			console.log('email already exists');
+			// 			alert('email already exists');
+			// 			// Remove loading icon
+			// 			$('.lds-roller').css('display', 'none');
+			// 			$('.loading-spinner-bg').css('display', 'none');
+			// 		} else {
+			// 			window.location.href = response.redirect_url;
+			// 		}
+			// 	}
+			// );
 		}
 	}
 	return false;

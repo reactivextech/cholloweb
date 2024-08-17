@@ -1,8 +1,8 @@
 <?php
 
-$section = isset($section) ? $section : 'index';
+$page = isset($page) ? $page : 'index';
 
-switch ($section) {
+switch ($page) {
     case 'pay':
         $title = 'Chollo — Pagos';
         $canonical = 'https://www.chollo.app/pay';

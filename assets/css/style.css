@@ -253,7 +253,7 @@ li {
 }
 .error-msg {
 	color: red;
-	font-size: 13px;
+	font-size: 14px;
 }
 #modalLogin .error-msg {
 	text-align: center;
@@ -6278,7 +6278,7 @@ footer {
 .mobile-nav-container-header {
 	background-color: #0012c6;
 	padding: 15px 20px 15px 20px;
-	height: 35px;
+	height: 70px;
 }
 .mobile-nav-container-header img {
 	max-width: 130px;
@@ -6753,7 +6753,6 @@ footer {
 	position: relative;
 	display: inline-block;
 	width: 100%;
-	/* max-width: 120px; */
 	height: auto;
 	margin-bottom: 10px;
 }
@@ -8847,7 +8846,6 @@ footer {
 	.features_single_container {
 		width: 45%;
 		margin: 0px 2.5% 20px 2.5%;
-		height: 18em;
 	}
 
 	.features_single_container h3 {
@@ -10667,7 +10665,6 @@ footer {
 	}
 	.features_single_container {
 		width: 100%;
-		height: 15em;
 	}
 	.hp_discover_single {
 		margin: 0px 0px 20px 0px;

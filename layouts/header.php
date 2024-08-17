@@ -7,7 +7,7 @@
         </div>
         <div id="header_bottom_mid">
             <!-- <a href="#" class="header_bottom_link_item">Dónde Comprar</a> -->
-            <a href="login" class="header_bottom_link_item">Pagar Cuota</a>
+            <a href="pay" class="header_bottom_link_item">Pagar Cuota</a>
             <!-- <a href="faq" class="header_bottom_link_item">FAQ's</a> -->
             <!-- <a href="contact" class="header_bottom_link_item">Ayuda</a> -->
             <!-- <a class="header_bottom_link_item header-login-btn">Iniciar Sesión</a> -->
@@ -50,7 +50,7 @@
         <div class="mobile-nav-container-body">
             <ul>
                 <!-- <li><a href="#">Donde Comprar <i class="fas fa-arrow-right" style="margin-left:10px;"></i></a></li> -->
-                <li><a href="login">Pagar Cuota <i class="fas fa-arrow-right" style="margin-left:10px;"></i></a></li>
+                <li><a href="pay">Pagar Cuota <i class="fas fa-arrow-right" style="margin-left:10px;"></i></a></li>
                 <!-- <li><a href="faq">FAQ's <i class="fas fa-arrow-right" style="margin-left:10px;"></i></a></li> -->
                 <!-- <li><a href="contact">Ayuda <i class="fas fa-arrow-right" style="margin-left:10px;"></i></a></li> -->
                 <!-- <li><a href="contact">Iniciar Sesión <i class="fas fa-arrow-right" style="margin-left:10px;"></i></a></li> -->

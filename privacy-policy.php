@@ -9,7 +9,7 @@ require_once 'includes/function.php';
 <!-- HEAD:BEGIN -->
 <?php
 
-$section = 'privacy-policy';
+$page = 'privacy-policy';
 require_once 'layouts/head.php';
 
 ?>
