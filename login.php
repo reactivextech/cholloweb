@@ -24,6 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Guardar token de sesión
         $_SESSION['session_token'] = $loginResponse->data->session_token;
         $_SESSION['customer_id'] = $loginResponse->data->id;
+        $_SESSION['customer_name'] = $loginResponse->data->name;
+        $_SESSION['customer_lastname'] = $loginResponse->data->lastname;
 
         // Redirigir a la página de pagos
         header('Location: pay');

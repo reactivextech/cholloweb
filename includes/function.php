@@ -38,7 +38,7 @@ function apiRequest($endpoint, $method = 'GET', $data = null, $token = null)
     if ($httpCode == 201) {
         return json_decode($result);
     } else {
-        throw new Exception('API request failed with status code ' . $httpCode);
+        throw new Exception($httpCode);
     }
 }
 
@@ -55,7 +55,6 @@ function login($credential, $password)
         $response = apiRequest('auth/login', 'POST', $myUser);
         return $response ?? null;
     } catch (Exception $e) {
-        echo 'Login failed: ' . $e->getMessage();
         return null;
     }
 }
@@ -66,7 +65,6 @@ function checkSession($token)
         $response = apiRequest('auth/check-session', 'GET', null, $token);
         return $response->success ?? false;
     } catch (Exception $e) {
-        echo 'Check session failed: ' . $e->getMessage();
         return false;
     }
 }
@@ -77,7 +75,17 @@ function logout($token)
         $response = apiRequest('auth/logout', 'GET', null, $token);
         return $response;
     } catch (Exception $e) {
-        echo 'Logout failed: ' . $e->getMessage();
+        return null;
+    }
+}
+
+// COMPANY Function
+function getCompany($token)
+{
+    try {
+        $response = apiRequest('company/getCompany/1', 'GET', null, $token);
+        return $response;
+    } catch (Exception $e) {
         return null;
     }
 }
@@ -89,7 +97,6 @@ function getOrdersByCustomer($customerId, $token)
         $response = apiRequest('order/findByCustomer/' . $customerId, 'GET', null, $token);
         return $response;
     } catch (Exception $e) {
-        echo 'Fetching orders failed: ' . $e->getMessage();
         return null;
     }
 }
@@ -97,10 +104,9 @@ function getOrdersByCustomer($customerId, $token)
 function getOrderById($orderId, $token)
 {
     try {
-        $response = apiRequest('order/findQuotasByOrder/' . $orderId, 'GET', null, $token);
+        $response = apiRequest('order/findByOrderId/' . $orderId, 'GET', null, $token);
         return $response;
     } catch (Exception $e) {
-        echo 'Fetching order failed: ' . $e->getMessage();
         return null;
     }
 }
@@ -111,7 +117,6 @@ function getQuotasByOrder($orderId, $token)
         $response = apiRequest('order/findQuotasByOrder/' . $orderId, 'GET', null, $token);
         return $response;
     } catch (Exception $e) {
-        echo 'Fetching quotas failed: ' . $e->getMessage();
         return null;
     }
 }
