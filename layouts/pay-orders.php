@@ -37,9 +37,8 @@
     </div>
 <?php endif; ?>
 
-
 <script>
     function selectOrder(orderId) {
-        window.location.href = 'pay?section=select&order_id=' + orderId;
+        window.location.href = 'pay?section=report&order_id=' + orderId;
     }
 </script>

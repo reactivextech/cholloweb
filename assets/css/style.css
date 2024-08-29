@@ -5824,6 +5824,9 @@ li {
 .no-orders p {
 	display: inline-block;
 }
+.form-control:focus {
+	box-shadow: none;
+}
 #footer_container {
 	width: 95%;
 	max-width: 1300px;

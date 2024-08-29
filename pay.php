@@ -30,26 +30,12 @@ $section = $_GET['section'] ?? 'list'; // Default es listar órdenes
 $orderId = $_GET['order_id'] ?? null;
 
 switch ($section) {
-  case 'select':
+  case 'report':
     if ($orderId) {
       $orderDetails = getOrderById($orderId, $token);
       $orderQuota = getQuotasByOrder($orderId, $token);
       if (!$orderDetails || !$orderQuota) {
         echo "Orden no encontrada.";
-        exit();
-      }
-    } else {
-      header('Location: pay?section=list');
-      exit();
-    }
-    break;
-  case 'report':
-    if ($orderId) {
-      $feeAmount = $_GET['fee_amount'] ?? null;
-      $otherAmount = $_GET['other_amount'] ?? null;
-      $paymentMethod = $_GET['payment_method'] ?? null;
-      if (!$feeAmount || !$paymentMethod) {
-        header('Location: pay?section=select&order_id=' . $orderId);
         exit();
       }
     } else {
@@ -130,20 +116,20 @@ require_once 'layouts/head.php';
         </aside>
 
         <!-- Content Section -->
-        <section class="col-md-6">
-          <?php if ($section === 'list'): ?>
+        <section class="col-md-9">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <?php if ($section === 'list'): ?>
 
-            <?php require_once 'layouts/pay-orders.php'; ?>
+                <?php require_once 'layouts/pay-orders.php'; ?>
 
-          <?php elseif ($section === 'select'): ?>
+              <?php elseif ($section === 'report'): ?>
 
-            <?php require_once 'layouts/pay-select.php'; ?>
+                <?php require_once 'layouts/pay-report.php'; ?>
 
-          <?php elseif ($section === 'report'): ?>
-
-            <?php require_once 'layouts/pay-report.php'; ?>
-
-          <?php endif; ?>
+              <?php endif; ?>
+            </div>
+          </div>
         </section>
       </div>
     </div>
