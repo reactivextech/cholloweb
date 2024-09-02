@@ -3,7 +3,7 @@
 // GLOBAL Function
 function apiRequest($endpoint, $method = 'GET', $data = null, $token = null)
 {
-    $curl = curl_init(CONFIG_API_URL . 'api/v1/' . $endpoint); // CONFIG_API_URL de config.php
+    $curl = curl_init(CONFIG_API_URL . 'api/v1/web/' . $endpoint); // CONFIG_API_URL de config.php
 
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
