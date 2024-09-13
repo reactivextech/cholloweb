@@ -182,7 +182,7 @@ li {
 	margin: 0 auto;
 	margin-top: 100px;
 	border-radius: 6px;
-	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+	/* box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important; */
 	width: 80%;
 	transition: height 0.66s ease-out;
 }

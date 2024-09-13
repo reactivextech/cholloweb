@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Llamada a la API de autenticación
     $loginResponse = login($credential, $password);
-
+    
     if ($loginResponse && $loginResponse->success) {
         // Guardar token de sesión
         $_SESSION['session_token'] = $loginResponse->data->session_token;
@@ -56,11 +56,11 @@ require_once 'layouts/head.php';
     <!-- HEADER:END -->
 
     <!-- LOGIN:BEGIN -->
-    <section id="section_login" class="login-form">
+    <section id="home_application_wrapper" class="login-form">
         <div id="home_application_container">
             <div id="login-page">
                 <div class="modal-content">
-                    <div class="modal-body">
+                    <div id="home_application_right_col">
                         <div class="recover-form">
                             <div class="modal-title">Reporta tu Pago</div>
                             <p class="modal-description">Para iniciar el proceso, ingrese su cédula o correo electrónico de su cuenta registrada.</p>
