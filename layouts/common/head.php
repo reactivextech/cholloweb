@@ -3,6 +3,13 @@
 $page = isset($page) ? $page : 'index';
 
 switch ($page) {
+    case 'ally':
+        $title = 'Chollo — Aliado Comercial';
+        $canonical = 'https://www.chollo.app/ally';
+        $description = 'Te ayudamos a potenciar tu negocio.';
+        $keywords = 'credit, phone, cuotas, credito, celular, telefono, producto, aliado, comercial, negocio, registro';
+
+        break;
     case 'pay':
         $title = 'Chollo — Pagos';
         $canonical = 'https://www.chollo.app/pay';
@@ -14,7 +21,7 @@ switch ($page) {
         $title = 'Chollo — Inicio de Sesión';
         $canonical = 'https://www.chollo.app/login';
         $description = 'Inicia sesión para pagar tu cuota fácilmente con Chollo.';
-        $keywords = 'credit, phone, cuotas, credito, celular, telefono, producto, pago, pagos, financiamiento';
+        $keywords = 'credit, phone, cuotas, credito, celular, telefono, producto, sesion, ingresar, financiamiento';
 
         break;
     case 'privacy-policy':
@@ -48,18 +55,18 @@ switch ($page) {
 
 <head>
     <!-- METADATA:BEGIN -->
-    <?php require_once 'common/metadata.php'; ?>
+    <?php require_once 'layouts/common/metadata.php'; ?>
     <!-- METADATA:END -->
 
     <!-- FAVICON:BEGIN -->
-    <?php require_once 'common/favicon.php'; ?>
+    <?php require_once 'layouts/common/favicon.php'; ?>
     <!-- FAVICON:END -->
 
     <!-- STYLES:BEGIN -->
-    <?php require_once 'common/styles.php'; ?>
+    <?php require_once 'layouts/common/styles.php'; ?>
     <!-- STYLES:END -->
 
     <!-- GOOGLEANALYTIC:BEGIN -->
-    <?php require_once 'common/google-analytic.php'; ?>
+    <?php require_once 'layouts/common/google-analytic.php'; ?>
     <!-- GOOGLEANALYTIC:END -->
 </head>

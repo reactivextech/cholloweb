@@ -119,18 +119,18 @@ $pJSON = json_decode($result);
 <?php
 
 $page = 'index';
-require_once 'layouts/head.php';
+require_once 'layouts/common/head.php';
 
 ?>
 <!-- HEAD:END -->
 
 <body>
     <!-- BANNERTOP:BEGIN -->
-    <?php require_once 'layouts/banner-top.php'; ?>
+    <?php require_once 'layouts/theme/banner-top.php'; ?>
     <!-- BANNERTOP:END -->
 
     <!-- HEADER:BEGIN -->
-    <?php require_once 'layouts/header.php'; ?>
+    <?php require_once 'layouts/theme/header.php'; ?>
     <!-- HEADER:END -->
 
     <!-- COVER:BEGIN -->
@@ -420,8 +420,8 @@ require_once 'layouts/head.php';
     <!-- STORES:BEGIN -->
     <section id="you_decide_to_pay_wrapper">
         <div id="you_decide_to_pay_container">
-            <h3 class="home_h3_title text_center">Explora dónde <span>comprar</span></h3>
-            <p class="home_sub_title text_center">Visita nuestras tiendas autorizadas y descubre una experiencia de compra única. Encuentra la tienda más cercana a ti y comienza tu experiencia de compra hoy mismo.</p>
+            <h3 class="home_h3_title text-center">Explora dónde <span>comprar</span></h3>
+            <p class="home_sub_title text-center">Visita nuestras tiendas autorizadas y descubre una experiencia de compra única. Encuentra la tienda más cercana a ti y comienza tu experiencia de compra hoy mismo.</p>
 
             <!-- <div id="you_decide_to_pay_left_col">
                 <h3 class="home_h3_title">Nuestras <span>Tiendas</span></h3>
@@ -479,11 +479,11 @@ require_once 'layouts/head.php';
     <!-- STORES:END -->
 
     <!-- QRAPP:BEGIN -->
-    <?php require_once 'layouts/qr-app.php'; ?>
+    <?php require_once 'layouts/theme/qr-app.php'; ?>
     <!-- QRAPP:END -->
 
     <!-- FOOTER:BEGIN -->
-    <?php require_once 'layouts/footer.php'; ?>
+    <?php require_once 'layouts/theme/footer.php'; ?>
     <!-- FOOTER:END -->
 
     <div id="mobile_nav_overlay_wrapper"></div>
@@ -491,7 +491,7 @@ require_once 'layouts/head.php';
     <div id="homepage_overlay_wrapper"></div>
 
     <!-- SCRIPTS:BEGIN -->
-    <?php require_once 'common/scripts.php'; ?>
+    <?php require_once 'layouts/common/scripts.php'; ?>
     <!-- SCRIPTS:END -->
 </body>
 

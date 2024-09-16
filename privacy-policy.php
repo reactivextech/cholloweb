@@ -10,18 +10,18 @@ require_once 'includes/function.php';
 <?php
 
 $page = 'privacy-policy';
-require_once 'layouts/head.php';
+require_once 'layouts/common/head.php';
 
 ?>
 <!-- HEAD:END -->
 
 <body>
     <!-- BANNERTOP:BEGIN -->
-    <?php require_once 'layouts/banner-top.php'; ?>
+    <?php require_once 'layouts/theme/banner-top.php'; ?>
     <!-- BANNERTOP:END -->
 
     <!-- HEADER:BEGIN -->
-    <?php require_once 'layouts/header.php'; ?>
+    <?php require_once 'layouts/theme/header.php'; ?>
     <!-- HEADER:END -->
 
     <!-- PRIVACYPOLICY:BEGIN -->
@@ -92,11 +92,11 @@ require_once 'layouts/head.php';
     <!-- PRIVACYPOLICY:END -->
 
     <!-- QRAPP:BEGIN -->
-    <?php require_once 'layouts/qr-app.php'; ?>
+    <?php require_once 'layouts/theme/qr-app.php'; ?>
     <!-- QRAPP:END -->
 
     <!-- FOOTER:BEGIN -->
-    <?php require_once 'layouts/footer.php'; ?>
+    <?php require_once 'layouts/theme/footer.php'; ?>
     <!-- FOOTER:END -->
 
     <div id="mobile_nav_overlay_wrapper"></div>
@@ -104,7 +104,7 @@ require_once 'layouts/head.php';
     <div id="homepage_overlay_wrapper"></div>
 
     <!-- SCRIPTS:BEGIN -->
-    <?php require_once 'common/scripts.php'; ?>
+    <?php require_once 'layouts/common/scripts.php'; ?>
     <!-- SCRIPTS:END -->
 </body>
 

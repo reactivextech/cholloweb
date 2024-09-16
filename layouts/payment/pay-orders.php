@@ -1,4 +1,4 @@
-<h2 class="title-primary mb-4">Compras pendientes</h2>
+<h2 class="text-primary fs-5 fw-medium mb-4">Compras pendientes</h2>
 
 <?php if ($orders): ?>
     <?php foreach ($orders as $order): ?>
@@ -32,8 +32,8 @@
         </div>
     <?php endforeach; ?>
 <?php else: ?>
-    <div class="no-orders">
-        <p>No tienes órdenes pendientes.</p>
+    <div class="no-orders rounded-3 p-1">
+        <p class="text-center fs-5 fw-medium d-inline-block">No tienes órdenes pendientes.</p>
     </div>
 <?php endif; ?>
 

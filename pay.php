@@ -18,6 +18,8 @@ if (!$authenticated) {
 $customerId = $_SESSION['customer_id'] ?? null;
 $customerName = $_SESSION['customer_name'] ?? null;
 $customerLastname = $_SESSION['customer_lastname'] ?? null;
+$customerNationality = $_SESSION['customer_nationality'] ?? null;
+$customerIdentification = $_SESSION['customer_identification'] ?? null;
 
 $firstName = explode(' ', $customerName)[0];
 $lastName = explode(' ', $customerLastname)[0];
@@ -70,31 +72,31 @@ if (isset($_POST['action']) && $_POST['action'] === 'logout') {
 <?php
 
 $page = 'pay';
-require_once 'layouts/head.php';
+require_once 'layouts/common/head.php';
 
 ?>
 <!-- HEAD:END -->
 
 <body>
   <!-- BANNERTOP:BEGIN -->
-  <?php require_once 'layouts/banner-top.php'; ?>
+  <?php require_once 'layouts/theme/banner-top.php'; ?>
   <!-- BANNERTOP:END -->
 
   <!-- HEADER:BEGIN -->
-  <?php require_once 'layouts/header.php'; ?>
+  <?php require_once 'layouts/theme/header.php'; ?>
   <!-- HEADER:END -->
 
-  <!-- FORMPAYMENT:BEGIN -->
-  <main id="content-pay">
+  <!-- PAYMENT:BEGIN -->
+  <main id="section-payment">
     <div class="container">
       <div class="row justify-content-center">
         <!-- Aside Section -->
-        <aside class="col-md-3">
-          <h2 class="title-primary mb-4">¡Hola, <?php echo $firstName . ' ' . $lastName; ?>!</h2>
+        <aside class="col-lg-3">
+          <h2 class="text-primary fs-5 fw-medium mb-4">¡Hola, <?php echo $firstName . ' ' . $lastName; ?>!</h2>
           <div class="d-flex flex-column gap-3">
             <div class="row">
               <!-- Logout Button -->
-              <div class="col-6">
+              <div class="col-sm-6">
                 <form method="POST" action="pay">
                   <input type="hidden" name="action" value="logout">
                   <button type="submit" class="btn btn-light btn-square d-flex flex-column align-items-center justify-content-center">
@@ -105,7 +107,7 @@ require_once 'layouts/head.php';
               </div>
 
               <!-- Support Button -->
-              <div class="col-6">
+              <div class="col-sm-6">
                 <button type="button" class="btn btn-light btn-square d-flex flex-column align-items-center justify-content-center">
                   <i class="fas fa-headset fa-2x"></i> <!-- Font Awesome Icon for Support -->
                   <span class="mt-2">Atención al Cliente</span>
@@ -116,16 +118,16 @@ require_once 'layouts/head.php';
         </aside>
 
         <!-- Content Section -->
-        <section class="col-md-9">
+        <section class="col-lg-9">
           <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-lg-9">
               <?php if ($section === 'list'): ?>
 
-                <?php require_once 'layouts/pay-orders.php'; ?>
+                <?php require_once 'layouts/payment/pay-orders.php'; ?>
 
               <?php elseif ($section === 'report'): ?>
 
-                <?php require_once 'layouts/pay-report.php'; ?>
+                <?php require_once 'layouts/payment/pay-report.php'; ?>
 
               <?php endif; ?>
             </div>
@@ -134,14 +136,14 @@ require_once 'layouts/head.php';
       </div>
     </div>
   </main>
-  <!-- FORMPAYMENT:END -->
+  <!-- PAYMENT:END -->
 
   <!-- QRAPP:BEGIN -->
-  <?php require_once 'layouts/qr-app.php'; ?>
+  <?php require_once 'layouts/theme/qr-app.php'; ?>
   <!-- QRAPP:END -->
 
   <!-- FOOTER:BEGIN -->
-  <?php require_once 'layouts/footer.php'; ?>
+  <?php require_once 'layouts/theme/footer.php'; ?>
   <!-- FOOTER:END -->
 
   <div id="mobile_nav_overlay_wrapper"></div>
@@ -149,7 +151,7 @@ require_once 'layouts/head.php';
   <div id="homepage_overlay_wrapper"></div>
 
   <!-- SCRIPTS:BEGIN -->
-  <?php require_once 'common/scripts.php'; ?>
+  <?php require_once 'layouts/common/scripts.php'; ?>
   <!-- SCRIPTS:END -->
 </body>
 

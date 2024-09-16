@@ -3,7 +3,7 @@
 // GLOBAL Function
 function apiRequest($endpoint, $method = 'GET', $data = null, $token = null)
 {
-    $curl = curl_init(CONFIG_API_URL . 'api/v1/web/' . $endpoint); // CONFIG_API_URL de config.php
+    $curl = curl_init(CONFIG_API_URL . 'api/web/' . $endpoint); // CONFIG_API_URL de config.php
 
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
@@ -35,11 +35,22 @@ function apiRequest($endpoint, $method = 'GET', $data = null, $token = null)
     $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
     curl_close($curl);
 
-    if ($httpCode == 201) {
-        return json_decode($result);
-    } else {
-        throw new Exception($httpCode);
+    // if ($httpCode == 201) {
+    //     return json_decode($result);
+    // } else {
+    //     throw new Exception($httpCode);
+    // }
+
+    return json_decode($result);
+}
+
+function convertToInternational($phoneNumber)
+{
+    // Si el número empieza con '0', reemplazamos con '58'
+    if (substr($phoneNumber, 0, 1) === '0') {
+        return '58' . substr($phoneNumber, 1);
     }
+    return $phoneNumber; // Si no empieza con '0', no modificamos
 }
 
 function getYear()
@@ -53,6 +64,7 @@ function login($credential, $password)
     try {
         $myUser = ['credential' => $credential, 'password' => $password];
         $response = apiRequest('auth/login', 'POST', $myUser);
+
         return $response ?? null;
     } catch (Exception $e) {
         return null;
@@ -120,5 +132,7 @@ function getQuotasByOrder($orderId, $token)
         return null;
     }
 }
+
+// PAYMENT Function
 
 ?>

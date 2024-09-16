@@ -2,95 +2,20 @@
 :root {
 	/*========== Colors ==========*/
 	--color-primary: #0012C6;
-	--color-secundary: #80FF72;
+	--color-secundary: #5dbb53;
+	--color-secundary-emphasis: #80FF72;
 	--color-black: #2c2c31;
 	--color-white: #ffffff;
 	--color-grey: #adb4c9;
-	--color-bg-btn: #f8f9fa;
+	--color-bg-card: #f8f9fa;
 	--border-color: #ffffff1a;
 }
 /*==================== BASE - CONTAINER ====================*/
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a,
+abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike,
+strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -105,34 +30,19 @@ video {
 	display: none !important;
 }
 /* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
 	line-height: 1;
 }
-ol,
-ul {
+ol, ul {
 	list-style: none;
 }
-blockquote,
-q {
+blockquote, q {
 	quotes: none;
 }
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote:before, blockquote:after, q:before, q:after {
 	content: '';
 	content: none;
 }
@@ -140,29 +50,78 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-html,
-body {
+html, body {
 	font-family: 'Poppins', sans-serif;
 	font-size: 16px;
 }
-html,
-body,
-p,
-button,
-input,
-textarea,
-label,
-li {
+html, body, p, button, input, textarea, label, li {
 	font-family: 'Poppins', sans-serif !important;
 }
 .clear {
 	clear: both;
 }
-
-.login-form button.login[disabled='disabled'] {
-	background-color: #8bd01b7d;
+/*==================== BOOTSTRAP - GENERAL ====================*/
+.fs-5 {
+    font-size: 1.2rem !important;
 }
-
+.text-primary {
+    color: var(--color-primary) !important;
+}
+.text-secundary {
+	color: var(--color-secundary) !important;
+}
+.btn.btn-primary {
+	background-color: var(--color-primary);
+	border-color: var(--color-primary);
+}
+.btn.btn-outline-primary {
+	color: var(--color-primary);
+    background-color: transparent;
+    border-color: var(--color-primary);
+}
+.btn:hover.btn-outline-primary, .btn:focus.btn-outline-primary {
+	color: var(--color-white);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+.btn.btn-secundary {
+	background-color: var(--color-secundary);
+	border-color: var(--color-secundary);
+}
+.btn.btn-outline-secundary {
+	color: var(--color-secundary);
+    background-color: transparent;
+    border-color: var(--color-secundary);
+}
+.btn:hover.btn-outline-secundary, .btn:focus.btn-outline-secundary {
+	color: var(--color-white);
+    background-color: var(--color-secundary);
+    border-color: var(--color-secundary);
+}
+.dropdown-item.active, .dropdown-item:active {
+    color: #212529;
+    text-decoration: none;
+    background-color: #f8f9fa;
+}
+.card {
+	background-color: var(--color-bg-card);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	border: transparent;
+	border-radius: 0.375rem;
+	-webkit-border-radius: 0.375rem;
+	-moz-border-radius: 0.375rem;
+	-ms-border-radius: 0.375rem;
+	-o-border-radius: 0.375rem;
+}
+.card-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+/*==================== SECTION - VARIABLES ====================*/
+.login-form button.login[disabled='disabled'] {
+	background-color: var(--color-secundary);
+}
 .modal {
 	display: none;
 	position: fixed;
@@ -182,7 +141,7 @@ li {
 	margin: 0 auto;
 	margin-top: 100px;
 	border-radius: 6px;
-	/* box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important; */
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 	width: 80%;
 	transition: height 0.66s ease-out;
 }
@@ -411,11 +370,6 @@ li {
 	-moz-appearance: none;
 	-ms-appearance: none;
 	-o-appearance: none;
-}
-#login-page .error-msg {
-	text-align: center;
-	margin-bottom: 10px;
-	clear: both;
 }
 #login-page .modal-content {
 	max-width: 450px;
@@ -5754,18 +5708,10 @@ li {
 .payment-form .application_send_app_btn {
 	line-height: 50px;
 }
-#section_payment .home_application_create_title {
-	font-size: 18px;
-}
-/*==================== CONTENT PAY ====================*/
-#content-pay {
+/*==================== SECTION - PAYMENT ====================*/
+#section-payment {
 	padding-top: 3rem;
 	padding-bottom: 6rem;
-}
-.title-primary {
-	color: var(--color-primary);
-	font-size: 1.2rem;
-    font-weight: 500;
 }
 .btn-square {
     width: 100%;
@@ -5783,21 +5729,6 @@ li {
     -ms-border-radius: 0.375rem;
     -o-border-radius: 0.375rem;
 }
-.card {
-	background-color: var(--color-bg-btn);
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	border: transparent;
-	border-radius: 0.375rem;
-	-webkit-border-radius: 0.375rem;
-	-moz-border-radius: 0.375rem;
-	-ms-border-radius: 0.375rem;
-	-o-border-radius: 0.375rem;
-}
-.card-body {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
 .card-button {
     cursor: pointer;
     transition: transform 0.3s ease, opacity 0.3s ease;
@@ -5813,16 +5744,8 @@ li {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 .no-orders {
-	text-align: center;
-	font-size: 1.2rem;
 	color: var(--color-black);
-	font-weight: 500;
 	background-color: #f8f9fa;
-	padding: 1rem;
-	border-radius: 0.5rem;
-}
-.no-orders p {
-	display: inline-block;
 }
 .form-control:focus {
 	box-shadow: none;
@@ -7834,17 +7757,6 @@ footer {
 }
 
 /* SLIDER TIENDAS */
-
-/* body {
-	align-items: center;
-	background: #E3E3E3;
-	display: flex;
-	height: 100vh;
-	justify-content: center;
-} */
-
-/* $animationSpeed: 20s; */
-
 /* Animation */
 @keyframes scroll {
 	0% {
@@ -7864,7 +7776,7 @@ footer {
 	overflow: hidden;
 	position: relative;
 	width: 100%;
-
+}
 	.slide-track {
 		animation: scroll 20s linear infinite;
 		display: flex;
@@ -7873,18 +7785,15 @@ footer {
 		min-width: 200%;
 		position: absolute;
 	}
-
 	.slide {
 		height: 100px;
 	}
-
 	/* pause on hover */
-	&:hover {
+	.slider:hover {
 		.slide-track {
 			animation-play-state: paused;
 		}
 	}
-
 	/* hover efffect */
 	.slide {
 		filter: grayscale(100%);
@@ -7894,17 +7803,13 @@ footer {
 			filter: none;
 		}
 	}
-}
 
-.text_center {
-	text-align: center;
-}
 .link-none {
 	text-decoration: none;
 	color: #ffffff;
 	cursor: text;
 }
-
+/*==================== MEDIA QUERYS ====================*/
 @media only screen and (max-width: 1350px) {
 	.slideshow_home_playstation .home_slideshow_1_img {
 		max-width: 695px;
