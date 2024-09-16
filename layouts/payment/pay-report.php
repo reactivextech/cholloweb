@@ -1,27 +1,49 @@
+<?php
+
+$quotasTotals = calculateTotals($orderDetails->quotas, $orderDetails->fee_initial);
+
+?>
+
 <h2 class="text-primary fs-5 fw-medium mb-4">Reporte de pago</h2>
 
-<div class="row">
-    <div class="col-md-6">
-        <div class="card">
+<div class="row d-flex align-items-stretch">
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
             <div class="card-body">
-                <!-- <h5 class="mb-3 font-weight-bold"><?php echo $orderDetails->product_name; ?></h5> -->
-                <p class="mb-1"><strong>Por cuota:</strong> <br> <?php echo $company->currency3; ?><?php echo $orderDetails->fee_amount; ?> / <?php echo $company->currency2; ?><?php echo $orderDetails->fee_amount; ?></p>
-                <p><strong>Total pendiente:</strong> <br><?php echo $company->currency3; ?><?php echo $orderDetails->fee_amount; ?> / <?php echo $company->currency2; ?><?php echo $orderDetails->fee_amount; ?></p>
+                <div class="row">
+                    <div class="col-3 d-flex align-items-center">
+                        <img src="<?php echo CONFIG_API_URL ?>src/storage/app/public/products/<?php echo $orderDetails->product_image ?>" class="img-fluid" alt="<?php echo $orderDetails->product_image ?>">
+                    </div>
+                    <div class="col-9">
+                        <p class="fs-6 fw-medium mb-2"><?php echo $orderDetails->product_name; ?></p>
+                        <p class="fs-7 fw-medium mb-1">Por pagar:
+                            <span class="fw-semibold">
+                                <span class="fs-8"><?php echo $company->currency3; ?></span><?php echo $quotasTotals['total_pending']; ?>
+                            </span>
+                        </p>
+                        <p class="fs-7 fw-medium">Total pagado:
+                            <span class="fw-semibold">
+                                <span class="fs-8"><?php echo $company->currency3; ?></span><?php echo $quotasTotals['total_paid']; ?>
+                            </span>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-6">
-        <div class="card">
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-3 d-flex align-items-center">
-                        <img src="<?php echo CONFIG_API_URL ?>src/storage/app/public/stores/<?php echo $orderDetails->store_image ?>" class="img-fluid rounded" alt="<?php echo $orderDetails->store_name ?>">
+                    <div class="col-3 d-flex align-items-center">
+                        <div class="bg-white d-flex align-items-center shadow-sm rounded-1 p-2">
+                            <img src="<?php echo CONFIG_API_URL ?>src/storage/app/public/stores/<?php echo $orderDetails->store_image ?>" class="img-fluid" alt="<?php echo $orderDetails->store_name ?>">
+                        </div>
                     </div>
-
-                    <div class="col-md-9">
-                        <p class="card-text mb-2"><?php echo $orderDetails->store_name; ?></p>
-                        <p class="card-text mb-1"><?php echo $orderDetails->branch_name; ?></p>
-                        <p class="card-text"><?php echo $orderDetails->branch_rif; ?></p>
+                    <div class="col-9">
+                        <p class="fs-6 fw-medium mb-2"><?php echo $orderDetails->store_name; ?></p>
+                        <p class="fs-6 fw-medium mb-1"><?php echo $orderDetails->branch_name; ?></p>
+                        <p class="fs-7 fw-medium"><?php echo $orderDetails->branch_rif; ?></p>
                     </div>
                 </div>
             </div>
@@ -29,7 +51,7 @@
     </div>
 </div>
 
-<div class="row mt-4">
+<!-- <div class="row mt-4">
     <div class="accordion" id="accordionExample">
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
@@ -74,9 +96,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
-<div class="row mt-4">
+<div class="row mb-4">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
@@ -192,7 +214,7 @@
     </div>
 </div>
 
-<div class="row mt-4">
+<div class="row mb-4">
     <div class="col-12">
         <div class="card">
             <div class="card-body">

@@ -53,6 +53,30 @@ function convertToInternational($phoneNumber)
     return $phoneNumber; // Si no empieza con '0', no modificamos
 }
 
+function calculateTotals($orderQuotas, $fee_initial)
+{
+    $totalPending = 0.0;
+    $totalQuotas = 0.0;
+    $totalPaid = 0.0;
+
+    foreach ($orderQuotas as $quota) {
+        // Sumar balance (total pendiente)
+        $totalPending += floatval($quota->balance ?? 0);
+
+        // Sumar amount (total de cuotas)
+        $totalQuotas += floatval($quota->amount ?? 0);
+    }
+
+    // Calcular el total pagado
+    $totalPaid = ($totalQuotas - $totalPending) + floatval($fee_initial ?? 0);
+
+    return [
+        'total_pending' => $totalPending,
+        'total_quotas' => $totalQuotas,
+        'total_paid' => $totalPaid
+    ];
+}
+
 function getYear()
 {
     return date('Y');
@@ -117,16 +141,6 @@ function getOrderById($orderId, $token)
 {
     try {
         $response = apiRequest('order/findByOrderId/' . $orderId, 'GET', null, $token);
-        return $response;
-    } catch (Exception $e) {
-        return null;
-    }
-}
-
-function getQuotasByOrder($orderId, $token)
-{
-    try {
-        $response = apiRequest('order/findQuotasByOrder/' . $orderId, 'GET', null, $token);
         return $response;
     } catch (Exception $e) {
         return null;

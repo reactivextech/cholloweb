@@ -35,8 +35,8 @@ switch ($section) {
   case 'report':
     if ($orderId) {
       $orderDetails = getOrderById($orderId, $token);
-      $orderQuota = getQuotasByOrder($orderId, $token);
-      if (!$orderDetails || !$orderQuota) {
+
+      if (!$orderDetails) {
         header('Location: pay');
         exit();
       }
@@ -91,7 +91,7 @@ require_once 'layouts/common/head.php';
     <div class="container">
       <div class="row justify-content-center">
         <!-- Aside Section -->
-        <aside class="col-lg-3">
+        <aside class="col-lg-3 mb-5">
           <h2 class="text-primary fs-5 fw-medium mb-4">¡Hola, <?php echo $firstName . ' ' . $lastName; ?>!</h2>
           <div class="d-flex flex-column gap-3">
             <div class="row">
@@ -100,19 +100,19 @@ require_once 'layouts/common/head.php';
                 <form method="POST" action="pay">
                   <input type="hidden" name="action" value="logout">
                   <button type="submit" class="btn btn-light btn-square d-flex flex-column align-items-center justify-content-center">
-                    <i class="fas fa-sign-out-alt fa-2x"></i> <!-- Font Awesome Icon for Logout -->
+                    <i class="fas fa-sign-out-alt fa-2x"></i>
                     <span class="mt-2">Cerrar Sesión</span>
                   </button>
                 </form>
               </div>
 
               <!-- Support Button -->
-              <div class="col-sm-6">
+              <!-- <div class="col-sm-6">
                 <button type="button" class="btn btn-light btn-square d-flex flex-column align-items-center justify-content-center">
-                  <i class="fas fa-headset fa-2x"></i> <!-- Font Awesome Icon for Support -->
+                  <i class="fas fa-headset fa-2x"></i>
                   <span class="mt-2">Atención al Cliente</span>
                 </button>
-              </div>
+              </div> -->
             </div>
           </div>
         </aside>
