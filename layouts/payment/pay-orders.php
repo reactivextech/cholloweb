@@ -39,6 +39,6 @@
 
 <script>
     function selectOrder(orderId) {
-        window.location.href = 'pay?section=report&order_id=' + orderId;
+        window.location.href = 'pay?section=report&order=' + orderId;
     }
 </script>

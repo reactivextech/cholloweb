@@ -29,7 +29,7 @@ $company = getCompany($token);
 
 // Determinar qué sección mostrar
 $section = $_GET['section'] ?? 'list'; // Default es listar órdenes
-$orderId = $_GET['order_id'] ?? null;
+$orderId = $_GET['order'] ?? null;
 
 switch ($section) {
   case 'report':
@@ -37,11 +37,11 @@ switch ($section) {
       $orderDetails = getOrderById($orderId, $token);
       $orderQuota = getQuotasByOrder($orderId, $token);
       if (!$orderDetails || !$orderQuota) {
-        echo "Orden no encontrada.";
+        header('Location: pay');
         exit();
       }
     } else {
-      header('Location: pay?section=list');
+      header('Location: pay');
       exit();
     }
     break;
@@ -62,7 +62,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'logout') {
     header('Location: login');
     exit;
   } else {
-    echo 'No hay sesión activa.';
+    header('Location: login');
   }
 }
 

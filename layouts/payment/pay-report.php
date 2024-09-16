@@ -198,7 +198,7 @@
             <div class="card-body">
                 <form action="pay.php" method="GET">
                     <input type="hidden" name="section" value="report">
-                    <input type="hidden" name="order_id" value="<?php echo $orderDetails->id; ?>">
+                    <input type="hidden" name="order" value="<?php echo $orderDetails->id; ?>">
                     <input type="hidden" name="fee_amount" value="<?php echo $orderDetails->fee_amount; ?>">
 
                     <div class="mb-3">
