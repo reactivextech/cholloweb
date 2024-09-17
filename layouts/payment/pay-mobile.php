@@ -10,7 +10,7 @@
                         <!-- Número de referencia del pago -->
                         <div class="col-md-6 mb-4">
                             <label for="reference_number" class="form-label">Número de referencia del pago</label>
-                            <input type="text" class="form-control" id="reference_number" name="reference_number" placeholder="Últimos 6 dígitos" required>
+                            <input type="text" class="form-control" id="reference_number" name="reference_number" placeholder="Últimos 6 dígitos" maxlength="6" pattern="\d{6}" required>
                         </div>
                         <!-- Teléfono de origen del pago móvil -->
                         <div class="col-md-6 mb-4">

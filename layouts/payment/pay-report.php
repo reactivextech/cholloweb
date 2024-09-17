@@ -11,10 +11,10 @@ $quotasTotals = calculateTotals($orderDetails->quotas, $orderDetails->fee_initia
         <div class="card h-100">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-3 d-flex align-items-center">
-                        <img src="<?php echo CONFIG_API_URL ?>src/storage/app/public/products/<?php echo $orderDetails->product_image ?>" class="img-fluid" alt="<?php echo $orderDetails->product_image ?>">
+                    <div class="col-3 col-lg-4 col-xxl-3 d-flex align-items-center">
+                        <img src="<?php echo CONFIG_API_URL ?>src/storage/app/public/products/<?php echo $orderDetails->product_image ?>" class="img-fluid" alt="<?php echo $orderDetails->product_name ?>">
                     </div>
-                    <div class="col-9">
+                    <div class="col-9 col-lg-8 col-xxl-9 d-flex flex-column justify-content-center">
                         <p class="fs-6 fw-medium mb-2"><?php echo $orderDetails->product_name; ?></p>
                         <p class="fs-7 fw-medium mb-1">Por pagar:
                             <span class="fw-semibold">
@@ -35,12 +35,10 @@ $quotasTotals = calculateTotals($orderDetails->quotas, $orderDetails->fee_initia
         <div class="card h-100">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-3 d-flex align-items-center">
-                        <div class="bg-white d-flex align-items-center shadow-sm rounded-1 p-2">
-                            <img src="<?php echo CONFIG_API_URL ?>src/storage/app/public/stores/<?php echo $orderDetails->store_image ?>" class="img-fluid" alt="<?php echo $orderDetails->store_name ?>">
-                        </div>
+                    <div class="col-3 col-lg-4 col-xxl-3 d-flex align-items-center">
+                        <img src="<?php echo CONFIG_API_URL ?>src/storage/app/public/stores/<?php echo $orderDetails->store_image ?>" class="img-fluid" alt="<?php echo $orderDetails->store_name ?>">
                     </div>
-                    <div class="col-9">
+                    <div class="col-9 col-lg-8 col-xxl-9 d-flex flex-column justify-content-center">
                         <p class="fs-6 fw-medium mb-2"><?php echo $orderDetails->store_name; ?></p>
                         <p class="fs-6 fw-medium mb-1"><?php echo $orderDetails->branch_name; ?></p>
                         <p class="fs-7 fw-medium"><?php echo $orderDetails->branch_rif; ?></p>
@@ -103,19 +101,19 @@ $quotasTotals = calculateTotals($orderDetails->quotas, $orderDetails->fee_initia
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-sm-6 d-flex align-items-center">
+                    <div class="col-sm-5 d-flex align-items-center mb-3">
                         <h3 class="fw-normal fs-5">Método de pago</h3>
                     </div>
-                    <div class="col-sm-6 d-flex justify-content-end">
+                    <div class="col-sm-7 d-sm-flex justify-content-end mb-3">
                         <div class="dropdown">
-                            <button class="btn btn-outline-secundary rounded-pill d-flex align-items-center justify-content-between gap-4 px-4" type="button" id="paymentMethodDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="-5,6">
-                                <span class="fw-medium">Seleccionar</span>
+                            <button class="btn rounded-pill d-flex align-items-center justify-content-between gap-4 px-4 w-100" type="button" id="paymentMethodDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="-5,6">
+                                <span id="selectedPaymentMethod" class="fw-medium">Seleccionar</span>
                                 <i class="fas fa-angle-down"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end border-dark border-opacity-10 rounded-3 p-2" aria-labelledby="paymentMethodDropdown">
                                 <?php if ($orderDetails->branch_pay_mobile): ?>
                                     <li>
-                                        <button class="dropdown-item d-flex gap-3 rounded-3 px-3 py-3" onclick="showBankDetails('mobilepay')" type="button">
+                                        <button class="dropdown-item d-flex gap-3 rounded-3 px-3 py-3" onclick="showBankDetails('mobilepay', 'Pago Móvil')" type="button">
                                             <i class="fas fa-mobile"></i>
                                             <span>Pago Móvil</span>
                                         </button>
@@ -123,7 +121,7 @@ $quotasTotals = calculateTotals($orderDetails->quotas, $orderDetails->fee_initia
                                 <?php endif; ?>
                                 <?php if ($orderDetails->branch_pay_transfer): ?>
                                     <li>
-                                        <button class="dropdown-item d-flex gap-3 rounded-3 px-3 py-3" onclick="showBankDetails('transferpay')" type="button">
+                                        <button class="dropdown-item d-flex gap-3 rounded-3 px-3 py-3" onclick="showBankDetails('transferpay', 'Transferencia Bancaria')" type="button">
                                             <i class="fas fa-landmark"></i>
                                             <span>Transferencia Bancaria</span>
                                         </button>
@@ -131,7 +129,7 @@ $quotasTotals = calculateTotals($orderDetails->quotas, $orderDetails->fee_initia
                                 <?php endif; ?>
                                 <?php if ($orderDetails->branch_pay_cash): ?>
                                     <li>
-                                        <button class="dropdown-item d-flex gap-3 rounded-3 px-3 py-3" onclick="showBankDetails('cashpay')" type="button">
+                                        <button class="dropdown-item d-flex gap-3 rounded-3 px-3 py-3" onclick="showBankDetails('cashpay', 'Efectivo')" type="button">
                                             <i class="fas fa-money-bill-wave"></i>
                                             <span>Efectivo</span>
                                         </button>
@@ -139,7 +137,7 @@ $quotasTotals = calculateTotals($orderDetails->quotas, $orderDetails->fee_initia
                                 <?php endif; ?>
                                 <?php if ($orderDetails->branch_pay_card): ?>
                                     <li>
-                                        <button class="dropdown-item d-flex gap-3 rounded-3 px-3 py-3" onclick="showBankDetails('cardpay')" type="button">
+                                        <button class="dropdown-item d-flex gap-3 rounded-3 px-3 py-3" onclick="showBankDetails('cardpay', 'Tarjeta de Crédito')" type="button">
                                             <i class="far fa-credit-card"></i>
                                             <span>Tarjeta de Crédito</span>
                                         </button>
@@ -147,7 +145,7 @@ $quotasTotals = calculateTotals($orderDetails->quotas, $orderDetails->fee_initia
                                 <?php endif; ?>
                                 <?php if ($orderDetails->branch_pay_other): ?>
                                     <li>
-                                        <button class="dropdown-item d-flex gap-3 rounded-3 px-3 py-3" onclick="showBankDetails('other')" type="button">
+                                        <button class="dropdown-item d-flex gap-3 rounded-3 px-3 py-3" onclick="showBankDetails('other', 'Otros')" type="button">
                                             <i class="fas fa-coins"></i>
                                             <span>Otros</span>
                                         </button>
@@ -157,7 +155,7 @@ $quotasTotals = calculateTotals($orderDetails->quotas, $orderDetails->fee_initia
                         </div>
                     </div>
                 </div>
-                <div id="bank_details" class="mt-3">
+                <div id="bank_details">
                     <!-- Not Selected -->
                     <div id="notselected">
                         <div class="border border-2 text-center rounded-4 p-4">
@@ -169,20 +167,40 @@ $quotasTotals = calculateTotals($orderDetails->quotas, $orderDetails->fee_initia
                     <div id="mobilepay" class="collapse">
                         <div>
                             <h5 class="fw-medium mb-2">Datos de cuenta</h5>
-                            <p class="py-2">Banco: <span class="text-primary fw-medium"><?php echo $orderDetails->bank_name ?></span></p>
-                            <p class="py-2">Rif: <span class="text-primary fw-medium"><?php echo $orderDetails->branch_rif ?></span></p>
-                            <p class="py-2">Teléfono: <span class="text-primary fw-medium"><?php echo $orderDetails->branch_movil ?></span></p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="py-2">Banco: <span class="text-primary fw-medium"><?php echo $orderDetails->bank_name ?></span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="py-2">Rif: <span class="text-primary fw-medium"><?php echo $orderDetails->branch_rif ?></span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="py-2">Teléfono: <span class="text-primary fw-medium"><?php echo $orderDetails->branch_movil ?></span></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- Collapse for Transfer -->
                     <div id="transferpay" class="collapse">
                         <div>
                             <h5 class="fw-medium mb-2">Datos de cuenta</h5>
-                            <p class="py-2">Banco: <span class="text-primary fw-medium"><?php echo $orderDetails->bank_name ?></span></p>
-                            <p class="py-2">Cuenta: <span class="text-primary fw-medium"><?php echo $orderDetails->branch_bank_info4 ?></span></p>
-                            <p class="py-2">Tipo: <span class="text-primary fw-medium"><?php echo $orderDetails->branch_bank_info3 ?></span></p>
-                            <p class="py-2">Titular: <span class="text-primary fw-medium"><?php echo $orderDetails->branch_bank_info2 ?></span></p>
-                            <p class="py-2">Rif: <span class="text-primary fw-medium"><?php echo $orderDetails->branch_rif ?></span></p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="py-2">Banco: <span class="text-primary fw-medium"><?php echo $orderDetails->bank_name ?></span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="py-2">Cuenta: <span class="text-primary fw-medium"><?php echo $orderDetails->branch_bank_info4 ?></span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="py-2">Tipo: <span class="text-primary fw-medium"><?php echo $orderDetails->branch_bank_info3 ?></span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="py-2">Titular: <span class="text-primary fw-medium"><?php echo $orderDetails->branch_bank_info2 ?></span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="py-2">Rif: <span class="text-primary fw-medium"><?php echo $orderDetails->branch_rif ?></span></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- Collapse for Cash -->
@@ -218,53 +236,81 @@ $quotasTotals = calculateTotals($orderDetails->quotas, $orderDetails->fee_initia
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <form action="pay.php" method="GET">
-                    <input type="hidden" name="section" value="report">
-                    <input type="hidden" name="order" value="<?php echo $orderDetails->id; ?>">
-                    <input type="hidden" name="fee_amount" value="<?php echo $orderDetails->fee_amount; ?>">
-
-                    <div class="mb-3">
-                        <label for="amount_pay" class="form-label mb-3">Ingresa el monto (Bolívares)</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><?php echo $company->currency2; ?></span>
-                            <input type="text" name="amount_pay" id="amount_pay" class="form-control" value="0.00" oninput="formatAmount(this)">
-                        </div>
+                <div class="mb-3">
+                    <label for="amount_pay" class="form-label mb-4">Ingresa el monto (Bolívares)</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><?php echo $company->currency2; ?></span>
+                        <input type="text" name="amount_pay" id="amount_pay" class="form-control" value="0.00" oninput="formatAmount(this)">
+                        <span class="input-group-text">
+                            <span class="fs-8 pt-1"><?php echo $company->currency3; ?></span>
+                            <span id="calculatedAmount">0.00</span>
+                        </span>
                     </div>
-                </form>
+                    <div id="maxPendingPay">
+                        <p class="mx-1 mt-2">
+                            Máx. pendiente por pagar
+                            <span id="amountMaxPendingPay" class="text-primary">
+                                <span class="fs-8"><?php echo $company->currency2; ?></span><?php echo calculateRateBS($quotasTotals['total_pending'], $company->rate); ?>
+                            </span>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<?php require_once 'layouts/payment/pay-mobile.php'; ?>
+<!-- Aquí se cargará dinámicamente el contenido de los archivos PHP -->
+<div id="paymentForm" class="mt-3"></div>
 
 <script>
-    function showBankDetails(method) {
+    function showBankDetails(methodId, methodText) {
         // Ocultar todas las secciones de detalles
-        document.getElementById('mobilepay').style.display = 'none';
-        document.getElementById('transferpay').style.display = 'none';
-        document.getElementById('cashpay').style.display = 'none';
-        document.getElementById('cardpay').style.display = 'none';
-        document.getElementById('other').style.display = 'none';
-        document.getElementById('bank_details').style.display = 'block';
+        var selectedCollapse = document.getElementById(methodId);
+        var collapses = document.querySelectorAll('.collapse');
+        var notselected = document.getElementById('notselected');
 
-        // Mostrar la sección correspondiente según el método seleccionado
-        if (method === 'mobilepay') {
-            document.getElementById('mobilepay').style.display = 'block';
-            document.getElementById('notselected').style.display = 'none';
-        } else if (method === 'transferpay') {
-            document.getElementById('transferpay').style.display = 'block';
-            document.getElementById('notselected').style.display = 'none';
-        } else if (method === 'cashpay') {
-            document.getElementById('cashpay').style.display = 'block';
-            document.getElementById('notselected').style.display = 'none';
-        } else if (method === 'cardpay') {
-            document.getElementById('cardpay').style.display = 'block';
-            document.getElementById('notselected').style.display = 'none';
-        } else if (method === 'other') {
-            document.getElementById('other').style.display = 'block';
-            document.getElementById('notselected').style.display = 'none';
+        // Actualizar texto del boton dropdown
+        document.getElementById('selectedPaymentMethod').textContent = methodText;
+
+        collapses.forEach(function(collapse) {
+            collapse.classList.remove('show');
+        });
+
+        if (selectedCollapse) {
+            selectedCollapse.classList.add('show');
+            notselected.style.display = 'none';
         }
+
+        if (methodId == 'mobilepay') {
+            selectPaymentMethod('pay-mobile.php');
+        } else if (methodId == 'transferpay') {
+            selectPaymentMethod('pay-transfer.php');
+        } // Si selecciona "Pago Móvil"
+        if (methodId == 'mobilepay') {
+            selectPaymentMethod('pay-mobile.php');
+        }
+        // Si selecciona "Transferencia Bancaria"
+        else if (methodId == 'transferpay') {
+            selectPaymentMethod('pay-transfer.php');
+        } else {
+            document.getElementById('paymentForm').innerHTML = '';
+        }
+    }
+
+    // Function to change the dropdown button text and show the selected bank details
+    function selectPaymentMethod(filePath) {
+        // Use AJAX to load the PHP content dynamically
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('GET', 'layouts/payment/' + filePath, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Inject the PHP content into the paymentDetails div
+                document.getElementById('paymentForm').innerHTML = xhr.responseText;
+            }
+        };
+        xhr.send();
     }
 
     function formatAmount(input) {
@@ -290,6 +336,40 @@ $quotasTotals = calculateTotals($orderDetails->quotas, $orderDetails->fee_initia
 
         // Mantener el cursor a la derecha del número ingresado
         input.setSelectionRange(input.value.length, input.value.length);
+
+        // Calcular la tasa en tiempo real
+        calculateRealTimeRate(parseFloat(input.value));
+
+        // Validar si supera el máximo
+        validateMax(parseFloat(input.value));
+    }
+
+    function calculateRealTimeRate(amount) {
+        const rate = <?php echo $company->rate; ?>; // Aquí obtienes la tasa desde el backend
+        const calculatedAmount = (amount / rate).toFixed(2); // Calcular con la tasa y redondear a 2 decimales
+        document.getElementById('calculatedAmount').innerHTML = calculatedAmount; // Actualizar el contenido
+    }
+
+    function validateMax(amount) {
+        const maxPending = <?php echo calculateRateBS($quotasTotals['total_pending'], $company->rate); ?>; // Máximo permitido
+        const maxPendingFixed = (maxPending).toFixed(2); // Calcular con la tasa y redondear a 2 decimales
+
+        const pendingPay = document.getElementById('maxPendingPay');
+        const amountPendingPay = document.getElementById('amountMaxPendingPay');
+        const amountPay = document.getElementById('amount_pay');
+
+        // Cambiar el color a rojo si se excede el máximo permitido
+        if (amount > maxPendingFixed) {
+            pendingPay.classList.add('text-danger');
+            amountPay.classList.add('border-danger');
+            amountPendingPay.classList.remove('text-primary');
+            amountPendingPay.classList.add('text-danger');
+        } else {
+            pendingPay.classList.remove('text-danger');
+            amountPay.classList.remove('border-danger');
+            amountPendingPay.classList.remove('text-danger');
+            amountPendingPay.classList.add('text-primary');
+        }
     }
 
     // Configuración inicial para el input

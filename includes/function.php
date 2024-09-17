@@ -77,6 +77,26 @@ function calculateTotals($orderQuotas, $fee_initial)
     ];
 }
 
+function calculateRateBS($amount, $rate)
+{
+    $totalPending = 0.0;
+
+    // Calcular el monto a tasa
+    $totalPending = round(($amount * $rate), 2);
+
+    return $totalPending;
+}
+
+function calculateRateREF($amount, $rate)
+{
+    $totalPending = 0.0;
+
+    // Calcular el monto a tasa
+    $totalPending = round(($amount / $rate), 2);
+
+    return $totalPending;
+}
+
 function getYear()
 {
     return date('Y');

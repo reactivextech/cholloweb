@@ -2,14 +2,14 @@
 
 <?php if ($orders): ?>
     <?php foreach ($orders as $order): ?>
-        <div class="card card-button" onclick="selectOrder('<?php echo $order->id; ?>')">
+        <div class="card card-button mb-4" onclick="selectOrder('<?php echo $order->id; ?>')">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-3 d-flex align-items-center">
+                    <div class="col-3 d-flex align-items-center">
                         <img src="<?php echo CONFIG_API_URL ?>src/storage/app/public/products/<?php echo $order->product_image ?>" class="img-fluid rounded" alt="<?php echo $order->product_name ?>">
                     </div>
 
-                    <div class="col-md-9">
+                    <div class="col-9">
                         <h5 class="card-title font-weight-bold"><?php echo $order->product_name ?></h5>
                         <p class="card-text mb-1">Tienda: <?php echo $order->store_name ?></p>
                         <p class="card-text">Sucursal: <?php echo $order->branch_name ?></p>
