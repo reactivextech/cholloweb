@@ -19,14 +19,12 @@
                         </div>
                         <!-- Banco de origen del pago móvil -->
                         <div class="col-md-6 mb-4">
-                            <label for="origin_bank" class="form-label">Banco de origen del Pago Móvil</label>
+                            <label for="origin_bank" class="form-label">Banco de origen del pago móvil</label>
                             <select class="form-select" id="origin_bank" name="origin_bank" required>
                                 <option selected disabled>Seleccionar</option>
-                                <option value="banco1">Banco de Venezuela</option>
-                                <option value="banco2">Banesco</option>
-                                <option value="banco3">Mercantil</option>
-                                <option value="banco4">BBVA Provincial</option>
-                                <option value="banco5">Bicentenario</option>
+                                <?php foreach ($orderDetails->active_banks as $active_bank): ?>
+                                    <option value="<?php echo $active_bank->id ?>"><?php echo $active_bank->code ?> - <?php echo $active_bank->name ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                         <!-- Fecha del pago -->

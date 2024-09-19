@@ -1,9 +1,9 @@
 <?php
 
 // GLOBAL Function
-function apiRequest($endpoint, $method = 'GET', $data = null, $token = null)
+function apiRequest($endpoint, $method = 'GET', $data = null, $token = null, $api = 'api/web/')
 {
-    $curl = curl_init(CONFIG_API_URL . 'api/web/' . $endpoint); // CONFIG_API_URL de config.php
+    $curl = curl_init(CONFIG_API_URL . $api . $endpoint); // CONFIG_API_URL de config.php
 
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
@@ -168,5 +168,24 @@ function getOrderById($orderId, $token)
 }
 
 // PAYMENT Function
+function transferPayment($data, $token)
+{
+    try {
+        $response = apiRequest('payment/transferPayment/', 'POST', $data, $token, 'api/v1/');
+        return $response;
+    } catch (Exception $e) {
+        return null;
+    }
+}
+
+function mobilePayment($data, $token)
+{
+    try {
+        $response = apiRequest('payment/mobilePayment/', 'POST', $data, $token, 'api/v1/');
+        return $response;
+    } catch (Exception $e) {
+        return null;
+    }
+}
 
 ?>

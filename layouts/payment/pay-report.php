@@ -2,6 +2,68 @@
 
 $quotasTotals = calculateTotals($orderDetails->quotas, $orderDetails->fee_initial);
 
+// Inicializa la variable para almacenar la cuota que buscas
+$firstPendingOrDefeatedQuota = null;
+// Recorre las cuotas para encontrar la primera con estado "Pending" o "Defeated"
+foreach ($orderDetails->quotas as $quota) {
+    if ($quota->status === 'Pending' || $quota->status === 'Defeated') {
+        $firstPendingOrDefeatedQuota = $quota->id;
+        break; // Salir del bucle una vez encontrada la primera
+    }
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Obtener los datos del formulario
+    $order_id = $_POST['order_id'];
+    $order_quota_id = $_POST['order_quota_id'];
+    $store_id = $_POST['store_id'];
+    $branch_id = $_POST['branch_id'];
+    $customer_id = $_POST['customer_id'];
+    $id_bank_destination = $_POST['id_bank_destination'];
+    $amount = $_POST['amount'];
+    // Datos del formulario ingresados por el usuario
+    $reference_number = $_POST['reference_number'];
+    $id_bank = $_POST['id_bank'];
+    $date_paid = $_POST['date_paid'];
+
+    // $token = $_POST['token'];
+
+    // Prepara los datos para la solicitud API
+    $data = [
+        'order_id' => $order_id,
+        'order_quota_id' => 8,
+        'store_id' => $store_id,
+        'branch_id' => $branch_id,
+        'customer_id' => $customer_id,
+        'id_bank_destination' => $id_bank_destination,
+        'amount' => $amount,
+        'reference_number' => $reference_number,
+        'id_bank' => $id_bank,
+        'date_paid' => $date_paid,
+    ];
+
+    // echo $token;
+    // echo $data;
+    // Llama a la función transferPayment
+    $transferResponse = transferPayment($data, $token);
+
+    echo $transferResponse->message;
+
+    // Maneja la respuesta de la API
+    // if ($response) {
+    //     echo json_encode([
+    //         'success' => $response->success,
+    //         'message' => $response->message,
+    //     ]);
+    // } else {
+    //     // Manejar el error de la función
+    //     echo json_encode([
+    //         'success' => false,
+    //         'message' => 'Error al procesar la solicitud de transferencia.'
+    //     ]);
+    // }
+}
+
 ?>
 
 <h2 class="text-primary fs-5 fw-medium mb-4">Reporte de pago</h2>
@@ -237,10 +299,10 @@ $quotasTotals = calculateTotals($orderDetails->quotas, $orderDetails->fee_initia
         <div class="card">
             <div class="card-body">
                 <div class="mb-3">
-                    <label for="amount_pay" class="form-label mb-4">Ingresa el monto (Bolívares)</label>
+                    <label for="amount" class="form-label mb-4">Ingresa el monto (Bolívares)</label>
                     <div class="input-group">
                         <span class="input-group-text"><?php echo $company->currency2; ?></span>
-                        <input type="text" name="amount_pay" id="amount_pay" class="form-control" value="0.00" oninput="formatAmount(this)">
+                        <input type="text" name="amount" id="amount" class="form-control" value="0.00" oninput="formatAmount(this)">
                         <span class="input-group-text">
                             <span class="fs-8 pt-1"><?php echo $company->currency3; ?></span>
                             <span id="calculatedAmount">0.00</span>
@@ -260,8 +322,17 @@ $quotasTotals = calculateTotals($orderDetails->quotas, $orderDetails->fee_initia
     </div>
 </div>
 
-<!-- Aquí se cargará dinámicamente el contenido de los archivos PHP -->
-<div id="paymentForm" class="mt-3"></div>
+<div id="paymentForm">
+    <!-- Formulario para Pago Móvil -->
+    <div id="mobilePaymentForm" style="display: none;">
+        <?php require_once 'layouts/payment/pay-mobile.php'; ?>
+    </div>
+
+    <!-- Formulario para Transferencia -->
+    <div id="transferPaymentForm" style="display: none;">
+        <?php require_once 'layouts/payment/pay-transfer.php'; ?>
+    </div>
+</div>
 
 <script>
     function showBankDetails(methodId, methodText) {
@@ -282,35 +353,46 @@ $quotasTotals = calculateTotals($orderDetails->quotas, $orderDetails->fee_initia
             notselected.style.display = 'none';
         }
 
-        if (methodId == 'mobilepay') {
-            selectPaymentMethod('pay-mobile.php');
-        } else if (methodId == 'transferpay') {
-            selectPaymentMethod('pay-transfer.php');
-        } // Si selecciona "Pago Móvil"
-        if (methodId == 'mobilepay') {
-            selectPaymentMethod('pay-mobile.php');
-        }
-        // Si selecciona "Transferencia Bancaria"
-        else if (methodId == 'transferpay') {
-            selectPaymentMethod('pay-transfer.php');
-        } else {
-            document.getElementById('paymentForm').innerHTML = '';
-        }
+        selectPaymentMethod(methodId);
+
+        // if (methodId == 'mobilepay') {
+        //     selectPaymentMethod('pay-mobile.php');
+        // } else if (methodId == 'transferpay') {
+        //     selectPaymentMethod('pay-transfer.php');
+        // } else {
+        //     document.getElementById('paymentForm').innerHTML = '';
+        // }
     }
 
     // Function to change the dropdown button text and show the selected bank details
-    function selectPaymentMethod(filePath) {
-        // Use AJAX to load the PHP content dynamically
-        var xhr = new XMLHttpRequest();
+    // function selectPaymentMethod(filePath) {
+    //     // Use AJAX to load the PHP content dynamically
+    //     var xhr = new XMLHttpRequest();
 
-        xhr.open('GET', 'layouts/payment/' + filePath, true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                // Inject the PHP content into the paymentDetails div
-                document.getElementById('paymentForm').innerHTML = xhr.responseText;
-            }
-        };
-        xhr.send();
+    //     xhr.open('GET', 'layouts/payment/' + filePath, true);
+    //     xhr.onreadystatechange = function() {
+    //         if (xhr.readyState === 4 && xhr.status === 200) {
+    //             // Inject the PHP content into the paymentDetails div
+    //             document.getElementById('paymentForm').innerHTML = xhr.responseText;
+    //         }
+    //     };
+    //     xhr.send();
+    // }
+
+    function selectPaymentMethod(methodId) {
+        // Ocultar todos los formularios
+        document.getElementById('mobilePaymentForm').style.display = 'none';
+        document.getElementById('transferPaymentForm').style.display = 'none';
+
+        // Mostrar el formulario según el método seleccionado
+        if (methodId === 'mobilepay') {
+            document.getElementById('mobilePaymentForm').style.display = 'block';
+        } else if (methodId === 'transferpay') {
+            document.getElementById('transferPaymentForm').style.display = 'block';
+        } else {
+            // Si no se selecciona un método válido, se ocultan todos
+            document.getElementById('paymentForm').innerHTML = '';
+        }
     }
 
     function formatAmount(input) {
@@ -356,7 +438,7 @@ $quotasTotals = calculateTotals($orderDetails->quotas, $orderDetails->fee_initia
 
         const pendingPay = document.getElementById('maxPendingPay');
         const amountPendingPay = document.getElementById('amountMaxPendingPay');
-        const amountPay = document.getElementById('amount_pay');
+        const amountPay = document.getElementById('amount');
 
         // Cambiar el color a rojo si se excede el máximo permitido
         if (amount > maxPendingFixed) {
@@ -373,9 +455,59 @@ $quotasTotals = calculateTotals($orderDetails->quotas, $orderDetails->fee_initia
     }
 
     // Configuración inicial para el input
-    document.getElementById('amount_pay').addEventListener('focus', function() {
+    document.getElementById('amount').addEventListener('focus', function() {
         if (this.value === '0.00') {
             this.setSelectionRange(4, 4); // Posiciona el cursor antes de los centavos
         }
     });
+
+    // Enviar formulario por AJAX
+    document.getElementById('transferFormData').addEventListener('submit', function(e) {
+                e.preventDefault(); // Evitar que se envíe el formulario de manera tradicional
+
+                console.log('HOLA');
+
+                // Obtener los valores del formulario
+                let formData = new FormData(this);
+
+                // Agregar el valor del monto ingresado manualmente
+                let amountPay = document.getElementById('amount').value;
+                formData.append('amount', amountPay);
+
+                // console.log(formData);
+
+                // Enviar la solicitud AJAX
+                // fetch('process-transfer.php', {
+                // fetch('pay?section=report&order=<?php echo $orderDetails->id; ?>', {
+                //         method: 'POST',
+                //         body: formData
+                //     })
+                //     .then(response => response.json())
+                //     .then(data => {
+                //         if (data.success) {
+                //             alert('Transferencia registrada exitosamente.' + data.message);
+                //             // Aquí puedes redirigir al usuario o mostrar un mensaje de éxito
+                //         } else {
+                //             // alert('Error al procesar la transferencia: ' + data.message);
+                //             console.log(data.message);
+                //         }
+                //     })
+                //     .catch(error => {
+                //         console.error('Error:', error);
+                //         alert('Hubo un problema al enviar la solicitud.');
+                //     });
+
+                fetch('pay?section=report&order=<?php echo $orderDetails->id; ?>', {
+                            method: 'POST',
+                            body: formData
+                        });
+                    // .then(function(res) {
+                    //     str = JSON.stringify(res);
+                    //     console.log(str);
+                    // })
+                    // .catch(function(res) {
+                    //     str = JSON.stringify(res);
+                    //     console.log(str);
+                    // });
+                });
 </script>
