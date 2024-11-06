@@ -4,114 +4,8 @@
 require_once 'includes/config.php';
 require_once 'includes/function.php';
 
-$curl = curl_init('https://admin.chollo.app/api/customer/login');
-
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-
-curl_setopt($curl, CURLOPT_POST, true);
-/** Autorizamos enviar datos*/
-
-$email = 'webmaster.jg.51@hotmail.com';
-
-$pass = 'xyz709095';
-
-$my_user = array(
-
-    "email" => $email,
-
-    "password" => $pass
-
-);
-
-$payload = json_encode($my_user);
-/** convertimos los datos en el formato solicitado normalmente json*/
-
-curl_setopt($curl, CURLOPT_POSTFIELDS, $payload);
-
-curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-
-$result = curl_exec($curl);
-/** Ejecutamos petición*/
-
-curl_close($curl);
-
-
-
-$mJSON = json_decode($result);
-
-// var_dump($mJSON);
-// echo($mJSON->data->session_token);
-
-$p_o_sesion = $mJSON->data->session_token;
-
-// $token = $mJSON->token;
-
-// $p_cod_prod = 99527;
-
-// $p_fec_desde = "2019-01-01";
-
-// $p_fec_hasta = "2023-01-31";
-
-
-
-
-//  $listarproductos = array(
-
-//   "p_o_sesion"=> $p_o_sesion,
-
-//   "p_cod_prod"=> $p_cod_prod,
-
-//   "p_fec_desde"=> $p_fec_desde,
-
-//   "p_fec_hasta"=> $p_fec_hasta
-
-//  );
-
-//   $payload = json_encode($listarproductos);
-
-
-
-$curl = curl_init('https://admin.chollo.app/api/product/findByFeatured/1');
-/** Ingresamos la url de la api o servicio a consumir */
-
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-
-curl_setopt($curl, CURLOPT_POST, false);
-/** Autorizamos enviar datos*/
-
-// curl_setopt($curl, CURLOPT_POSTFIELDS, $payload);
-
-curl_setopt($curl, CURLOPT_HTTPHEADER, ['Authorization: Bearer ' . $p_o_sesion]);
-
-$result = curl_exec($curl);
-/** Ejecutamos petición*/
-
-curl_close($curl);
-
-
-
-
-
-//  var_dump($result);
-
-// foreach ($result as $value) {
-
-//     echo $value['id'];
-// }
-
-// foreach ($result as $key => $value) {
-//     echo "$key => $value", PHP_EOL;
-// }
-
-// foreach ($result as $item) {
-//     echo $item->id;
-// }
-$pJSON = json_decode($result);
-// var_dump($pJSON);
+// Obtener datos de productos destacados
+$productFeatured = apiProductByFeatured();
 
 ?>
 
@@ -260,9 +154,9 @@ require_once 'layouts/common/head.php';
             <p class="home_heatures_post_header">Te ofrecemos los mejores telefonos del mercado.</p>
 
             <?php
-            // if (is_array($pJSON) || is_object($pJSON))
+            // if (is_array($productFeatured) || is_object($productFeatured))
             // {
-            //     foreach ($pJSON as $value)
+            //     foreach ($productFeatured as $value)
             //     {
             //         echo '<div class="hp_discover_single">';
             //             echo '<div class="hp_discover_single_left">';
@@ -300,14 +194,7 @@ require_once 'layouts/common/head.php';
             // }
             ?>
 
-
             <div class="clear"></div>
-        </div>
-    </section> -->
-
-    <!-- <section class="hp_next_day_delivery_wrapper">
-        <div class="hp_next_day_delivery_container">
-
         </div>
     </section> -->
 
@@ -318,84 +205,25 @@ require_once 'layouts/common/head.php';
             </p>
             <p class="home_heatures_post_header">Te ofrecemos los mejores telefonos del mercado.</p>
 
-            <!-- <h3 class="hp_title">Los más destacados</h3> -->
-            <!-- <div class="customer_favourites_single">
-			<span class="top-pick">Más vendido</span>
-			<img src="https://madforit.com/images/hp-highlight-img-11.jpg" alt="" title="">
-			<p class="customer_favourite_brand">Sony</p>
-			<p class="customer_favourite_product">Playstation 5</p>
-			<p class="customer_favourite_price">50% de inicial</p>
-			<div class="customer_favourite_ndd">
-				<label><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> * 3 a 7 cuotas para pagar </label>
-			</div>
-			<a href="/apply.php" class="customer_favourite_more_btn">Adquierelo ya</a>
-		</div> -->
+            <?php if (is_array($productFeatured) || is_object($productFeatured)): ?>
+                <?php foreach ($productFeatured as $product): ?>
+                    <div class="customer_favourites_single">
+                        <span class="top-pick">Más vendido</span>
 
-            <?php
-            if (is_array($pJSON) || is_object($pJSON)) {
-                foreach ($pJSON as $value) {
-                    echo '<div class="customer_favourites_single">';
-                    echo '<span class="top-pick">Más vendido</span>';
-                    echo '<img src="https://admin.chollo.app/src/storage/app/public/products/' . $value->image . '" alt="imagen ' . $value->name . '" title="' . $value->name . '">';
-                    echo '<p class="customer_favourite_brand">HERTECH</p>';
-                    echo '<p class="customer_favourite_product">' . $value->name . '</p>';
-                    echo '<p class="customer_favourite_price">40% de inicial</p>';
-                    echo '<div class="customer_favourite_ndd">';
-                    echo '<label><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> * 3 a 7 cuotas para pagar </label>';
-                    echo '</div>';
-                    echo '<a class="customer_favourite_more_btn scroll_bottom_btn">Adquierelo ya</a>';
-                    echo '</div>';
-                }
-            }
-            ?>
+                        <img src="<?php echo CONFIG_API_URL ?>src/storage/app/public/products/<?php echo $product->image ?>" alt="<?php echo $product->name ?>" title="<?php echo $product->name ?>">
 
-            <!-- <div class="customer_favourites_single">
-			<span class="top-pick">Top Pick</span>
-			<img src="https://madforit.com/images/hp-highlight-img-2.jpg" alt="" title="">
-			<p class="customer_favourite_brand">Lenovo</p>
-			<p class="customer_favourite_product">Tab P11 64GB</p>
-			<p class="customer_favourite_price">£10 off^</p>
-			<div class="customer_favourite_ndd">
-				<label><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Next day dispatch*</label>
-			</div>
-			<a href="/apply.php" class="customer_favourite_more_btn">View more</a>
-		</div>
+                        <p class="customer_favourite_brand"><?php echo $product->store_name ?></p>
+                        <p class="customer_favourite_product"><?php echo $product->name ?></p>
+                        <p class="customer_favourite_price"><?php echo $product->interest_percentage ?>% de inicial</p>
 
-		<div class="customer_favourites_single">
-			<span class="top-pick">Top Pick</span>
-			<img src="https://madforit.com/images/hp-highlight-img-3.jpg" alt="" title="">
-			<p class="customer_favourite_brand">LG</p>
-			<p class="customer_favourite_product">43" Smart TV</p>
-			<p class="customer_favourite_price">£10 off^</p>
-			<div class="customer_favourite_ndd">
-				<label><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Next day dispatch*</label>
-			</div>
-			<a href="/apply.php" class="customer_favourite_more_btn">View more</a>
-		</div>
+                        <div class="customer_favourite_ndd">
+                            <label><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> * <?php echo $product->quota_min_quantity ?> a <?php echo $product->quota_max_quantity ?> cuotas para pagar </label>
+                        </div>
 
-		<div class="customer_favourites_single">
-			<span class="top-pick">Top Pick</span>
-			<img src="https://madforit.com/images/hp-highlight-img-4.jpg" alt="" title="">
-			<p class="customer_favourite_brand">Monzana</p>
-			<p class="customer_favourite_product">Hot Air Deep Fryer</p>
-			<p class="customer_favourite_price">£10 off^</p>
-			<div class="customer_favourite_ndd">
-				<label><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Next day dispatch*</label>
-			</div>
-			<a href="/apply.php" class="customer_favourite_more_btn">View more</a>
-		</div>
-
-		<div class="customer_favourites_single">
-			<span class="top-pick">Top Pick</span>
-			<img src="https://madforit.com/images/hp-highlight-img-5.jpg" alt="" title="">
-			<p class="customer_favourite_brand">DeWalt</p>
-			<p class="customer_favourite_product">18V XR Brushless Toolkit</p>
-			<p class="customer_favourite_price">£10 off^</p>
-			<div class="customer_favourite_ndd">
-				<label><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Next day dispatch*</label>
-			</div>
-			<a href="/apply.php" class="customer_favourite_more_btn">View more</a>
-		</div> -->
+                        <a class="customer_favourite_more_btn scroll_bottom_btn">Adquierelo ya</a>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
             <div class="clear"></div>
         </div>
     </section>

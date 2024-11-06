@@ -12,58 +12,6 @@ foreach ($orderDetails->quotas as $quota) {
     }
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Obtener los datos del formulario
-    $order_id = $_POST['order_id'];
-    $order_quota_id = $_POST['order_quota_id'];
-    $store_id = $_POST['store_id'];
-    $branch_id = $_POST['branch_id'];
-    $customer_id = $_POST['customer_id'];
-    $id_bank_destination = $_POST['id_bank_destination'];
-    $amount = $_POST['amount'];
-    // Datos del formulario ingresados por el usuario
-    $reference_number = $_POST['reference_number'];
-    $id_bank = $_POST['id_bank'];
-    $date_paid = $_POST['date_paid'];
-
-    // $token = $_POST['token'];
-
-    // Prepara los datos para la solicitud API
-    $data = [
-        'order_id' => $order_id,
-        'order_quota_id' => 8,
-        'store_id' => $store_id,
-        'branch_id' => $branch_id,
-        'customer_id' => $customer_id,
-        'id_bank_destination' => $id_bank_destination,
-        'amount' => $amount,
-        'reference_number' => $reference_number,
-        'id_bank' => $id_bank,
-        'date_paid' => $date_paid,
-    ];
-
-    // echo $token;
-    // echo $data;
-    // Llama a la función transferPayment
-    $transferResponse = transferPayment($data, $token);
-
-    echo $transferResponse->message;
-
-    // Maneja la respuesta de la API
-    // if ($response) {
-    //     echo json_encode([
-    //         'success' => $response->success,
-    //         'message' => $response->message,
-    //     ]);
-    // } else {
-    //     // Manejar el error de la función
-    //     echo json_encode([
-    //         'success' => false,
-    //         'message' => 'Error al procesar la solicitud de transferencia.'
-    //     ]);
-    // }
-}
-
 ?>
 
 <h2 class="text-primary fs-5 fw-medium mb-4">Reporte de pago</h2>
@@ -334,6 +282,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 
+<!-- Modal para la respuesta -->
+<div class="modal fade" id="responseModal" tabindex="-1" aria-labelledby="responseModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="responseModalLabel">Respuesta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modalMessage">
+                <!-- Mensaje de respuesta -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     function showBankDetails(methodId, methodText) {
         // Ocultar todas las secciones de detalles
@@ -354,30 +320,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         selectPaymentMethod(methodId);
-
-        // if (methodId == 'mobilepay') {
-        //     selectPaymentMethod('pay-mobile.php');
-        // } else if (methodId == 'transferpay') {
-        //     selectPaymentMethod('pay-transfer.php');
-        // } else {
-        //     document.getElementById('paymentForm').innerHTML = '';
-        // }
     }
-
-    // Function to change the dropdown button text and show the selected bank details
-    // function selectPaymentMethod(filePath) {
-    //     // Use AJAX to load the PHP content dynamically
-    //     var xhr = new XMLHttpRequest();
-
-    //     xhr.open('GET', 'layouts/payment/' + filePath, true);
-    //     xhr.onreadystatechange = function() {
-    //         if (xhr.readyState === 4 && xhr.status === 200) {
-    //             // Inject the PHP content into the paymentDetails div
-    //             document.getElementById('paymentForm').innerHTML = xhr.responseText;
-    //         }
-    //     };
-    //     xhr.send();
-    // }
 
     function selectPaymentMethod(methodId) {
         // Ocultar todos los formularios
@@ -460,54 +403,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             this.setSelectionRange(4, 4); // Posiciona el cursor antes de los centavos
         }
     });
-
-    // Enviar formulario por AJAX
-    document.getElementById('transferFormData').addEventListener('submit', function(e) {
-                e.preventDefault(); // Evitar que se envíe el formulario de manera tradicional
-
-                console.log('HOLA');
-
-                // Obtener los valores del formulario
-                let formData = new FormData(this);
-
-                // Agregar el valor del monto ingresado manualmente
-                let amountPay = document.getElementById('amount').value;
-                formData.append('amount', amountPay);
-
-                // console.log(formData);
-
-                // Enviar la solicitud AJAX
-                // fetch('process-transfer.php', {
-                // fetch('pay?section=report&order=<?php echo $orderDetails->id; ?>', {
-                //         method: 'POST',
-                //         body: formData
-                //     })
-                //     .then(response => response.json())
-                //     .then(data => {
-                //         if (data.success) {
-                //             alert('Transferencia registrada exitosamente.' + data.message);
-                //             // Aquí puedes redirigir al usuario o mostrar un mensaje de éxito
-                //         } else {
-                //             // alert('Error al procesar la transferencia: ' + data.message);
-                //             console.log(data.message);
-                //         }
-                //     })
-                //     .catch(error => {
-                //         console.error('Error:', error);
-                //         alert('Hubo un problema al enviar la solicitud.');
-                //     });
-
-                fetch('pay?section=report&order=<?php echo $orderDetails->id; ?>', {
-                            method: 'POST',
-                            body: formData
-                        });
-                    // .then(function(res) {
-                    //     str = JSON.stringify(res);
-                    //     console.log(str);
-                    // })
-                    // .catch(function(res) {
-                    //     str = JSON.stringify(res);
-                    //     console.log(str);
-                    // });
-                });
 </script>

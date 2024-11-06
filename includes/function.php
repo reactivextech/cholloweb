@@ -1,49 +1,6 @@
 <?php
 
-// GLOBAL Function
-function apiRequest($endpoint, $method = 'GET', $data = null, $token = null, $api = 'api/web/')
-{
-    $curl = curl_init(CONFIG_API_URL . $api . $endpoint); // CONFIG_API_URL de config.php
-
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-
-    if ($method === 'POST') {
-        curl_setopt($curl, CURLOPT_POST, true);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
-    }
-
-    if ($token) {
-        curl_setopt($curl, CURLOPT_HTTPHEADER, [
-            'Content-Type: application/json',
-            'Accept: application/json',
-            'Authorization: Bearer ' . $token,
-        ]);
-    } else {
-        curl_setopt($curl, CURLOPT_HTTPHEADER, [
-            'Content-Type: application/json',
-            'Accept: application/json',
-        ]);
-    }
-
-    $result = curl_exec($curl);
-
-    if (curl_errno($curl)) {
-        throw new Exception('Error in CURL: ' . curl_error($curl));
-    }
-
-    $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-    curl_close($curl);
-
-    // if ($httpCode == 201) {
-    //     return json_decode($result);
-    // } else {
-    //     throw new Exception($httpCode);
-    // }
-
-    return json_decode($result);
-}
-
+// GLOBAL Functions
 function convertToInternational($phoneNumber)
 {
     // Si el número empieza con '0', reemplazamos con '58'
@@ -102,12 +59,57 @@ function getYear()
     return date('Y');
 }
 
-// AUTH function
+function getDateFormat($date)
+{
+    return date('d/m/Y', strtotime($date));
+}
+
+// APIS request
+function apiRequest($endpoint, $token = null, $method = 'GET', $data = null, $api = 'web')
+{
+    $curl = curl_init(CONFIG_API_URL . 'api/'.$api.'/' . $endpoint); // CONFIG_API_URL de config.php
+
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+
+    if ($method === 'POST') {
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
+    }
+
+    // Configurar los encabezados HTTP
+    $headers = [
+        'Content-Type: application/json',
+        'Accept: application/json',
+        'User-Agent: MyApp/1.0',
+    ];
+
+    // Añadir el token si está disponible
+    if ($token) {
+        $headers[] = 'Authorization: Bearer ' . $token;
+    }
+
+    // Asignar los encabezados a la solicitud cURL
+    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+
+    $result = curl_exec($curl);
+
+    if (curl_errno($curl)) {
+        throw new Exception('Error in CURL: ' . curl_error($curl));
+    }
+
+    $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+    curl_close($curl);
+
+    return json_decode($result);
+}
+
+// AUTH functions
 function login($credential, $password)
 {
     try {
         $myUser = ['credential' => $credential, 'password' => $password];
-        $response = apiRequest('auth/login', 'POST', $myUser);
+        $response = apiRequest('customer/login', null, 'POST', $myUser);
 
         return $response ?? null;
     } catch (Exception $e) {
@@ -118,7 +120,7 @@ function login($credential, $password)
 function checkSession($token)
 {
     try {
-        $response = apiRequest('auth/check-session', 'GET', null, $token);
+        $response = apiRequest('customer/checkSession', $token);
         return $response->success ?? false;
     } catch (Exception $e) {
         return false;
@@ -128,60 +130,71 @@ function checkSession($token)
 function logout($token)
 {
     try {
-        $response = apiRequest('auth/logout', 'GET', null, $token);
+        $response = apiRequest('customer/logout', $token);
         return $response;
     } catch (Exception $e) {
         return null;
     }
 }
 
-// COMPANY Function
-function getCompany($token)
+// COMPANY Functions
+function apiCompanyById($token)
 {
     try {
-        $response = apiRequest('company/getCompany/1', 'GET', null, $token);
+        $response = apiRequest('company/findById/1', $token);
         return $response;
     } catch (Exception $e) {
         return null;
     }
 }
 
-// ORDER Function
-function getOrdersByCustomer($customerId, $token)
+// ORDER Functions
+function apiOrderByCustomer($customerId, $token)
 {
     try {
-        $response = apiRequest('order/findByCustomer/' . $customerId, 'GET', null, $token);
+        $response = apiRequest('order/findByCustomer/' . $customerId, $token);
         return $response;
     } catch (Exception $e) {
         return null;
     }
 }
 
-function getOrderById($orderId, $token)
+function apiOrderById($orderId, $token)
 {
     try {
-        $response = apiRequest('order/findByOrderId/' . $orderId, 'GET', null, $token);
+        $response = apiRequest('order/findById/' . $orderId, $token);
         return $response;
     } catch (Exception $e) {
         return null;
     }
 }
 
-// PAYMENT Function
-function transferPayment($data, $token)
+// PAYMENT Functions
+function apiTransferPayment($data, $token)
 {
     try {
-        $response = apiRequest('payment/transferPayment/', 'POST', $data, $token, 'api/v1/');
+        $response = apiRequest('payment/transferPayment', $token, 'POST', $data, 'v1');
         return $response;
     } catch (Exception $e) {
         return null;
     }
 }
 
-function mobilePayment($data, $token)
+function apiMobilePayment($data, $token)
 {
     try {
-        $response = apiRequest('payment/mobilePayment/', 'POST', $data, $token, 'api/v1/');
+        $response = apiRequest('payment/mobilePayment', $token, 'POST', $data, 'v1');
+        return $response;
+    } catch (Exception $e) {
+        return null;
+    }
+}
+
+// INVENTORY Functions
+function apiProductByFeatured()
+{
+    try {
+        $response = apiRequest('product/findByFeatured');
         return $response;
     } catch (Exception $e) {
         return null;
