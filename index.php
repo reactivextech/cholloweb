@@ -125,7 +125,7 @@ require_once 'layouts/common/head.php';
     <section class="home_highlight_wrapper">
         <div class="home_highlight_container">
             <div class="home_highlight_left">
-                <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/chollo-phone.png" alt="App - Chollo">
+                <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/chollo-phone.webp" alt="App - Chollo">
             </div>
             <div class="home_highlight_right">
                 <h2>Compra, ahorra y obtén más <span>Tiempo</span> para pagar</h2>

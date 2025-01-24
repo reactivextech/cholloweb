@@ -12,7 +12,7 @@
                         <div>
                             <h5 class="card-title fw-semibold mb-3"><?php echo $order->product_name ?></h5>
                             <p class="card-text fw-light mb-2">Tienda: <b class="fw-medium"><?php echo $order->store_name ?></b></p>
-                            <p class="card-text fw-light">Sucursal: <b class="fw-medium"><?php echo $order->branch_name ?></b></p>
+                            <!-- <p class="card-text fw-light">Sucursal: <b class="fw-medium"><?php echo $order->branch_name ?></b></p> -->
                         </div>
                         <div class="d-flex flex-column flex-sm-row justify-content-between mt-3">
                             <div class="d-flex flex-column gap-2">
