@@ -71,6 +71,7 @@
             branch_id: <?php echo $orderDetails->branch_id; ?>,
             customer_id: <?php echo $orderDetails->customer_id; ?>,
             amount: amountPay,
+            rate: <?php echo $rate; ?>,
             reference_number: $('#reference_number_mobile').val(),
             id_bank: $('#id_bank_mobile').val(),
             id_bank_destination: <?php echo $orderDetails->bank_id; ?>,

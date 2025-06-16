@@ -17,9 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         "branch_id" => $_POST['branch_id'],
         "customer_id" => $_POST['customer_id'],
         "amount" => $_POST['amount'],
+        "rate" => $_POST['rate'],
         "reference_number" => $_POST['reference_number'],
         "id_bank" => $_POST['id_bank'],
         "id_bank_destination" => $_POST['id_bank_destination'],
+        "nationality_ori" => $_POST['nationality_ori'],
+        "identification_ori" => $_POST['identification_ori'],
         "date_paid" => $_POST['date_paid']
     ];
 

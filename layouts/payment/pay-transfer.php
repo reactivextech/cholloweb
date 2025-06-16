@@ -26,6 +26,23 @@
                             <div class="invalid-feedback">Seleccione un banco.</div>
                         </div>
 
+                        <!-- Nacionalidad del pagador -->
+                        <div class="col-md-6 mb-4">
+                            <label for="nationality_ori" class="form-label">Nacionalidad de la cedula del pagador</label>
+                            <select class="form-select" id="nationality_ori" name="nationality_ori" required>
+                                <option selected disabled>Seleccionar</option>
+                                <option value="V">V</option>
+                                <option value="E">E</option>
+                            </select>
+                            <div class="invalid-feedback">Seleccione la nacionalidad.</div>
+                        </div>
+                        <!-- Número de cedula del pagador -->
+                        <div class="col-md-6 mb-4">
+                            <label for="identification_ori" class="form-label">Número de cedula del pagador</label>
+                            <input type="number" class="form-control" id="identification_ori" name="identification_ori" placeholder="Cedula del pagador" title="Debe ingresar el número de cedula del que realizo el pago." required>
+                            <div class="invalid-feedback">Ingrese un número de cedula valido.</div>
+                        </div>
+
                         <!-- Fecha del pago -->
                         <div class="col-md-6 mb-4">
                             <label for="date_paid_transfer" class="form-label">Fecha en la que se realizo el pago</label>
@@ -66,9 +83,12 @@
             branch_id: <?php echo $orderDetails->branch_id; ?>,
             customer_id: <?php echo $orderDetails->customer_id; ?>,
             amount: amountPay,
+            rate: <?php echo $rate; ?>,
             reference_number: $('#reference_number_transfer').val(),
             id_bank: $('#id_bank_transfer').val(),
             id_bank_destination: <?php echo $orderDetails->bank_id; ?>,
+            nationality_ori: $('#nationality_ori').val(),
+            identification_ori: $('#identification_ori').val(),
             date_paid: $('#date_paid_transfer').val()
         };
 

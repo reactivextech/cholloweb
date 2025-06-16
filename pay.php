@@ -41,12 +41,12 @@ $customerIdentification = $_SESSION['customer_identification'] ?? null;
 $firstName = explode(' ', $customerName)[0];
 $lastName = explode(' ', $customerLastname)[0];
 
-// DAtos de la compañia
-$company = apiCompanyById($token);
-
 // Determinar qué sección mostrar
 $section = $_GET['section'] ?? 'list'; // Por defecto es listar órdenes
 $orderId = $_GET['order'] ?? null;
+
+// Datos de la compañia
+$company = apiCompany($token);
 
 switch ($section) {
   case 'report':
@@ -57,6 +57,8 @@ switch ($section) {
         header('Location: pay');
         exit();
       }
+
+      $rate = apiRate($orderDetails->batch, $token);
     } else {
       header('Location: pay');
       exit();

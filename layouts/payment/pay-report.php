@@ -260,7 +260,7 @@ foreach ($orderDetails->quotas as $quota) {
                         <p class="mx-1 mt-2">
                             Máx. pendiente por pagar
                             <span id="amountMaxPendingPay" class="text-primary">
-                                <span class="fs-8"><?php echo $company->currency2; ?></span><?php echo calculateRateBS($quotasTotals['total_pending'], $company->rate); ?>
+                                <span class="fs-8"><?php echo $company->currency2; ?></span><?php echo calculateRateBS($quotasTotals['total_pending'], $rate); ?>
                             </span>
                         </p>
                     </div>
@@ -370,13 +370,13 @@ foreach ($orderDetails->quotas as $quota) {
     }
 
     function calculateRealTimeRate(amount) {
-        const rate = <?php echo $company->rate; ?>; // Aquí obtienes la tasa desde el backend
+        const rate = <?php echo $rate; ?>; // Aquí obtienes la tasa desde el backend
         const calculatedAmount = (amount / rate).toFixed(2); // Calcular con la tasa y redondear a 2 decimales
         document.getElementById('calculatedAmount').innerHTML = calculatedAmount; // Actualizar el contenido
     }
 
     function validateMax(amount) {
-        const maxPending = <?php echo calculateRateBS($quotasTotals['total_pending'], $company->rate); ?>; // Máximo permitido
+        const maxPending = <?php echo calculateRateBS($quotasTotals['total_pending'], $rate); ?>; // Máximo permitido
         const maxPendingFixed = (maxPending).toFixed(2); // Calcular con la tasa y redondear a 2 decimales
 
         const pendingPay = document.getElementById('maxPendingPay');

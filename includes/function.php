@@ -138,10 +138,20 @@ function logout($token)
 }
 
 // COMPANY Functions
-function apiCompanyById($token)
+function apiCompany($token)
 {
     try {
-        $response = apiRequest('company/findById/1', $token);
+        $response = apiRequest('company/getApp', $token);
+        return $response;
+    } catch (Exception $e) {
+        return null;
+    }
+}
+
+function apiRate($batch, $token)
+{
+    try {
+        $response = apiRequest('company/getRate/' . $batch, $token);
         return $response;
     } catch (Exception $e) {
         return null;
@@ -163,6 +173,7 @@ function apiOrderById($orderId, $token)
 {
     try {
         $response = apiRequest('order/findById/' . $orderId, $token);
+        // echo $response; // Para depuración, eliminar en producción
         return $response;
     } catch (Exception $e) {
         return null;
@@ -183,7 +194,7 @@ function apiTransferPayment($data, $token)
 function apiMobilePayment($data, $token)
 {
     try {
-        $response = apiRequest('payment/mobilePayment', $token, 'POST', $data, 'v1');
+        $response = apiRequest('payment/mobilePayment2', $token, 'POST', $data, 'v1');
         return $response;
     } catch (Exception $e) {
         return null;
