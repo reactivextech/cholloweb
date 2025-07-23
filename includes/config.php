@@ -6,6 +6,6 @@
 
 // DEVELOPMENT URL
 define('CONFIG_SITE_URL', '');
-define('CONFIG_API_URL', 'http://192.168.18.3:8000/');
+define('CONFIG_API_URL', 'http://192.168.0.102:8000/');
 
 ?>

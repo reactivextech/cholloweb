@@ -202,6 +202,16 @@ function apiMobilePayment($data, $token)
 }
 
 // INVENTORY Functions
+function apiStoreAll()
+{
+    try {
+        $response = apiRequest('store/findStoreAll');
+        return $response;
+    } catch (Exception $e) {
+        return null;
+    }
+}
+
 function apiProductByFeatured()
 {
     try {

@@ -6,6 +6,8 @@ require_once 'includes/function.php';
 
 // Obtener datos de productos destacados
 $productFeatured = apiProductByFeatured();
+// Obtener datos de tiendas
+$stores = apiStoreAll();
 
 ?>
 
@@ -270,36 +272,13 @@ require_once 'layouts/common/head.php';
         </div>
         <div class="slider">
             <div class="slide-track">
-                <div class="slide">
-                    <a href="#" tabindex="-1">
-                        <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/logo-hertech.png" height="100" width="250" alt="HERTECH" />
-                    </a>
-                </div>
-                <div class="slide">
-                    <a href="#" tabindex="-1">
-                        <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/logo-hertech.png" height="100" width="250" alt="HERTECH" />
-                    </a>
-                </div>
-                <div class="slide">
-                    <a href="#" tabindex="-1">
-                        <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/logo-hertech.png" height="100" width="250" alt="HERTECH" />
-                    </a>
-                </div>
-                <div class="slide">
-                    <a href="#" tabindex="-1">
-                        <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/logo-hertech.png" height="100" width="250" alt="HERTECH" />
-                    </a>
-                </div>
-                <div class="slide">
-                    <a href="#" tabindex="-1">
-                        <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/logo-hertech.png" height="100" width="250" alt="HERTECH" />
-                    </a>
-                </div>
-                <div class="slide">
-                    <a href="#" tabindex="-1">
-                        <img src="<?php echo CONFIG_SITE_URL; ?>assets/images/logo-hertech.png" height="100" width="250" alt="HERTECH" />
-                    </a>
-                </div>
+                <?php if (is_array($stores) || is_object($stores)): ?>
+                    <?php foreach ($stores as $store): ?>
+                        <div class="slide">
+                            <img src="<?php echo CONFIG_API_URL; ?>src/storage/app/public/stores/<?php echo $store->image ?>" height="100" width="250" alt="<?php echo $store->name ?>" title="<?php echo $store->name ?>" />
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
             <div class="clear"></div>
         </div>
