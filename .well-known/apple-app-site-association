@@ -1,0 +1,13 @@
+{
+	"applinks": {
+		"apps": [],
+		"details": [
+			{
+				"appID": "FALTAID.com.grupochollo.cholloapp",
+				"paths": [
+					"/app/*"
+				]
+			}
+		]
+	}
+}

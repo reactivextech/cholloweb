@@ -1,0 +1,12 @@
+[
+	{
+		"relation": ["delegate_permission/common.handle_all_urls"],
+		"target": {
+			"namespace": "android_app",
+			"package_name": "com.grupochollo.cholloapp",
+			"sha256_cert_fingerprints": [
+				"33:DE:78:CE:CC:46:2A:95:A4:91:D7:AD:4E:4D:8C:D9:C5:AB:16:AE:32:25:8E:88:B2:4B:FE:4A:92:43:B3:D4"
+			]
+		}
+	}
+]

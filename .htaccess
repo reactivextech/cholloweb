@@ -16,4 +16,5 @@ Options All -Indexes
     RewriteRule ^(.*)$ $1.html
     #RewriteRule ^([a-z]+)/?$ $1.html [NC]
 
+    RewriteRule ^app/.*$ app.php [L]
 </IfModule>
