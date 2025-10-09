@@ -69,4 +69,5 @@ switch ($page) {
     <!-- GOOGLEANALYTIC:BEGIN -->
     <?php require_once 'layouts/common/google-analytic.php'; ?>
     <!-- GOOGLEANALYTIC:END -->
+    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="f6d5f7fd-9e75-42f5-9675-b6935715e66b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script> 
 </head>
