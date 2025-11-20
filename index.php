@@ -216,7 +216,7 @@ require_once 'layouts/common/head.php';
 
                         <p class="customer_favourite_brand"><?php echo $product->store_name ?></p>
                         <p class="customer_favourite_product"><?php echo $product->name ?></p>
-                        <p class="customer_favourite_price"><?php echo $product->interest_percentage ?>% de inicial</p>
+                        <!-- <p class="customer_favourite_price"><?php echo $product->interest_percentage ?>% de inicial</p> --><br>
 
                         <div class="customer_favourite_ndd">
                             <label><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> * <?php echo $product->quota_min_quantity ?> a <?php echo $product->quota_max_quantity ?> cuotas para pagar </label>
