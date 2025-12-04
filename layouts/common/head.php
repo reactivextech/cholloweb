@@ -82,14 +82,42 @@ switch ($page) {
             d.getElementsByTagName("head")[0].appendChild(s);
         })();
 
-        // Asignar segmentos
-        function addSegments() {
+        if (window.$crisp) {
+            CRISP_TOKEN_ID = null;
+            $crisp.push(["do", "chat:close"]);
+            $crisp.push(['do', 'session:reset']);
+        }
+
+        // $crisp.push(["on", "session:loaded", function(data) {
+        //     const isAdmin = data.segments?.includes("admin");
+
+        //     console.log("Crisp session data:", data);
+        //     console.log("segments:", data.segments);
+        //     console.log("isAdmin:", isAdmin);
+
+        //     // if (!isAdmin) {
+        //     //     CRISP_TOKEN_ID = null;
+        //     //     $crisp.push(["do", "chat:close"]);
+        //     //     $crisp.push(["do", "session:reset"]);
+        //     // }
+        // }]);
+
+        function crispData() {
             if (!window.$crisp) return setTimeout(addSegments, 100);
+
             $crisp.push(["set", "session:segments", [
                 ['cliente', 'web']
             ]]);
+
+            $crisp.push(["set", "session:data", [
+                [
+                    ["whatsapp_business_number", "+58 414-2465569"],
+                    ["chat", "web"],
+                ]
+            ]]);
         }
-        addSegments();
+
+        crispData();
     </script>
     <!-- CRISP:END -->
 </head>
